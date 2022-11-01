@@ -1,0 +1,30 @@
+{
+  "name": "Nuxt3",
+  "private": true,
+  "engines": {
+    "node": "16.16.0",
+    "npm": "8.11.0"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "dev": "git pull && nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.1",
+    "alasql": "^1.7.3",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "moment-timezone": "^0.5.37",
+    "nuxt": "3.0.0-rc.8",
+    "pg": "^8.8.0",
+    "postmark": "^3.0.14",
+    "sass": "^1.54.8",
+    "sql-bricks-postgres": "^0.6.0",
+    "vite-plugin-pug": "^0.3.1",
+    "vue3-runtime-template": "^1.0.2"
+  }
+}
