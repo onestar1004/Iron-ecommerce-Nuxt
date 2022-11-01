@@ -16,15 +16,16 @@ section.prodRev
     .revBox
       .revRow(v-for="item in reviews" :key="item.id")
         .revUsr
-          h5.revUsrNm Carol Stonich
-          p.revUsrTag Verified Buyer
+          h5.revUsrNm {{ item.user.fullName }}
+          p.revUsrTag(v-if="item.isVerifiedBuyer") Verified Buyer
           div
             img.revUsrStr(src='https://res.cloudinary.com/ironabode/image/upload/v1663031624/stars_lh28ui.svg' alt='')
-          p.revUsrDt July 29th, 2021
+          p.revUsrDt {{ item.reviewData }}
         .revPara
-          h5 Very happy with my shelving unit!
-          p.fontSerif.fw500 Exactly as advertised. Very happy with my shelving unit!!
-          a.fontSerif.fw500(href='#') Esme 1in Glass Unit
+          h5
+            | {{ item.review.title }}
+          p.fontSerif.fw500 {{ item.review.info }}
+          a.fontSerif.fw500(href='#') {{ item.product.text }}
 </template>
 
 <script setup>
