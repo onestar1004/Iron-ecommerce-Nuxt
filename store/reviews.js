@@ -1,12 +1,18 @@
 import { defineStore } from 'pinia'
 
-import { reviews } from './actions/demo'
+import {
+  montyShelvingUnit,
+  osloShelvingUnit,
+  rivieraShelvingUnit
+} from './actions/demo'
 import clean from './actions/clean'
 
 const defaultStates = () => {
   return {
     reviews: {
-      'monty-shelving-unit': reviews
+      'monty-shelving-unit': montyShelvingUnit,
+      'oslo-shelving-unit': osloShelvingUnit,
+      'riviera-shelving-unit': rivieraShelvingUnit
     }
   }
 }
