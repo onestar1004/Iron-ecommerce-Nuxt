@@ -27,9 +27,7 @@
   IronAbodeRealLife
 
   //- Customer Reviews
-  CustomerReviews
-  p
-    | {{ productReviews }}
+  CustomerReviews(:reviews="productReviews")
 
   //- Shop the collection
   RecommendedCollection(:content="content")
