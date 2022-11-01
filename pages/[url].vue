@@ -39,93 +39,109 @@
   FeaturedArticles(v-if="template == 'FeaturedArticles'")   
   ManufacturingQuestions(v-if="template == 'ManufacturingQuestions'")   
   Cleaning(v-if="template == 'Cleaning'")   
-
+  
 </template>
-
+  
 <script setup>
-let template = $ref(null);
-let products = $ref([]);
-let recommended_products = $ref([]);
-
-let url = useRoute().params.url;
-let content = await fetchPost('/api/get-content', {url});
-
-function contentType() {
-  let type = 'article';
-  if(content.type == 'Product') {
-    type = 'product';
+  let template = $ref(null);
+  let products = $ref([]);
+  let recommended_products = $ref([]);
+  
+  let url = useRoute().params.url;
+  
+  const content = ref({})
+  
+  function contentType() {
+    let type = 'article';
+    if(content.value.type == 'Product') {
+      type = 'product';
+    }
+  
+    return type;
+  }
+  
+  function contentImage() {
+    if(content.value.gallery && content.value.gallery[0] && content.value.gallery[0].src) {
+      return content.value.gallery[0].src;
+    } else {
+      return 'https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png';
+    }
+  }
+  
+  function productSchema() {
+    let schemaJSON = {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "name": content.value.title,
+      "url": `https://ironabode.com/${content.value.url}`,
+      "description": content.value.meta_description || '',
+      // "sku": "{{ current_variant.sku }}",
+      "brand": {
+        "@type": "Brand",
+        "name": "Iron Abode"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "availability": "InStock", // OutOfStock / In Stock
+          "price": content.value.price,
+          "priceCurrency": "USD",
+          "url": `https://ironabode.com/${content.value.url}`
+        }
+      ]
+    }
+    if(content.value.gallery && content.value.gallery[0] && content.value.gallery[0].src) {
+      schemaJSON.image = [content.value.gallery[0].src];
+    }
+  
+    let schema = `
+      <script type="application/ld+json">
+      ${JSON.stringify(schemaJSON)}
+      <\/script>
+    `;
+    return schema;
   }
 
-  return type;
-}
-
-function contentImage() {
-  if(content.gallery && content.gallery[0] && content.gallery[0].src) {
-    return content.gallery[0].src;
-  } else {
-    return 'https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png';
-  }
-}
-
-function productSchema() {
-  let schemaJSON = {
-    "@context": "http://schema.org/",
-    "@type": "Product",
-    "name": content.title,
-    "url": `https://ironabode.com/${content.url}`,
-    "description": content.meta_description || '',
-    // "sku": "{{ current_variant.sku }}",
-    "brand": {
-      "@type": "Brand",
-      "name": "Iron Abode"
-    },
-    "offers": [
-      {
-        "@type": "Offer",
-        "availability": "InStock", // OutOfStock / In Stock
-        "price": content.price,
-        "priceCurrency": "USD",
-        "url": `https://ironabode.com/${content.url}`
+  const init = async function init () {
+    // Do everything
+    content.value = await fetchPost('/api/get-content', {url}) || {};
+  
+    if(!content.value.error) {
+      if(content.value.category_filters && content.value.category_filters.length && content.value.template != 'Blog') {
+        try {
+          products = await fetchPost('/api/get-products', {filters: content.value.category_filters});
+        } catch(_) {}
       }
-    ]
-  }
-  if(content.gallery && content.gallery[0] && content.gallery[0].src) {
-    schemaJSON.image = [content.gallery[0].src];
-  }
-
-  let schema = `
-    <script type="application/ld+json">
-    ${JSON.stringify(schemaJSON)}
-    <\/script>
-  `;
-  return schema;
-}
-
-if(!content.error) {
-  if(content.category_filters && content.category_filters.length && content.template != 'Blog') {
-    products = await fetchPost('/api/get-products', {filters: content.category_filters});
-  }
-
-  if(content.category_filters && content.category_filters.length && content.template == 'Blog') {
-    content.posts = await fetchPost('/api/get-posts', {filters: content.category_filters});
-  }
-
-  if(content.recommended_category_id) {
-    recommended_products = await fetchPost('/api/get-products', {filters: [{category_id: content.recommended_category_id}]});
-    content.recommended_products = recommended_products;
-  }
-
-  if(content.product_type_id) {
-    let productType = await fetchPost('/api/get-product-type', {id: content.product_type_id});
-    content.options = productType.options;
+  
+      if(content.value.category_filters && content.value.category_filters.length && content.value.template == 'Blog') {
+        try {
+          content.value.posts = await fetchPost('/api/get-posts', {filters: content.value.category_filters});
+        } catch (_) {}
+      }
+  
+      if(content.value.recommended_category_id) {
+        try {
+          recommended_products = await fetchPost('/api/get-products', {filters: [{category_id: content.value.recommended_category_id}]});
+          content.value.recommended_products = recommended_products;
+        } catch (_) {}
+      }
+  
+      if(content.value.product_type_id) {
+        try {
+          let productType = await fetchPost('/api/get-product-type', {id: content.value.product_type_id});
+          content.value.options = productType.options;
+        } catch (_) {}
+      }
+  
+      template = content.value.template;
+    } else {
+      if(content.value.error == 404) {
+        setResponseStatus(404);
+        template = 404;
+        useHead({title: 'Page Not Found'});
+      }
+    }
   }
 
-  template = content.template;
-} else {
-  if(content.error == 404) {
-    setResponseStatus(404);
-    template = 404;
-    useHead({title: 'Page Not Found'});
-  }
-}
+  init()
 </script>

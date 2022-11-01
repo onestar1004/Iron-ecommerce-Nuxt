@@ -27,7 +27,7 @@
   IronAbodeRealLife
 
   //- Customer Reviews
-  CustomerReviews
+  CustomerReviews(:reviews="productReviews")
 
   //- Shop the collection
   RecommendedCollection(:content="content")
@@ -40,6 +40,7 @@ let {content} = defineProps(['content']);
 let selectedOptions = $ref(null);
 let renderKey = $ref(0); // Force rerender
 let showCustom = $ref(false);
+const { productReviews } = useActivity()
 
 function setupContent(newContent) {
   selectedOptions = newContent.options;

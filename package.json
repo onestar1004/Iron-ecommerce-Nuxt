@@ -8,7 +8,7 @@
   "scripts": {
     "build": "nuxt build",
     "start": "nuxt start",
-    "dev": "git pull && nuxt dev",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
