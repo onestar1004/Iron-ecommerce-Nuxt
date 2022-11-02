@@ -324,6 +324,14 @@ table {
   display: flex;
 }
 
+.flexGap3 {
+  gap: 0.75rem;
+}
+
+.flexGap2 {
+  gap: 0.25rem; 
+}
+
 .flexInline {
   display: inline-flex;
 }
@@ -3614,18 +3622,25 @@ textarea.fInput {
   .nAPdCd {
     position: relative;
     border: 1px solid #4d4d4d;
+    height: auto;
 
-    .menu {
-      display: none;
+    .hover-content {
+      opacity: 0;
+      border: 1px solid #4d4d4d;
       position: absolute;
-      min-width: 400px;
+      top: 0;
+      right: 0;
+      left: 0;
       height: auto;
-      bottom: 20px;
-      left: 20px;
       background-color: white;
       z-index: 1;
+      transform: scale(1);
+      transition: all .2s ease-in-out;
 
-      border: 1px solid #4d4d4d;
+      &[show="true"] {
+        transform: scale(1.02);
+        opacity: 1;
+      }
     }
 
     img {
@@ -3647,12 +3662,6 @@ textarea.fInput {
         margin-bottom: 3px;
         font-size: 10px;
         color: #4d4d4d;
-      }
-    }
-
-    &:hover {
-      .menu {
-        display: block;
       }
     }
   }
@@ -5849,4 +5858,12 @@ textarea.fInput {
 .collCdImg img {
   box-shadow: 0px 3px 6px #00000029;
   opacity: 1;
+}
+
+.prdctOptionTile {
+  width: 16px;
+  height: 16px;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -81,29 +81,32 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        .menu
-          | hello
-        a(href='/riviera-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png' alt='')
-        .nAPdCdTxt
-          h5 Riviera Unit
-          p.smallTxt Ceiling Mounted
-          p From $521
-      .nAPdCd
-        a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png' alt='')
-        .nAPdCdTxt
-          h5 Monty Unit
-          p.smallTxt Ceiling Mounted
-          p From $506
-      .nAPdCd
-        a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png' alt='')
-        .nAPdCdTxt
-          h5 Oslo Unit
-          p.smallTxt Ceiling Mounted
-          p From $506
+      ProductItem(
+        title="Riviera Unit"
+        type="Ceiling Mounted"
+        price="$521"
+        href="/riviera-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png",
+        imageAlt=""
+      )
+
+      ProductItem(
+        title="Monty Unit"
+        type="Ceiling Mounted"
+        price="$506"
+        href="/monty-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png",
+        imageAlt=""
+      )
+
+      ProductItem(
+        title="Oslo Unit"
+        type="Ceiling Mounted"
+        price="$506"
+        href="/oslo-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png",
+        imageAlt=""
+      )
     //- .btnBox.txtCenter
     //-   a.btn.btnBg.btnWhiteBB(href='#') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
