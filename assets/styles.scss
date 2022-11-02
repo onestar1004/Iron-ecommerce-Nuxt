@@ -307,7 +307,6 @@ table {
   cursor: pointer;
 }
 
-
 .container {
   width: 100%;
   max-width: 100%;
@@ -323,6 +322,14 @@ table {
 
 .flexBox {
   display: flex;
+}
+
+.flexGap3 {
+  gap: 0.75rem;
+}
+
+.flexGap2 {
+  gap: 0.25rem; 
 }
 
 .flexInline {
@@ -3613,7 +3620,28 @@ textarea.fInput {
   }
 
   .nAPdCd {
+    position: relative;
     border: 1px solid #4d4d4d;
+    height: auto;
+
+    .hover-content {
+      opacity: 0;
+      border: 1px solid #4d4d4d;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: auto;
+      background-color: white;
+      z-index: 1;
+      transform: scale(1);
+      transition: all .2s ease-in-out;
+
+      &[show="true"] {
+        transform: scale(1.02);
+        opacity: 1;
+      }
+    }
 
     img {
       padding: 10px;
@@ -5830,4 +5858,12 @@ textarea.fInput {
 .collCdImg img {
   box-shadow: 0px 3px 6px #00000029;
   opacity: 1;
+}
+
+.prdctOptionTile {
+  width: 16px;
+  height: 16px;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
