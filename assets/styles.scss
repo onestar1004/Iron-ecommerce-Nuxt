@@ -307,7 +307,6 @@ table {
   cursor: pointer;
 }
 
-
 .container {
   width: 100%;
   max-width: 100%;
@@ -3613,7 +3612,21 @@ textarea.fInput {
   }
 
   .nAPdCd {
+    position: relative;
     border: 1px solid #4d4d4d;
+
+    .menu {
+      display: none;
+      position: absolute;
+      min-width: 400px;
+      height: auto;
+      bottom: 20px;
+      left: 20px;
+      background-color: white;
+      z-index: 1;
+
+      border: 1px solid #4d4d4d;
+    }
 
     img {
       padding: 10px;
@@ -3634,6 +3647,12 @@ textarea.fInput {
         margin-bottom: 3px;
         font-size: 10px;
         color: #4d4d4d;
+      }
+    }
+
+    &:hover {
+      .menu {
+        display: block;
       }
     }
   }

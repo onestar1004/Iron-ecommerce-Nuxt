@@ -82,6 +82,8 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
       .nAPdCd
+        .menu
+          | hello
         a(href='/riviera-shelving-unit/')
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png' alt='')
         .nAPdCdTxt
