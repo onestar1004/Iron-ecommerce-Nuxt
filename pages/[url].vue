@@ -27,7 +27,7 @@ NuxtLoadingIndicator.nuxtLoadingStyle
   CreateAccount(v-if="template == 'CreateAccount'") 
   Faq(v-if="template == 'Faq'")  
   Gallery(v-if="template == 'Gallery'")  
-  Guide(v-if="template == 'Guide'")  
+  WillFit(v-if="template == 'WillFit'")  
   Instructions(v-if="template == 'Instructions'")  
   NewArrivals(v-if="template == 'NewArrivals'")  
   OrderingQuestions(v-if="template == 'OrderingQuestions'")   

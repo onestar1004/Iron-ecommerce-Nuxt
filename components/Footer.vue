@@ -44,7 +44,7 @@ footer.footer.clrWhite
               li
                 a(href='/collaborations/') Collaborations
               li
-                a(href='/guide/') Will It Fit      
+                a(href='/will-it-fit/') Will It Fit      
               li
                 a(href='/faq/') FAQ
               li

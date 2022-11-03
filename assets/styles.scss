@@ -4132,6 +4132,12 @@ textarea.fInput {
 }
 
 .cmnAccdn {
+  img {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 60%;
+  }
   .accHead {
     position: relative;
     display: flex;
