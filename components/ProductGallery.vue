@@ -7,7 +7,7 @@
       .prGlThumb(v-for="image in filteredGallery()")
         a(@click="mainImage = image"): img(:src="getImage({image: image.src, width: 100, height: 100, type: 'c_fill'})")
 
-  .lifestyleGallery(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length")
+  .lifestyleGallery.xl.lg.md.sm(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length")
     .glide
       .glide__track(data-glide-el="track")
         .glide__slides
