@@ -68,6 +68,10 @@ body {
   }
 }
 
+input::placeholder {
+  font-family: 'Avenir';
+}
+
 a {
   color: inherit;
   text-decoration: none;
