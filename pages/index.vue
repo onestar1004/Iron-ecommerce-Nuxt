@@ -129,7 +129,7 @@
         #tabBathroom.tabPanel.active(v-if="activeItem == 'Monty4'")
           .pdImgSlide.fadeEffect.flexBox
             .pdImgCd
-              a
+              a(@click="selectItem2('Monty')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031623/space-bathroom-1_ypzfsa.png' alt='')
                 span.imgTag(@click="showProducts = {products: [{product_id: 73}, {product_id: 72}]}") TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 31%; right: 18%')
@@ -141,7 +141,7 @@
                   p Black 
                   p Design: @Ironabode
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('Monty2')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031622/space-bathroom-2_fxy6mh.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 35%; right: 32%')
@@ -153,7 +153,7 @@
                   p Brass 
                   p Design: @SwMckenney
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('Monty3')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031622/space-bathroom-3_usazf0.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 42%; right: 23%')
@@ -167,7 +167,7 @@
         #tabKitchen.tabPanel.active(v-if="activeItem == 'Monty5'")
           .pdImgSlide.fadeEffect.flexBox
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit1')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031622/space-kitchen-1_bhd3nn.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 44%; right: 11%')
@@ -179,7 +179,7 @@
                   p Light Brass 
                   p Design: @ thesmittencollective
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit2')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031623/space-kitchen-2_nfzgyk.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 42%; right: 35%')
@@ -191,7 +191,7 @@
                   p Black with added railings 
                   p Design: @Ironabode
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit3')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031623/space-kitchen-3_ugifep.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 41%; right: 23%')
@@ -204,7 +204,7 @@
                   p Design: @rachelstellarinteriors 
                   p Photo: @melissamellor6
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit4')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031623/space-kitchen-4_ic4kcu.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 23%; right: 29%')
@@ -219,7 +219,7 @@
         #tabBar.tabPanel.active(v-if="activeItem == 'Monty6'")
           .pdImgSlide.fadeEffect.flexBox
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit5')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031621/space-bar-1_d5wb3r.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 28%; right: 30%')
@@ -231,7 +231,7 @@
                   p Black 
                   p design: @louhome_
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit6')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031621/space-bar-2_dnbu6i.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 54%; right: 34%')
@@ -244,7 +244,7 @@
                   p Design: @tykarges 
                   p Photo: @jeanbai
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit7')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031622/space-bar-3_wh7fud.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 30%; right: 42%')
@@ -256,7 +256,7 @@
                   p Black 
                   p Design: @Ironabode
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit8')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031622/space-bar-4_euvwzp.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 38%; right: 17%')
@@ -271,7 +271,7 @@
         #tabLiving.tabPanel.active(v-if="activeItem == 'Monty7'")
           .pdImgSlide.fadeEffect.flexBox
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit9')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031624/space-living-1_qsxpox.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 44%; right: 28%')
@@ -283,7 +283,7 @@
                   p Black 
                   p Design: @eichleberry
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit10')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031624/space-living-2_itkmor.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 47%; right: 30%')
@@ -295,7 +295,7 @@
                   p Black 
                   p Design: @ironabode
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit11')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031624/space-living-3_vhm9qo.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 31%; left: 18%')
@@ -307,7 +307,7 @@
                   p Black 
                   p Design: @dinasdigs
             .pdImgCd
-              a(href='#')
+              a(@click="selectItem2('kit12')")
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031624/space-living-4_lpkqks.png' alt='')
                 span.imgTag TAP TO VIEW PRODUCTS
               .hotSpot(style='top: 26%; left: 28%')
