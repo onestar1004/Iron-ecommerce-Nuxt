@@ -18,7 +18,7 @@
 
           ProductOptions(:content="content" @change="newContent => setupContent(newContent)" @showCustom="value => showCustom = value")
 
-  .lifestyleGallery.xs(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length")
+  .lifestyleGallery.xs(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length" style="margin-top: -200px;")
     .glide
       .glide__track(data-glide-el="track")
         .glide__slides
