@@ -10,7 +10,11 @@ import {
   esmeUnit,
   hugoUnit,
   leoUnit,
-  felixUnit
+  felixUnit,
+  finishUnit,
+  fitzUnit,
+  blanketLadderUnit,
+  wineRackUnit
 } from './actions/demo'
 import clean from './actions/clean'
 
@@ -26,7 +30,11 @@ const defaultStates = () => {
       'esme-shelving-unit': esmeUnit,
       'hugo-shelving-unit': hugoUnit,
       'leo-shelving-unit': leoUnit,
-      'felix-shelving-unit': felixUnit
+      'felix-shelving-unit': felixUnit,
+      'finish-samples': finishUnit,
+      'fitz-potrack-towel-holder': fitzUnit,
+      'wine-rack': wineRackUnit,
+      '78-round-iron-blanket-ladder': blanketLadderUnit
     }
   }
 }
