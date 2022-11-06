@@ -1,4 +1,9 @@
 <template lang="pug">
+NuxtLoadingIndicator.nuxtLoadingStyle
+.heroLoading(v-if="!pageReady")
+  .flexBox.flexJcc.flexAic(style="height: 100%;")
+    .logoWrapper
+      img.animate-flicker(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png' alt='')
 .urlWrapper
 
   Head
@@ -22,7 +27,7 @@
   CreateAccount(v-if="template == 'CreateAccount'") 
   Faq(v-if="template == 'Faq'")  
   Gallery(v-if="template == 'Gallery'")  
-  Guide(v-if="template == 'Guide'")  
+  WillFit(v-if="template == 'WillFit'")  
   Instructions(v-if="template == 'Instructions'")  
   NewArrivals(v-if="template == 'NewArrivals'")  
   OrderingQuestions(v-if="template == 'OrderingQuestions'")   
@@ -43,9 +48,13 @@
 </template>
   
 <script setup>
+  definePageMeta({
+    transition: 'page'
+  })
   let template = $ref(null);
   let products = $ref([]);
   let recommended_products = $ref([]);
+  const pageReady = ref(false)
   
   let url = useRoute().params.url;
   
@@ -105,6 +114,9 @@
   const init = async function init () {
     // Do everything
     content.value = await fetchPost('/api/get-content', {url}) || {};
+    nextTick(() => {
+      pageReady.value = true
+    })
   
     if(!content.value.error) {
       if(content.value.category_filters && content.value.category_filters.length && content.value.template != 'Blog') {
@@ -135,6 +147,7 @@
   
       template = content.value.template;
     } else {
+      pageReady.value = true
       if(content.value.error == 404) {
         setResponseStatus(404);
         template = 404;
