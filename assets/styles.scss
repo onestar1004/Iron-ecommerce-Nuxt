@@ -50,6 +50,18 @@ body {
   color: #000;
 }
 
+input {
+  font-family: "Avenir", sans-serif !important;
+}
+
+input::placeholder {
+  font-family: "Avenir", sans-serif !important;
+}
+
+h5 {
+  font-family: "Avenir", sans-serif !important;
+}
+
 /** Normalize *********************/
 
 * {
@@ -66,10 +78,6 @@ body {
     outline: none;
     outline: 0;
   }
-}
-
-input::placeholder {
-  font-family: 'Avenir';
 }
 
 a {
