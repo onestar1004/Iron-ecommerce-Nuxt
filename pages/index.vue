@@ -1,10 +1,10 @@
 <template lang="pug">
 .homePage.wrapper
-  Header
+  Header(light=true)
 
   section.bannerSec
     .bannerTxt
-      h2.fontSerif.fw400 ELEVATE 
+      h2.fontSerif.fw400 ELEVATE
       h2.fontSerif.fw400 YOUR DESIGN
       p.fontSerif With one-of-a-kind shelving made by artisans in the U.S.A.
       a.btn.btnBg.btnBrwn.btnTxtWht(href='/about-us/') LEARN MORE

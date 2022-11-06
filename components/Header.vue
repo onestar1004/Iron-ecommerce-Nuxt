@@ -1,7 +1,7 @@
 <template lang="pug">
 
 header.header
-  .headerTop
+  div.headerTop(:class="[light ? 'light' : '', 'headerTop']")
     .container
       .hTLinks.flexBox
         a(href='/finish-samples/') FREE SAMPLES
@@ -260,5 +260,10 @@ header.header
 </template>
 
 <script setup>
-let store = useStore();
+const props = defineProps({
+  light: {
+    type: Boolean,
+    default: () => { return false }
+  }
+})
 </script>

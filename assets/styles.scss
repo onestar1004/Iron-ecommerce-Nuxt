@@ -376,8 +376,13 @@ table {
 
 .headerTop {
   padding: 12px 0;
-  background-color: #819297;
+  background-color: #62777c;
   color: #fff;
+
+  &.light {
+    background-color: #fff;
+    color: #000;
+  }
 
   .hTLinks {
     justify-content: flex-end;
@@ -5662,8 +5667,6 @@ textarea.fInput {
 
   .headerTop {
     padding: 5px 0;
-    background-color: #62777c;
-    color: #fff;
 
     .hTLinks {
       justify-content: center;
