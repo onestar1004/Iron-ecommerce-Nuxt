@@ -354,7 +354,7 @@ export const felixUnit = [
       fullName: 'Rick'
     },
     isVerifiedBuyer: true,
-    reviewData: 'Mav 16 202',
+    reviewData: 'Mav 16 2022',
     stars: 5,
     review: {
       title: 'Works Perfectly',
@@ -363,6 +363,155 @@ export const felixUnit = [
     product: {
       id: 'Felix-1-inch-Glass-Unit',
       text: 'Felix 1" Glass Unit',
+      url: '#'
+    }
+  }
+]
+
+export const finishUnit = [
+  {
+    user: {
+      fullName: 'Kimberly'
+    },
+    isVerifiedBuyer: true,
+    reviewData: 'May 10, 2022',
+    stars: 5,
+    review: {
+      title: 'Great Samples',
+      info: 'Great samples so you can decide what matches best'
+    },
+    product: {
+      id: 'Felix-1-inch-Glass-Unit',
+      text: 'Felix 1" Glass Unit',
+      url: '#'
+    }
+  },
+  {
+    user: {
+      fullName: 'Alan'
+    },
+    isVerifiedBuyer: true,
+    reviewData: 'March 31. 2022',
+    stars: 5,
+    review: {
+      title: 'Great way to preview your purchase.',
+      info: 'As described. Period. Great way to preview your purchase.'
+    },
+    product: {
+      id: 'Finish-or-Wood-Samples',
+      text: 'Finish or Wood Samples',
+      url: '#'
+    }
+  }
+]
+
+export const fitzUnit = [
+  {
+    user: {
+      fullName: 'Kmhoffman30'
+    },
+    isVerifiedBuyer: true,
+    reviewData: 'June 27th, 2020',
+    stars: 5,
+    review: {
+      title: 'Worth the Money!',
+      info: 'Well made and exactly what I was looking for'
+    },
+    product: {
+      id: 'Fitz-Pot-Towel-Rack',
+      text: 'Fitz Pot/Towel Rack',
+      url: '#'
+    }
+  },
+  {
+    user: {
+      fullName: 'Nicole'
+    },
+    isVerifiedBuyer: true,
+    reviewData: 'September 28th, 2021',
+    stars: 5,
+    review: {
+      title: 'Great Quality',
+      info: 'Great quality, shipping, and customer service!'
+    },
+    product: {
+      id: 'Fitz-Pot-Towel-Rack',
+      text: 'Fitz Pot/Towel Rack',
+      url: '#'
+    }
+  }
+]
+
+export const wineRackUnit = [
+  {
+    user: {
+      fullName: 'Eddie'
+    },
+    isVerifiedBuyer: true,
+    reviewData: 'September 12, 2021',
+    stars: 5,
+    review: {
+      title: 'Excellent Craftsmanship',
+      info: 'Very responsive, excellent craftsmanship and quickly shipped'
+    },
+    product: {
+      id: 'Rene-Wine-Rack',
+      text: 'René Wine Rack',
+      url: '#'
+    }
+  },
+  {
+    user: {
+      fullName: 'The Love Muse'
+    },
+    isVerifiedBuyer: true,
+    reviewData: 'September 27, 2021',
+    stars: 5,
+    review: {
+      title: 'Perfect and Easy to Hang!',
+      info: 'Perfect and easy to hang! Love love love these. Would buy again.'
+    },
+    product: {
+      id: 'Rene-Wine-Rack',
+      text: 'René Wine Rack',
+      url: '#'
+    }
+  }
+]
+
+export const blanketLadderUnit = [
+  {
+    user: {
+      fullName: 'Stephanie'
+    },
+    isVerifiedBuyer: true,
+    reviewData: 'December 14, 2021',
+    stars: 5,
+    review: {
+      title: 'Love This Blanket Ladder',
+      info: 'Love this blanket ladder. Price is right, quality is very high and assembly" is casy (there is basically no assembly - you just connect it at the middle by sliding the' +
+        'picces together). I do wish it was a bit heavier so that I didn\'t need to worry about my kiddos pulling it over but so far they haven\'t tried!'
+    },
+    product: {
+      id: 'Theo-Blanket-Ladder',
+      text: 'Theo Blanket Ladder',
+      url: '#'
+    }
+  },
+  {
+    user: {
+      fullName: 'Christina'
+    },
+    isVerifiedBuyer: true,
+    reviewData: 'March 29, 2022',
+    stars: 5,
+    review: {
+      title: 'Statement Piece Without Being Bold',
+      info: 'This is 2 statement piece without being bold. It is clegant and compliments my space nicely'
+    },
+    product: {
+      id: 'Theo-Blanket-Ladder',
+      text: 'Theo Blanket Ladder',
       url: '#'
     }
   }
