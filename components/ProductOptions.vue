@@ -2,6 +2,7 @@
 .ProductOptions(:class="productOptionsClass()" :key="refreshKey")
 
   SaveProductPopup(v-if="savingProduct" @close="savingProduct = false" @save="savingProduct = false; refreshUser();" :content="content")
+  SignInPopup(v-if="loggingIn" @close="loggingIn = false")
 
   .prodOptn
     .pOptnCard(v-for="(option, index) in filteredOptions()" :class="[optionClass(option), {'hiddenOption': !isAdmin() && hiddenOptions.includes(option.id), 'adminFaded': isAdmin() && hiddenOptions.includes(option.id)}]")
@@ -50,7 +51,8 @@
         label.saveBtn(@click="saveForLater()")
           span Save for later
       div(v-if="savedBoard()")
-        label.saveBtn(@click="saveForLater()")
+        label.saveBtn.noIcon(@click="saveForLater()")
+          span.icon: i.fal.fa-check
           span Saved to {{savedBoard().name}}
     .btnbox
       button.btn.btnBg.btnBlGry.btnTxtWht(@click="addToCart()" v-if="!isLoading('adding')") ADD TO CART
@@ -218,37 +220,38 @@ if(useRoute().query.saved_id) {
 }
 
 let savingProduct = $ref(false);
+let loggingIn = $ref(false);
 async function saveForLater() {
-
   if(!user()) {
-    let details = await Swal.fire({
-      icon: 'question',
-      title: 'Where should we send the link?',
-      html: `
-        <label>Email
-          <input type="email" id="savedEmail">
-        </label>
-      `,
-      confirmButtonText: 'Save Configuration',
-      showCancelButton: true,
-      cancelButtonText: 'Cancel',
-      preConfirm: () => {
-        return new Promise(resolve => {
-          resolve({
-            email: document.getElementById('savedEmail').value,
-          })
-        })
-      }
-    });
-    if(!details.isConfirmed) return;
-    details = details.value;
+    loggingIn = true;
+    // let details = await Swal.fire({
+    //   icon: 'question',
+    //   title: 'Where should we send the link?',
+    //   html: `
+    //     <label>Email
+    //       <input type="email" id="savedEmail">
+    //     </label>
+    //   `,
+    //   confirmButtonText: 'Save Configuration',
+    //   showCancelButton: true,
+    //   cancelButtonText: 'Cancel',
+    //   preConfirm: () => {
+    //     return new Promise(resolve => {
+    //       resolve({
+    //         email: document.getElementById('savedEmail').value,
+    //       })
+    //     })
+    //   }
+    // });
+    // if(!details.isConfirmed) return;
+    // details = details.value;
 
 
-    startLoad('saving');
+    // startLoad('saving');
 
-    await fetchPost('/api/save-for-later', {content: content, email: details.email});
+    // await fetchPost('/api/save-for-later', {content: content, email: details.email});
 
-    endLoad('saving');
+    // endLoad('saving');
   } else {
     startLoad('saving');
 

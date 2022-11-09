@@ -2262,6 +2262,23 @@ textarea.fInput {
         background-size: contain;
       }
 
+      &.noIcon {
+        padding: 8px 10px;
+        display: flex;
+        align-items: center;
+        .icon {
+          font-size: 20px;
+          margin: 0 5px 0 0;
+        }
+        span::before {
+          background: none;
+          left: 0;
+          top: 0;
+          height: 0;
+          width: 0;
+        }
+      }
+
       input:checked ~ span::before {
         background-image: url(https://res.cloudinary.com/ironabode/image/upload/v1663031595/icon-tick_fmvhym.png);
       }
