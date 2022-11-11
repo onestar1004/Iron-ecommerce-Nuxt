@@ -208,29 +208,10 @@ section.breadcrumbBox
 
 
 Footer
+
+
 </template>
 
 <script setup>
 let filters = $ref([]);
-
-const pageUrl = 'round-collection'
-
-definePageMeta({
-  layout: 'page'
-})
-
-useHead({
-  meta: [
-    { name: 'description', content: '' },
-    { property: 'og:url', content: 'https://ironabode.com/' + pageUrl },
-    { property: 'og:type', content: 'page' },
-    { property: 'og:title', content: 'Round Collection' },
-    { property: 'og:description', content: '' },
-    {
-      property: 'og:image',
-      content: 'https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png'
-    }
-  ],
-  title: 'Round Collection'
-})
 </script>

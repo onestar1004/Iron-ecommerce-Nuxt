@@ -29,7 +29,15 @@ NuxtLoadingIndicator.nuxtLoadingStyle
   Gallery(v-if="template == 'Gallery'")  
   WillFit(v-if="template == 'WillFit'")  
   Instructions(v-if="template == 'Instructions'")  
-  NewArrivals(v-if="template == 'NewArrivals'")  
+  NewArrivals(v-if="template == 'NewArrivals'")
+  WhiteOakShelvingUnits(v-if="template == 'WhiteOakShelvingUnits'")
+  WhitewashedWhiteOakUnits(v-if="template == 'WhitewashedWhiteOakUnits'")
+  WalnutShelvingUnits(v-if="template == 'WalnutShelvingUnits'")
+  MetalShelvingUnits(v-if="template == 'MetalShelvingUnits'")
+  ReadyToShip(v-if="template == 'ReadyToShip'")
+  RoundCollection(v-if="template == 'RoundCollection'")  
+  GlassShelvingUnits(v-if="template == 'GlassShelvingUnits'")   
+  Brackets(v-if="template == 'Brackets'")   
   OrderingQuestions(v-if="template == 'OrderingQuestions'")   
   MyAccount(v-if="template == 'MyAccount'")
   Policies(v-if="template == 'Policies'")  
@@ -114,6 +122,7 @@ NuxtLoadingIndicator.nuxtLoadingStyle
   const init = async function init () {
     // Do everything
     content.value = await fetchPost('/api/get-content', {url}) || {};
+
     nextTick(() => {
       pageReady.value = true
     })
