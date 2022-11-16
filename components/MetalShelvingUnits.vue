@@ -4,7 +4,7 @@ Header
 section.nArrBnr
   .nABnrTxt
     h3.fontSerif.fw400 Metal Shelving Units
-    p Luxury shelving units easily customized by you in minutes and handcrafted by us in a few weeks.
+    p Luxury metal shelving units easily customized by you in minutes and handcrafted by us in a few weeks.
   .nAbnrImg
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1668162748/metal-shelving-units_sdzxkd.png' alt='')
 section.nArrFltr.filterBox
@@ -12,12 +12,8 @@ section.nArrFltr.filterBox
     .fltrAll
       h4 FILTERS
       .fltrList.flexBox.flexWrap
-        .fltrOptn
-          a(href='#') Shelving Units
-        .fltrOptn
-          a(href='#') Brackets
-        .fltrOptn
-          a(href='#') Accessories
+        .fltrOptn(v-for="item in filterItems" :key="item.id")
+          a(href='#') {{ item.text }}
 section.nArrHow
   .container
     .secTop.txtCenter
@@ -43,10 +39,10 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrtBnB
       .nABnrTxt
-        h3.fontSerif.fw400 Shelving Units
-        p Luxury shelving units easily customized by you in minutes and handcrafted by us in a few weeks.
+        h3.fontSerif.fw400 Ceiling Mounted Units
+        p Browse our selection of ceiling-mounted shelving units. Click on your favorite style below to start customizing your own unit.
       .imgBox
-        img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-2_dohl0x.png' alt='')
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668600872/Black-Monty-Half-Inch-Antique-Brass-Metal-Unit-2_bjgwxf.png' alt='')
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
@@ -56,89 +52,89 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
         .nAPdCdTxt
           h5 Riviera Unit
           p.smallTxt Ceiling Mounted
-          p From $521
+          p From $517
       .nAPdCd
         a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668600955/Black-Monty-Half-Inch-Antique-Brass-Metal-Unit-2_nqshjz.png' alt='')
         .nAPdCdTxt
           h5 Monty Unit
           p.smallTxt Ceiling Mounted
-          p From $506
+          p From $502
       .nAPdCd
         a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668600952/Black-oslo-metal-one-inch_qtwsdv.png' alt='')
         .nAPdCdTxt
           h5 Oslo Unit
           p.smallTxt Ceiling Mounted
-          p From $506
+          p From $502
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrtBnB
       .nABnrTxt
-        h3.fontSerif.fw400 Brackets
-        p Luxury shelving brackets are easily customized by you in minutes and handcrafted by us in a few weeks.
+        h3.fontSerif.fw400 Wall Mounted Units
+        p Browse our selection of wall-mounted shelving units. Click on your favorite style below to start customizing.
       .imgBox
-        img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-5_jcrydu.png' alt='')
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601020/black-Hugo-metal-one-inch_2_trpl8v.png' alt='')
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
       .nAPdCd
         a(href='/monty-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-21_o270or.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601143/Black-Hugo-Metal-Half__62841.1647549925_erpxjt.png' alt='')
         .nAPdCdTxt
-          h5 Monty Bracket
-          p.smallTxt Ceiling Mounted
-          p From $102
+          h5 Hugo Unit
+          p.smallTxt Wall Mounted
+          p From $502
       .nAPdCd
         a(href='/hugo-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-22_dpaxca.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601151/aged-brassEsme-One-Glass-Front_w9yvjh.png' alt='')
         .nAPdCdTxt
-          h5 Hugo Bracket
+          h5 Esme Unit
           p.smallTxt Wall Mounted
-          p From $102
+          p From $1,010
       .nAPdCd
         a(href='/roux-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-23_jkfh5f.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601148/Leo-Metal-black-shelf-unit-One_lxhguv.png' alt='')
         .nAPdCdTxt
-          h5 Roux Bracket
-          p.smallTxt Wall mounted and stabilized on floor or counter
-          p From $309
+          h5 Leo Unit
+          p.smallTxt Wall Mounted but Stabilized in the Ceiling
+          p From $502
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrtBnB
       .nABnrTxt
-        h3.fontSerif.fw400 Accessories
-        p Luxury accessories are easily customized by you in minutes and handcrafted by us in a few weeks.
+        h3.fontSerif.fw400 Standing Units
+        p Browse our selection of standing shelving units. Click on your favorite style below to start customizing.
       .imgBox
-        img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-4_p6ga0l.png' alt='')
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601254/black-faye-metal-one-inch_gtxsir.png' alt='')
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
       .nAPdCd
         a(href='/78-round-iron-blanket-ladder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-31_tjkfoy.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601408/Roux-glass-unit-BLACK-all-colors-Recovered_iprvnj.png' alt='')
         .nAPdCdTxt
-          h5 Margot Blanket Ladder
-          p.smallTxt Wall Mounted
-          p From $330
+          h5 Roux Unit
+          p.smallTxt Wall Mounted but Stabilized on the Floor
+          p From $1,212
       .nAPdCd
         a(href='/fitz-potrack-towel-holder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-32_wv9vi7.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601429/black-faye-metal-one-inch_dzu0z4.png' alt='')
         .nAPdCdTxt
-          h5 Fitz Pot/Towel Rack
-          p.smallTxt Wall Mounted
-          p From $75
+          h5 Faye Unit
+          p.smallTxt Wall Mounted but Stabilized on the Floor
+          p From $1,058
       .nAPdCd
         a(href='/remi-wall-hook/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-33_erwbhq.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601446/SIMON-GLASS-SHELVING-SHELF-UNIT_pkyxkc.png' alt='')
         .nAPdCdTxt
-          h5 Remi Wall Hook
-          p.smallTxt Wall Mounted
-          p From $99
+          h5 Simon Unit
+          p.smallTxt Wall Mounted but Stabilized on the Floor
+          p From $1,344
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
@@ -214,5 +210,35 @@ Footer
 
 <script setup>
 let filters = $ref([]);
+const filterItems = ref([
+  {
+    id: 'f-Wall-Mounted',
+    text: 'Wall-Mounted'
+  },
+  {
+    id: 'f-Ceiling-Mounted',
+    text: 'Ceiling-Mounted'
+  },
+  {
+    id: 'f-Standing-Units',
+    text: 'Standing Units'
+  },
+  {
+    id: 'f-Hidden-Brackets',
+    text: 'Hidden Brackets'
+  },
+  {
+    id: 'f-Glass-Shelves',
+    text: 'Glass Shelves'
+  },
+  {
+    id: 'f-Metal-Shelves',
+    text: 'Metal Shelves'
+  },
+  {
+    id: 'f-Walnut-Shelves',
+    text: 'Walnut Shelves'
+  }
+]);
 </script>
   

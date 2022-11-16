@@ -59,18 +59,18 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
           p From $521
       .nAPdCd
         a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592187/aged-brassEsme-One-Glass-Front_akqnwt.png' alt='')
         .nAPdCdTxt
-          h5 Monty Unit
-          p.smallTxt Ceiling Mounted
-          p From $506
+          h5 Esme Unit
+          p.smallTxt Wall Mounted
+          p From $1,019
       .nAPdCd
         a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592225/Roux-glass-unit-BLACK-all-colors-Recovered_luj8pv.png' alt='')
         .nAPdCdTxt
-          h5 Oslo Unit
-          p.smallTxt Ceiling Mounted
-          p From $506
+          h5 Roux Unit
+          p.smallTxt Wall Mounted but Stabilized on the Floor
+          p From $1,221
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
@@ -80,30 +80,30 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
         h3.fontSerif.fw400 Brackets
         p Luxury shelving brackets are easily customized by you in minutes and handcrafted by us in a few weeks.
       .imgBox
-        img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-5_jcrydu.png' alt='')
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592635/Hugo-Half-Bracket-Black-_dinasdigs_mrekhr.png' alt='')
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
       .nAPdCd
         a(href='/monty-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-21_o270or.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592715/1_xmtmap.png' alt='')
         .nAPdCdTxt
-          h5 Monty Bracket
+          h5 Riviera Bracket
           p.smallTxt Ceiling Mounted
-          p From $102
+          p From $116
       .nAPdCd
         a(href='/hugo-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-22_dpaxca.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592768/Esme-brackets-black-2-2_hxitpz.png' alt='')
         .nAPdCdTxt
-          h5 Hugo Bracket
+          h5 Esme Bracket
           p.smallTxt Wall Mounted
-          p From $102
+          p From $208
       .nAPdCd
         a(href='/roux-bracket/')
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-23_jkfh5f.png' alt='')
         .nAPdCdTxt
           h5 Roux Bracket
-          p.smallTxt Wall mounted and stabilized on floor or counter
+          p.smallTxt Wall Mounted but Stabilized on the Floor
           p From $309
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
@@ -125,7 +125,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
           h5 Margot Blanket Ladder
           p.smallTxt Wall Mounted
           p From $330
-      .nAPdCd
+      .nAPdCd(style="display: none;")
         a(href='/fitz-potrack-towel-holder/')
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-32_wv9vi7.png' alt='')
         .nAPdCdTxt

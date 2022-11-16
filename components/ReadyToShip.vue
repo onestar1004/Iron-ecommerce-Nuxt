@@ -4,7 +4,7 @@ Header
 section.nArrBnr
   .nABnrTxt
     h3.fontSerif.fw400 Ready to Ship
-    p Luxury shelving units easily customized by you in minutes and handcrafted by us in a few weeks.
+    p These items are in-stock and ready to ship in only 4-6 days for no additional cost.
   .nAbnrImg
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031631/banner-na-1_hzk1wx.png' alt='')
 section.nArrFltr.filterBox
@@ -12,12 +12,8 @@ section.nArrFltr.filterBox
     .fltrAll
       h4 FILTERS
       .fltrList.flexBox.flexWrap
-        .fltrOptn
-          a(href='#') Shelving Units
-        .fltrOptn
-          a(href='#') Brackets
-        .fltrOptn
-          a(href='#') Accessories
+        .fltrOptn(v-for="item in filterItems" :key="item.id")
+          a(href='#') {{ item.text }}
 section.nArrHow
   .container
     .secTop.txtCenter
@@ -27,14 +23,14 @@ section.nArrHow
         div
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031593/howStep-1_m85fnf.svg' alt='')
         h5 CHOOSE YOUR UNIT STYLE
-      .nAHowCd
+      .nAHowCd(style="display: none;")
         div
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031593/howStep-2_xie0qa.svg' alt='')
         h5 CHOOSE YOUR SHELVES
       .nAHowCd
         div
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031593/howStep-3_qkzw9f.svg' alt='')
-        h5 CHOOSE YOUR FINISH AND ADD-ONS
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598240/Group_783_xmp9lk.png' alt='')
+        h5 CHOOSE YOUR FINISH
       .nAHowCd
         div
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031594/howStep-4_izwjdk.svg' alt='')
@@ -43,78 +39,78 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrtBnB
       .nABnrTxt
-        h3.fontSerif.fw400 Shelving Units
-        p Luxury shelving units easily customized by you in minutes and handcrafted by us in a few weeks.
+        h3.fontSerif.fw400 Ceiling Mounted
+        p Browse our selection of ceiling-mounted shelving brackets below. Each bracket is sold individually.
       .imgBox
-        img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-2_dohl0x.png' alt='')
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598317/Oslo-One-Black_Ironabode_sbozxd.png' alt='')
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
       .nAPdCd
         a(href='/riviera-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598630/riviera-glass-unit-with-round-mounts-iron-abode_zn6iqe.png' alt='')
         .nAPdCdTxt
-          h5 Riviera Unit
+          h5 Riviera Bracket
           p.smallTxt Ceiling Mounted
-          p From $521
+          p From $116
       .nAPdCd
         a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598663/black-monty-brackets-halfinch_cu76hr.png' alt='')
         .nAPdCdTxt
-          h5 Monty Unit
+          h5 Monty Bracket
           p.smallTxt Ceiling Mounted
-          p From $506
+          p From $107
       .nAPdCd
         a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598695/Black-Oslo-1inch-Brackets-4_sacamw.png' alt='')
         .nAPdCdTxt
-          h5 Oslo Unit
+          h5 Oslo Bracket
           p.smallTxt Ceiling Mounted
-          p From $506
+          p From $107
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrtBnB
       .nABnrTxt
-        h3.fontSerif.fw400 Brackets
-        p Luxury shelving brackets are easily customized by you in minutes and handcrafted by us in a few weeks.
+        h3.fontSerif.fw400 Wall Mounted
+        p Browse our selection of ceiling-mounted shelving brackets below. Each bracket is sold individually.
       .imgBox
-        img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-5_jcrydu.png' alt='')
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598444/Hugo-Half-Bracket-Black-_dinasdigs_lryrcx.png' alt='')
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
       .nAPdCd
         a(href='/monty-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-21_o270or.png' alt='')
-        .nAPdCdTxt
-          h5 Monty Bracket
-          p.smallTxt Ceiling Mounted
-          p From $102
-      .nAPdCd
-        a(href='/hugo-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-22_dpaxca.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598843/Black-Hugo-1inch-Brackets-5_whddry.png' alt='')
         .nAPdCdTxt
           h5 Hugo Bracket
           p.smallTxt Wall Mounted
-          p From $102
+          p From $107
+      .nAPdCd
+        a(href='/hugo-bracket/')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598799/Esme-brackets-black-2-2_xshfla.png' alt='')
+        .nAPdCdTxt
+          h5 Esme Bracket
+          p.smallTxt Wall Mounted
+          p From $218
       .nAPdCd
         a(href='/roux-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-23_jkfh5f.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598817/Black-Leo-Brass-1_Inch-Brackets-4_sgemva.png' alt='')
         .nAPdCdTxt
-          h5 Roux Bracket
-          p.smallTxt Wall mounted and stabilized on floor or counter
-          p From $309
+          h5 Leo Bracket
+          p.smallTxt Wall Mounted but Stabilized in the Ceiling
+          p From $107
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrtBnB
       .nABnrTxt
-        h3.fontSerif.fw400 Accessories
-        p Luxury accessories are easily customized by you in minutes and handcrafted by us in a few weeks.
+        h3.fontSerif.fw400 Blanket Ladders
+        p Browse our selection of ceiling-mounted shelving units. Click on your favorite style below to start customizing.
       .imgBox
-        img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-4_p6ga0l.png' alt='')
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668598922/Blanket_Ladder-78_-Black-Aug_egonrc.png' alt='')
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
@@ -124,21 +120,136 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
         .nAPdCdTxt
           h5 Margot Blanket Ladder
           p.smallTxt Wall Mounted
-          p From $330
+          p From $347
       .nAPdCd
         a(href='/fitz-potrack-towel-holder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-32_wv9vi7.png' alt='')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668599137/Minimalist_Ladder-White_Background_l5wfvn.png' alt='')
         .nAPdCdTxt
-          h5 Fitz Pot/Towel Rack
+          h5 Theo Blanket Ladder
+          p.smallTxt Ceiling Mounted
+          p From $161
+    .btnBox.txtCenter
+      a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
+//- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
+//-   .container
+//-     .nAPrtBnB
+//-       .nABnrTxt
+//-         h3.fontSerif.fw400 Ready to Ship
+//-         p These items are in-stock and ready to ship in only 3-4 days for no additional cost.
+//-       .imgBox
+//-         img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-5_jcrydu.png' alt='')
+//- section.nArrPrdt(v-if="!filters.length || filters.includes('Ready')")
+//-   .container
+//-     .nAPrdtGrid
+//-       .nAPdCd
+//-         div
+//-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-41_jjjvq4.png' alt='')
+//-         .nAPdCdTxt
+//-           h5 Riviera Bracket
+//-           p.smallTxt Ceiling Mounted
+//-           p From $110
+//-       .nAPdCd
+//-         div
+//-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-42_edhwd6.png' alt='')
+//-         .nAPdCdTxt
+//-           h5 Monty Bracket
+//-           p.smallTxt Ceiling Mounted
+//-           p From $102
+//-       .nAPdCd
+//-         div
+//-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-43_xs8qwa.png' alt='')
+//-         .nAPdCdTxt
+//-           h5 Oslo Bracket
+//-           p.smallTxt Ceiling Mounted
+//-           p From $102
+//-     .btnBox.txtCenter
+//-       a.btn.btnBg.btnWhiteBB(href='#') SEE MORE READY TO SHIP
+section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
+  .container
+    .nAPrtBnB
+      .nABnrTxt
+        h3.fontSerif.fw400 Wine &amp; Pot Racks
+        p Browse our selection of wall-mounted shelving units. Click on your favorite style below to start customizing.
+      .imgBox
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668599414/Hugo-Half-Bracket-Black-_dinasdigs_mkp9iz.png' alt='')
+section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
+  .container
+    .nAPrdtGrid
+      .nAPdCd
+        a(href='/78-round-iron-blanket-ladder/')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668599499/New_Wine_Rack_1-white_background_nttsds.png' alt='')
+        .nAPdCdTxt
+          h5 René Wine Rack
+          p.smallTxt Wall Mounted
+          p From $21
+      .nAPdCd
+        a(href='/fitz-potrack-towel-holder/')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668599536/Pot_Holder_Black-_White_Backgroud_hruvfw.png' alt='')
+        .nAPdCdTxt
+          h5 Fitz Pot/ Towel Bar
           p.smallTxt Wall Mounted
           p From $75
+    .btnBox.txtCenter
+      a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
+//- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
+//-   .container
+//-     .nAPrtBnB
+//-       .nABnrTxt
+//-         h3.fontSerif.fw400 Ready to Ship
+//-         p These items are in-stock and ready to ship in only 3-4 days for no additional cost.
+//-       .imgBox
+//-         img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-5_jcrydu.png' alt='')
+//- section.nArrPrdt(v-if="!filters.length || filters.includes('Ready')")
+//-   .container
+//-     .nAPrdtGrid
+//-       .nAPdCd
+//-         div
+//-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-41_jjjvq4.png' alt='')
+//-         .nAPdCdTxt
+//-           h5 Riviera Bracket
+//-           p.smallTxt Ceiling Mounted
+//-           p From $110
+//-       .nAPdCd
+//-         div
+//-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-42_edhwd6.png' alt='')
+//-         .nAPdCdTxt
+//-           h5 Monty Bracket
+//-           p.smallTxt Ceiling Mounted
+//-           p From $102
+//-       .nAPdCd
+//-         div
+//-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-43_xs8qwa.png' alt='')
+//-         .nAPdCdTxt
+//-           h5 Oslo Bracket
+//-           p.smallTxt Ceiling Mounted
+//-           p From $102
+//-     .btnBox.txtCenter
+//-       a.btn.btnBg.btnWhiteBB(href='#') SEE MORE READY TO SHIP
+section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
+  .container
+    .nAPrtBnB
+      .nABnrTxt
+        h3.fontSerif.fw400 Wall Hooks
+        p Browse our selection of standing shelving units. Click on your favorite style below to start customizing.
+      .imgBox
+        img(src='https://res.cloudinary.com/ironabode/image/upload/v1668599592/roux-glass-unit_20_thesmittencollective_mb3wcb.png' alt='')
+section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
+  .container
+    .nAPrdtGrid
       .nAPdCd
-        a(href='/remi-wall-hook/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-33_erwbhq.png' alt='')
+        a(href='/78-round-iron-blanket-ladder/')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668599788/Roux-glass-unit-BLACK-all-colors-Recovered_crukft.png' alt='')
         .nAPdCdTxt
           h5 Remi Wall Hook
           p.smallTxt Wall Mounted
-          p From $99
+          p From $104
+      .nAPdCd
+        a(href='/fitz-potrack-towel-holder/')
+          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668599755/Roux-glass-unit-BLACK-all-colors-Recovered-2_ao1q4v.png' alt='')
+        .nAPdCdTxt
+          h5 Wall Hook
+          p.smallTxt Wall Mounted
+          p From $35
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
@@ -214,5 +325,19 @@ Footer
 
 <script setup>
 let filters = $ref([]);
+const filterItems = ref([
+  {
+    id: 'f-Wall-Mounted',
+    text: 'Wall-Mounted'
+  },
+  {
+    id: 'f-Ceiling-Mounted',
+    text: 'Ceiling-Mounted'
+  },
+  {
+    id: 'f-Accessories',
+    text: 'Accessories'
+  }
+]);
 </script>
   
