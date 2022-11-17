@@ -25,6 +25,8 @@ footer.footer.clrWhite
                 a(href='/accessories/') Accessories
               li
                 a(href='/new-arrivals/') New Arrivals
+              li
+                a(href='/new-arrivals/') Ready to Ship
               //- li
               //-   a(href='#') Home Decor
           .ftrLnBox
@@ -58,9 +60,13 @@ footer.footer.clrWhite
               li
                 a(href='#') Start a Return
               li
+                a(href='/faq/') FAQ
+              li
                 a(href='/problem-order/') Problem With My Order
               li
                 a(href='/my-account/') My Account
+              li
+                a(href='#') Contact Us
               //- li
               //-   a(href='/sign-in/') Sign In
               //- li
