@@ -1885,6 +1885,7 @@ textarea.fInput {
 
 
 .prodOptn {
+  position: relative;
   margin-bottom: 60px;
 
   .pOptnCard {
@@ -1938,10 +1939,10 @@ textarea.fInput {
     }
 
     .opInfo {
+      position: relative;
       margin-right: 15px;
       position: relative;
       display: inline-flex;
-      z-index: 20;
 
       .opInfoBtn {
         height: 16px;
@@ -1987,16 +1988,16 @@ textarea.fInput {
         top: 100%;
 
         /* left: calc(50% - 135px); */
-        left: -195px;
+        left: -215px;
         padding: 15px 20px;
         margin-top: 10px;
-        width: 270px;
+        width: 300px;
         border-radius: 5px;
         background-color: #fff;
         filter: drop-shadow((-5px) -5px 6px rgba(0, 0, 0, 0.16));
-        font-size: 10px;
+        font-size: 16px;
         line-height: 1.2;
-        z-index: 10;
+        z-index: 20;
 
         &::before {
           content: "";
