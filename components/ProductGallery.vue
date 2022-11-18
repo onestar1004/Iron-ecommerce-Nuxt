@@ -14,8 +14,8 @@
           .slide.glide__slide(v-for="image of content.lifestyle_gallery")
             .image: img(:src="getImage({image: image.src, width: 600, height: 600, type: 'c_fill'})")
       .glide__arrows(data-glide-el="controls")
-        button.glide__arrow.glide__arrow--left(data-glide-dir="<"): i.fas.fa-chevron-left
-        button.glide__arrow.glide__arrow--right(data-glide-dir=">"): i.fas.fa-chevron-right
+        button.glideArrowLeft.glide__arrow.glide__arrow--left(data-glide-dir="<"): i.fas.fa-chevron-left
+        button.glideArrowRight.glide__arrow.glide__arrow--right(data-glide-dir=">"): i.fas.fa-chevron-right
 
     .clear(style="height: 10px;")
 
