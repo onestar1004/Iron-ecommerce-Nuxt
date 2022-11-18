@@ -1035,16 +1035,44 @@ label {
       }
     }
   }
+
   .glide {
     img {
       width: 100%;
+      max-width: 420px;
+      display: block;
+      margin: auto;
+      margin-top: 64px;
+    }
+
+    .glideArrowLeft {
+      margin-left: -24px !important;
+      border: none;
+      box-shadow: none;
+      color: #888;
+    }
+
+    .glideArrowRight {
+      margin-right: -24px !important;
+      border: none;
+      box-shadow: none;
+      color: #888;
     }
   }
 
   .glideThumbnails {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     .image {
       padding: 20px;
+
       img {
+        width: auto;
+        height: 32px;
+        display: block;
+        margin: auto;
         box-shadow: 0 0 8px rgba(0,0,0,0.2);
       }
     }
