@@ -1063,7 +1063,7 @@ label {
   .glideThumbnails {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
     .image {
       padding: 20px;
@@ -1089,6 +1089,7 @@ label {
 .md { display: none; }
 .lg { display: none; }
 .xl { display: none; }
+.xlMore { display: none; }
 
 // Display breakpoint for extra small screen
 @media (max-width: 600px) {
@@ -1113,4 +1114,9 @@ label {
 // Display breakpoint for large screen
 @media (min-width: 1904px) and (max-width: 1904px) {
   .xl { display: block; }
+}
+
+// Display breakpoint for large screen and more
+@media (min-width: 1904px) {
+  .xlMore { display: block; }
 }
