@@ -79,11 +79,18 @@ let quantity = $ref(1);
 let showCustom = $ref(false);
 let activeTooltip = $ref(null);
 
+let hiddenOptions = $ref([]);
 let refreshKey = $ref(0);
 
 watch($$(quantity), newQuantity => {
   if(newQuantity <= 0) newQuantity = 1;
   quantity = parseFloat(newQuantity);
+})
+
+watchEffect(() => {
+  if (content?.preselections) {
+    handlePreselections()
+  }
 })
 
 // FUNCTIONS
@@ -179,7 +186,6 @@ async function calcPrices() {
 }
 calcPrices();
 
-let hiddenOptions = $ref([]);
 for(let selection of content.preselections) {
   if(selection.hidden) hiddenOptions.push(selection.option_id);
 }
@@ -205,7 +211,6 @@ async function handlePreselections() {
     }
   }
 }
-handlePreselections();
 
 if(useRoute().query.saved_id) {
   let savedOptions = await fetchPost('/api/get-saved-options', {saved_id: useRoute().query.saved_id});
