@@ -136,6 +136,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
         imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668594843/Black-Faye-half-whitewashed-white-oak-shelves-1_mi4mbg.png",
         imageAlt=""
       )
+
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
