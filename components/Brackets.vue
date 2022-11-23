@@ -46,13 +46,14 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/riviera-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668602696/riviera-glass-unit-with-round-mounts-iron-abode_ne1hhk.png' alt='')
-        .nAPdCdTxt
-          h5 Riviera Bracket
-          p.smallTxt Ceiling Mounted
-          p From $110
+      ProductItem(
+        title="Riviera Bracket"
+        type="Ceiling Mounted"
+        price="$110"
+        href="/riviera-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668602696/riviera-glass-unit-with-round-mounts-iron-abode_ne1hhk.png",
+        imageAlt=""
+      )
       .nAPdCd
         a(href='/monty-shelving-unit/')
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1668602721/black-monty-brackets-halfinch_ms6ou0.png' alt='')
