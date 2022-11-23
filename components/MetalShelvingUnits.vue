@@ -46,27 +46,30 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/riviera-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png' alt='')
-        .nAPdCdTxt
-          h5 Riviera Unit
-          p.smallTxt Ceiling Mounted
-          p From $517
-      .nAPdCd
-        a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668600955/Black-Monty-Half-Inch-Antique-Brass-Metal-Unit-2_nqshjz.png' alt='')
-        .nAPdCdTxt
-          h5 Monty Unit
-          p.smallTxt Ceiling Mounted
-          p From $502
-      .nAPdCd
-        a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668600952/Black-oslo-metal-one-inch_qtwsdv.png' alt='')
-        .nAPdCdTxt
-          h5 Oslo Unit
-          p.smallTxt Ceiling Mounted
-          p From $502
+      ProductItem(
+        title="Riviera Unit"
+        type="Ceiling Mounted"
+        price="$517"
+        href="/riviera-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Monty Unit"
+        type="Ceiling Mounted"
+        price="$502"
+        href="/monty-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668600955/Black-Monty-Half-Inch-Antique-Brass-Metal-Unit-2_nqshjz.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Oslo Unit"
+        type="Ceiling Mounted"
+        price="$502"
+        href="/oslo-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668600952/Black-oslo-metal-one-inch_qtwsdv.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
@@ -80,27 +83,30 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/monty-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601143/Black-Hugo-Metal-Half__62841.1647549925_erpxjt.png' alt='')
-        .nAPdCdTxt
-          h5 Hugo Unit
-          p.smallTxt Wall Mounted
-          p From $502
-      .nAPdCd
-        a(href='/hugo-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601151/aged-brassEsme-One-Glass-Front_w9yvjh.png' alt='')
-        .nAPdCdTxt
-          h5 Esme Unit
-          p.smallTxt Wall Mounted
-          p From $1,010
-      .nAPdCd
-        a(href='/roux-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601148/Leo-Metal-black-shelf-unit-One_lxhguv.png' alt='')
-        .nAPdCdTxt
-          h5 Leo Unit
-          p.smallTxt Wall Mounted but Stabilized in the Ceiling
-          p From $502
+      ProductItem(
+        title="Hugo Unit"
+        type="Wall Mounted"
+        price="$502"
+        href="/monty-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668601143/Black-Hugo-Metal-Half__62841.1647549925_erpxjt.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Esme Unit"
+        type="Wall Mounted"
+        price="$1,010"
+        href="/hugo-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668601151/aged-brassEsme-One-Glass-Front_w9yvjh.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Leo Unit"
+        type="Wall Mounted but Stabilized in the Ceiling"
+        price="$502"
+        href="/roux-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668601148/Leo-Metal-black-shelf-unit-One_lxhguv.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
@@ -114,27 +120,30 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories'
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/78-round-iron-blanket-ladder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601408/Roux-glass-unit-BLACK-all-colors-Recovered_iprvnj.png' alt='')
-        .nAPdCdTxt
-          h5 Roux Unit
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $1,212
-      .nAPdCd
-        a(href='/fitz-potrack-towel-holder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601429/black-faye-metal-one-inch_dzu0z4.png' alt='')
-        .nAPdCdTxt
-          h5 Faye Unit
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $1,058
-      .nAPdCd
-        a(href='/remi-wall-hook/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668601446/SIMON-GLASS-SHELVING-SHELF-UNIT_pkyxkc.png' alt='')
-        .nAPdCdTxt
-          h5 Simon Unit
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $1,344
+      ProductItem(
+        title="Roux Unit"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$1,212"
+        href="/78-round-iron-blanket-ladder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668601408/Roux-glass-unit-BLACK-all-colors-Recovered_iprvnj.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Faye Unit"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$1,212"
+        href="/fitz-potrack-towel-holder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668601429/black-faye-metal-one-inch_dzu0z4.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Simon Unit"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$1,344"
+        href="/remi-wall-hook/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668601446/SIMON-GLASS-SHELVING-SHELF-UNIT_pkyxkc.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
@@ -241,4 +250,3 @@ const filterItems = ref([
   }
 ]);
 </script>
-  
