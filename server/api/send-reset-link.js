@@ -5,7 +5,7 @@ import {emailHeader, emailFooter, emailButton} from '~/composables/emailTemplate
 import jwt from 'jsonwebtoken'
 
 export default defineEventHandler(async event => {
-  let {email} = await useBody(event);
+  let {email} = await readBody(event);
   email = email.toLowerCase().trim();
 
   let exists = db.exists('users', `email='${email}'`);

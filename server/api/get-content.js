@@ -1,7 +1,7 @@
 import {default as db} from '~/composables/db-tools.js';
 
 export default defineEventHandler(async event => {
-  let {url} = await useBody(event);
+  let {url} = await readBody(event);
 
   let content = await db.getOne(`SELECT * FROM content WHERE url='${url}'`);
 

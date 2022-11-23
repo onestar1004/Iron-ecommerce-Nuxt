@@ -3,7 +3,7 @@ import {fetchPost} from '~/composables/fetchingTools.js';
 import moment from 'moment-timezone';
 
 export default defineEventHandler(async event => {
-  let {content} = await useBody(event);
+  let {content} = await readBody(event);
   let user = await fetchPost('/api/get-user', {authToken: getCookie(event, useRuntimeConfig().public.auth_cookie)});
 
   let parameters = {

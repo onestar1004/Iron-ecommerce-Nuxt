@@ -2,7 +2,7 @@ import {default as db} from '~/composables/db-tools.js';
 import {totalPrice} from '~/composables/priceCalculations.js';
 
 export default defineEventHandler(async event => {
-  let {cart_id} = await useBody(event);
+  let {cart_id} = await readBody(event);
   if(!cart_id) {
     cart_id = getCookie(event, 'ia_cart');
   }

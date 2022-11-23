@@ -2,7 +2,7 @@ import {default as db} from '~/composables/db-tools.js';
 import moment from 'moment-timezone';
 
 export default defineEventHandler(async event => {
-  let {coupon} = await useBody(event);
+  let {coupon} = await readBody(event);
 
   let couponData = await db.getOne(`SELECT * FROM coupons WHERE code ILIKE '${coupon}'`);
   if(!couponData) return {error: 'Coupon not found'}

@@ -4,7 +4,7 @@ import moment from 'moment';
 import jwt from 'jsonwebtoken'
 
 export default defineEventHandler(async event => {
-  let {newAccount} = await useBody(event);
+  let {newAccount} = await readBody(event);
 
   newAccount.email = newAccount.email.toLowerCase().trim();
 

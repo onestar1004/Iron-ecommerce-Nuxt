@@ -1,7 +1,7 @@
 import {default as db} from '~/composables/db-tools.js';
 
 export default defineEventHandler(async event => {
-  let {product_ids} = await useBody(event);
+  let {product_ids} = await readBody(event);
 
   if(!product_ids.length) return [];
 

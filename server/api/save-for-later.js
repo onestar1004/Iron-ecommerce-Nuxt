@@ -7,7 +7,7 @@ import postmark from 'postmark';
 const mail = new postmark.Client(process.env.postmark_token);
 
 export default defineEventHandler(async event => {
-  let {content, email} = await useBody(event);
+  let {content, email} = await readBody(event);
   let options = content.options;
 
   let saved_id = generateID();

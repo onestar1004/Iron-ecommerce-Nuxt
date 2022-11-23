@@ -19,7 +19,7 @@
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^8.5.1",
     "moment-timezone": "^0.5.37",
-    "nuxt": "3.0.0-rc.8",
+    "nuxt": "^3.0.0-rc.14",
     "pg": "^8.8.0",
     "postmark": "^3.0.14",
     "sass": "^1.54.8",

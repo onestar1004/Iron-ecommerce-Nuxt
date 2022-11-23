@@ -2,7 +2,7 @@ import {default as db} from '~/composables/db-tools.js';
 import alasql from 'alasql';
 
 export default defineEventHandler(async event => {
-  let {id} = await useBody(event);
+  let {id} = await readBody(event);
 
   let productType = await db.getOne(`SELECT * FROM product_types WHERE id=${id}`);
 

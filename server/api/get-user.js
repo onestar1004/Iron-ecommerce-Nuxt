@@ -2,7 +2,7 @@ import {default as db} from '~/composables/db-tools.js';
 import jwt from 'jsonwebtoken'
 
 export default defineEventHandler(async event => {
-  let body = await useBody(event);
+  let body = await readBody(event);
 
   if(body.authToken) {
     try {

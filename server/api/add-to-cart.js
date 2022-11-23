@@ -3,7 +3,7 @@ import {generateID} from '~/composables/tools.js';
 import moment from 'moment';
 
 export default defineEventHandler(async event => {
-  let {item} = await useBody(event);
+  let {item} = await readBody(event);
   
   let cart_id = getCookie(event, 'ia_cart');
   let cartExists = false;

@@ -1,7 +1,7 @@
 import {default as db} from '~/composables/db-tools.js';
 
 export default defineEventHandler(async event => {
-  let {filters} = await useBody(event);
+  let {filters} = await readBody(event);
 
   console.log(filters, 'filters found');
 

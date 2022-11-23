@@ -6,7 +6,7 @@ import moment from 'moment-timezone'
 export default defineEventHandler(async event => {
 
   console.log('starting login');
-  let {login} = await useBody(event);
+  let {login} = await readBody(event);
   
   login.email = login.email.toLowerCase().trim();
   let user = await db.getOne(`SELECT * FROM users WHERE email = '${login.email}'`);

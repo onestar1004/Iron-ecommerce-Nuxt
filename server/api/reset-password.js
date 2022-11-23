@@ -15,7 +15,7 @@ function decryptJWT(token) {
 }
 
 export default defineEventHandler(async event => {
-  let {password, token} = await useBody(event);
+  let {password, token} = await readBody(event);
 
   if(!token) return {error: 'Reset link has expired or is invalid'};
 

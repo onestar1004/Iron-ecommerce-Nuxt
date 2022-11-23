@@ -5,7 +5,7 @@ const mail = new postmark.Client(process.env.postmark_token);
 import {emailHeader, emailFooter, emailButton} from '~/composables/emailTemplates';
 
 export default defineEventHandler(async event => {
-  let {formData, emailParameters} = await useBody(event);
+  let {formData, emailParameters} = await readBody(event);
 
   if(formData.email) {
     let table = `<table width="100%" border="1" cellpadding="10" cellspacing="1">`;

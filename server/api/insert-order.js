@@ -8,7 +8,7 @@ import postmark from 'postmark';
 const mail = new postmark.Client(process.env.postmark_token);
 
 export default defineEventHandler(async event => {
-  let {cart_id, shipping, billing} = await useBody(event);
+  let {cart_id, shipping, billing} = await readBody(event);
   if(!shipping) shipping = {};
   if(!billing) billing = {};
   if(!cart_id) {
