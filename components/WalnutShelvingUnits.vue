@@ -51,7 +51,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
         type="Ceiling Mounted"
         price="$543"
         href="/riviera-shelving-unit/"
-        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png",
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1669519907/Black-Riviera-_oneinch-_Walnut_pxlryr.png",
         imageAlt=""
       )
       ProductItem(
@@ -59,7 +59,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
         type="Ceiling Mounted"
         price="$528"
         href="/monty-shelving-unit/"
-        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png",
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1669519942/Repeat_Grid_1_zaaqd7.png",
         imageAlt=""
       )
       ProductItem(
@@ -67,7 +67,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
         type="Ceiling Mounted"
         price="$528"
         href="/oslo-shelving-unit/"
-        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png",
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1669519965/Oslo-Black-half-walnut-2_x5hfvr.png",
         imageAlt=""
       )
     .btnBox.txtCenter
@@ -101,7 +101,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
       )
       ProductItem(
         title="Leo Unit"
-        type="Wall mounted but stabilized in the ceiling"
+        type="Wall Mounted But Stabilized in the Ceiling"
         price="$528"
         href="/roux-bracket/"
         imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668597634/black-walnut-leo-one-shelf-unit_z4msxo.png",

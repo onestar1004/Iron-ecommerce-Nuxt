@@ -101,7 +101,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
       )
       ProductItem(
         title="Leo Unit"
-        type="Wall mounted but stabilized in the ceiling"
+        type="Wall Mounted But Stabilized in the Ceiling"
         price="$572"
         href="/hugo-bracket/"
         imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668594565/New-Leo-Half-Inch-Black-Brackets-WhiteWashWhiteOak_ywsy6o.png",
@@ -122,7 +122,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
     .nAPrdtGrid
       ProductItem(
         title="Roux Unit"
-        type="Wall Mounted but stabilized on the floor"
+        type="Wall Mounted but Stabilized on the Floor"
         price="$1,353"
         href="/78-round-iron-blanket-ladder/"
         imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668594829/Roux-glass-unit-BLACK-all-colors-Recovered_xsi2pm.png",
@@ -130,7 +130,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
       )
       ProductItem(
         title="Faye Unit"
-        type="Wall Mounted but stabilized on the floor"
+        type="Wall Mounted but Stabilized on the Floor"
         price="$1,199"
         href="/remi-wall-hook/"
         imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668594843/Black-Faye-half-whitewashed-white-oak-shelves-1_mi4mbg.png",

@@ -133,14 +133,6 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
         imageAlt=""
       )
       ProductItem(
-        title="Fitz Pot/Towel Rack"
-        type="Wall Mounted"
-        price="$75"
-        href="/fitz-potrack-towel-holder/"
-        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-32_wv9vi7.png",
-        imageAlt=""
-      )
-      ProductItem(
         title="Remi Wall Hook"
         type="Wall Mounted"
         price="$99"

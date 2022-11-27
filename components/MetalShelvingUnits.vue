@@ -131,7 +131,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
       ProductItem(
         title="Faye Unit"
         type="Wall Mounted but Stabilized on the Floor"
-        price="$1,212"
+        price="$1,058"
         href="/fitz-potrack-towel-holder/"
         imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668601429/black-faye-metal-one-inch_dzu0z4.png",
         imageAlt=""
