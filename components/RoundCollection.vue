@@ -13,7 +13,8 @@ section.nArrFltr.filterBox
       h4 FILTERS
       .fltrList.flexBox.flexWrap
         .fltrOptn(v-for="item in filterItems" :key="item.id")
-          a(:href="`#${item.id}`") {{ item.text }}
+          a(v-if="'routePath' in item" :href="item.routePath") {{ item.text }}
+          a(v-else :href="`#${item.id}`") {{ item.text }}
 section.nArrHow
   .container
     .secTop.txtCenter
