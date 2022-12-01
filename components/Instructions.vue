@@ -1,6 +1,5 @@
 <template lang="pug">
 .guide.wrapper
-  Header
   ImagePopup(v-if="popupImage" :image="popupImage" @close="popupImage=null")
   section.instSec
     .container
