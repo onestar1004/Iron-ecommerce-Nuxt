@@ -13,7 +13,8 @@ section.nArrFltr.filterBox
       h4 FILTERS
       .fltrList.flexBox.flexWrap
         .fltrOptn(v-for="item in filterItems" :key="item.id")
-          a(href='#') {{ item.text }}
+          a(v-if="'routePath' in item" :href="item.routePath") {{ item.text }}
+          a(v-else :href="`#${item.id}`") {{ item.text }}
 section.nArrHow
   .container
     .secTop.txtCenter
@@ -36,7 +37,7 @@ section.nArrHow
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031594/howStep-4_izwjdk.svg' alt='')
         h5 CHOOSE YOUR SIZE
 section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
-  .container
+  .container(id="f-Ceiling-Mounted")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Ceiling Mounted Units
@@ -73,7 +74,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
-  .container
+  .container(id="f-Wall-Mounted")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Wall Mounted Units
@@ -110,7 +111,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-  .container
+  .container(id="f-Standing-Units")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Standing Units
@@ -181,7 +182,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
 //-     .btnBox.txtCenter
 //-       a.btn.btnBg.btnWhiteBB(href='#') SEE MORE READY TO SHIP
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-  .container
+  .container(id="f-Hidden-Brackets")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Hidden Bracket Units
@@ -242,12 +243,12 @@ Footer
 let filters = $ref([]);
 const filterItems = ref([
   {
-    id: 'f-Wall-Mounted',
-    text: 'Wall-Mounted'
-  },
-  {
     id: 'f-Ceiling-Mounted',
     text: 'Ceiling-Mounted'
+  },
+  {
+    id: 'f-Wall-Mounted',
+    text: 'Wall-Mounted'
   },
   {
     id: 'f-Standing-Units',
