@@ -12,7 +12,8 @@ section.nArrFltr.filterBox
       h4 FILTERS
       .fltrList.flexBox.flexWrap
         .fltrOptn(v-for="item in filterItems" :key="item.id")
-          a(href='#') {{ item.text }}
+          a(v-if="'routePath' in item" :href="item.routePath") {{ item.text }}
+          a(v-else :href="`#${item.id}`") {{ item.text }}
 section.nArrHow
   .container
     .secTop.txtCenter
@@ -35,7 +36,7 @@ section.nArrHow
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031594/howStep-4_izwjdk.svg' alt='')
         h5 CHOOSE YOUR SIZE
 section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
-  .container
+  .container(id="f-Ceiling-Mounted")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Ceiling Mounted Units
@@ -45,31 +46,34 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/riviera-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png' alt='')
-        .nAPdCdTxt
-          h5 Riviera Unit
-          p.smallTxt Ceiling Mounted
-          p From $543
-      .nAPdCd
-        a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png' alt='')
-        .nAPdCdTxt
-          h5 Monty Unit
-          p.smallTxt Ceiling Mounted
-          p From $528
-      .nAPdCd
-        a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png' alt='')
-        .nAPdCdTxt
-          h5 Oslo Unit
-          p.smallTxt Ceiling Mounted
-          p From $528
+      ProductItem(
+        title="Riviera Unit"
+        type="Ceiling Mounted"
+        price="$543"
+        href="/riviera-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1669519907/Black-Riviera-_oneinch-_Walnut_pxlryr.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Monty Unit"
+        type="Ceiling Mounted"
+        price="$528"
+        href="/monty-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1669519942/Repeat_Grid_1_zaaqd7.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Oslo Unit"
+        type="Ceiling Mounted"
+        price="$528"
+        href="/oslo-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1669519965/Oslo-Black-half-walnut-2_x5hfvr.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
-  .container
+  .container(id="f-Wall-Mounted")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Wall Mounted Units
@@ -79,31 +83,34 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/monty-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668597583/Black-hugo-half-walnut-shelves_ftipta.png' alt='')
-        .nAPdCdTxt
-          h5 Hugo Unit
-          p.smallTxt Wall Mounted
-          p From $528
-      .nAPdCd
-        a(href='/hugo-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668597610/ESME-BLACK-BRACKETS-WALNUT-UNIT_nr4z1o.png' alt='')
-        .nAPdCdTxt
-          h5 Esme Unit
-          p.smallTxt Wall Mounted
-          p From $1,063
-      .nAPdCd
-        a(href='/roux-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668597634/black-walnut-leo-one-shelf-unit_z4msxo.png' alt='')
-        .nAPdCdTxt
-          h5 Leo Unit
-          p.smallTxt Wall mounted but stabilized in the ceiling
-          p From $528
+      ProductItem(
+        title="Hugo Unit"
+        type="Wall Mounted"
+        price="$528"
+        href="/monty-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668597583/Black-hugo-half-walnut-shelves_ftipta.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Esme Unit"
+        type="Wall Mounted"
+        price="$1,063"
+        href="/hugo-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668597610/ESME-BLACK-BRACKETS-WALNUT-UNIT_nr4z1o.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Leo Unit"
+        type="Wall Mounted But Stabilized in the Ceiling"
+        price="$528"
+        href="/roux-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668597634/black-walnut-leo-one-shelf-unit_z4msxo.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-  .container
+  .container(id="f-Standing-Units")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Standing Units
@@ -113,20 +120,22 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories'
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/78-round-iron-blanket-ladder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668597924/Roux-glass-unit-BLACK-all-colors-Recovered_mrofhp.png' alt='')
-        .nAPdCdTxt
-          h5 Roux Unit
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $1,265
-      .nAPdCd
-        a(href='/fitz-potrack-towel-holder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668597953/leo-1-inch-walnut-flatlay_cm7e12.png' alt='')
-        .nAPdCdTxt
-          h5 Faye Unit
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $1,111
+      ProductItem(
+        title="Roux Unit"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$1,265"
+        href="/78-round-iron-blanket-ladder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668597924/Roux-glass-unit-BLACK-all-colors-Recovered_mrofhp.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Faye Unit"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$1,111"
+        href="/fitz-potrack-towel-holder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668597953/leo-1-inch-walnut-flatlay_cm7e12.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
@@ -204,12 +213,12 @@ Footer
 let filters = $ref([]);
 const filterItems = ref([
   {
-    id: 'f-Wall-Mounted',
-    text: 'Wall-Mounted'
-  },
-  {
     id: 'f-Ceiling-Mounted',
     text: 'Ceiling-Mounted'
+  },
+  {
+    id: 'f-Wall-Mounted',
+    text: 'Wall-Mounted'
   },
   {
     id: 'f-Standing-Units',

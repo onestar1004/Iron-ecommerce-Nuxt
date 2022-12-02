@@ -3671,6 +3671,7 @@ textarea.fInput {
     position: relative;
     border: 1px solid #4d4d4d;
     height: auto;
+    z-index: 100;
 
     .hover-content {
       opacity: 0;

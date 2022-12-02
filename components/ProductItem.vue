@@ -58,7 +58,7 @@
             :style="{ backgroundImage: `url(${'/demo-style-patterns/st2.jpg'})`}"
           )
       p 70+ Length, Depth, and Height Options
-      P 2 Bracket Thickness Options
+      p 2 Bracket Thickness Options
 </template>
 
 <script setup>
