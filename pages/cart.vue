@@ -1,7 +1,6 @@
 <template lang="pug">
 .cartPage
   .aboutUsPg.wrapper
-  Header
 
   SaveProductPopup(v-if="savingProduct" @close="savingProduct = false" @save="savingProduct = false; refreshUser();" :content="savingProduct")
 

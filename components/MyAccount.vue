@@ -1,6 +1,5 @@
 <template lang="pug">
 .odrQnPage.wrapper
-Header
 section.pageHead
   .container
     .secTop

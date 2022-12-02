@@ -1,6 +1,5 @@
 <template lang="pug">
 .checkout.wrapper
-Header
 section.pageHead
   .container
     .secTop

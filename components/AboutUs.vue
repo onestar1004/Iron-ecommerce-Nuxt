@@ -1,6 +1,5 @@
 <template lang="pug">
 .aboutUsPg.wrapper
-Header
 section.pageTopBox
   .container
     ul.breadcrumb.flexBox.flexAic.noList

@@ -1,6 +1,5 @@
 <template lang="pug">
 .pageWrapper
-  Header
   .Category
     h1.title {{content.title}}
 

@@ -1,6 +1,5 @@
 <template lang="pug">
 .guide.wrapper
-Header
 section.pageHead
   .container
     .secTop.txtCenter

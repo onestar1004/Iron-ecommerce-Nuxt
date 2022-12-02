@@ -1,6 +1,5 @@
 <template lang="pug">
 .guide.wrapper
-Header
 section.nArrBnr
   .nABnrTxt
     h3.fontSerif.fw400 Metal Shelving Units
