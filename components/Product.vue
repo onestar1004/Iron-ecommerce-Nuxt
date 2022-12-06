@@ -1,6 +1,5 @@
 <template lang="pug">
 .productPage.wrapper
-  Header
 
   //- RenderVueString(html=`<p>Testing out {{'Rendered Output'}} <a @click="$emit('openPopup', 'https://res.cloudinary.com/ironabode/image/upload/v1663031629/banner-1_z1okc9.png')">Open</a></p>` @openPopup="value => openPopup(value)")
 

@@ -1,6 +1,5 @@
 <template lang="pug">
 .tradePage.wrapper
-Header
 section.tradeTop.pageTopSec
   .container
     .secTop.txtCenter

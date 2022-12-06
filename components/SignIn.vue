@@ -1,6 +1,5 @@
 <template lang="pug">
 .policyPage.wrapper
-  Header
   section.pageHead
     .container
       .secTop

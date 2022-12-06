@@ -1,6 +1,5 @@
 <template lang="pug">
 .gallery.wrapper
-  Header
 
   GalleryImageProducts(v-if="showProducts" :galleryItem="showProducts" @close="showProducts = null")
 

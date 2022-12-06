@@ -1,6 +1,5 @@
 <template lang="pug">
 .productPage.wrapper
-  Header
   section.breadcrumbBox
     .container
       ul.breadcrumb.flexBox.flexAic.noList

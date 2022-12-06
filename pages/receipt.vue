@@ -1,6 +1,5 @@
 <template lang="pug">
 .pageWrapper
-  Header
   ReamazeButton
   .container.receipt
     .loading(v-if="pending"): i.fas.fa-spin.fa-spinner

@@ -1,6 +1,5 @@
 <template lang="pug">
 .articlePage.wrapper
-Header
 section.collabTop.pageTopSec
   .container
     .secTop.txtCenter
