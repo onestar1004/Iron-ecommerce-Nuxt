@@ -1,7 +1,7 @@
 <template lang="pug">
 .homePage.wrapper
   Header(light=true)
-
+  ReamazeButton
   section.bannerSec
     .bannerTxt
       h2.fontSerif.fw400 ELEVATE

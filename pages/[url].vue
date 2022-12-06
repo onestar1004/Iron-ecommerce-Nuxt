@@ -17,6 +17,7 @@ NuxtLoadingIndicator.nuxtLoadingStyle
 
     .schema(v-html="productSchema()" v-if="content.type=='Product'")
 
+  ReamazeButton
   Category(v-if="template == 'Category'" :content="content" :products="products")
   Product(v-if="template == 'Product' || (content && content.type == 'Product' && !template)" :content="content")
   FourOhFour(v-if="template == 404")

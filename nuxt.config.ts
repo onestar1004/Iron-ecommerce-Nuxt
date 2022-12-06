@@ -10,6 +10,7 @@ export default defineNuxtConfig({
         {src: 'https://cdn.jsdelivr.net/npm/sweetalert2@9'},
         {src: 'https://widget.cloudinary.com/v2.0/global/all.js'},
         {src: 'https://unpkg.com/@glidejs/glide@3.5.2/dist/glide.min.js'},
+        {src: 'https://cdn.reamaze.com/assets/reamaze.js', async: true}
       ],
       link: [
         {rel: 'icon', type: 'image/x-icon', href: 'https://res.cloudinary.com/ironabode/image/upload/v1665066045/index_r7xgcc.webp'},
