@@ -1,5 +1,6 @@
 <template lang="pug">
 .pageWrapper
+  ReamazeButton
   section.pageHead
     .container
       .secTop

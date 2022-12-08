@@ -1,6 +1,7 @@
 <template lang="pug">
 .homePage.wrapper
   Header
+  ReamazeButton
   NuxtLoadingIndicator.nuxtLoadingStyle
   .heroLoading(v-if="!pageReady")
     .flexBox.flexJcc.flexAic(style="height: 100%;")
@@ -53,7 +54,7 @@
     Accessories(v-if="template == 'Accessories'")   
     FeaturedArticles(v-if="template == 'FeaturedArticles'")   
     ManufacturingQuestions(v-if="template == 'ManufacturingQuestions'")   
-    Cleaning(v-if="template == 'Cleaning'")   
+    Cleaning(v-if="template == 'Cleaning'")  
 </template>
   
 <script setup>

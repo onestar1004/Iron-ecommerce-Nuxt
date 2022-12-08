@@ -2,6 +2,7 @@
 .cartPage
   .aboutUsPg.wrapper
 
+  ReamazeButton
   SaveProductPopup(v-if="savingProduct" @close="savingProduct = false" @save="savingProduct = false; refreshUser();" :content="savingProduct")
 
 

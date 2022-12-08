@@ -1,5 +1,6 @@
 <template lang="pug">
 .checkout.wrapper
+ReamazeButton
 section.pageHead
   .container
     .secTop
