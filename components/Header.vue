@@ -10,7 +10,7 @@ header.header
   nav.navbar
     .container.flexBox.flexJcb.flexAic
       .navMobi.flexInline.flexAic
-        button#menuBtn.menuBtn(type='button' role='button' onclick='menuToggle()')
+        button#menuBtn.menuBtn(ref="refMenuBtn" type='button' role='button' @click="menuToggle")
           span
           span
           span
@@ -164,7 +164,7 @@ header.header
         a#cartBtn.cartBtn.navBtn.flexInline(href="/cart")
           CartSVG
           span.cartNo(v-if="!isLoading('cart')") {{useStore().cartData.cart.length}}
-    #menuMobi.menuMobi
+    #menuMobi.menuMobi(ref="refMenuMobi")
       .mmGrid
         a.mmGCard(href='#')
           .flexBox.flexJcb.flexAic
@@ -266,4 +266,14 @@ const props = defineProps({
     default: () => { return false }
   }
 })
+
+const refMenuMobi = ref(null)
+const refMenuBtn = ref(null)
+
+const menuToggle = function () {
+  if (refMenuMobi.value) {
+    refMenuMobi.value.classList.toggle('open')
+    refMenuBtn.value.classList.toggle('on')
+  }
+}
 </script>
