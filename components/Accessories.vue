@@ -8,17 +8,9 @@
       img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031631/banner-na-1_hzk1wx.png' alt='')
   section.nArrFltr.filterBox
     .container
-      .fltrAll
-        h4 FILTERS
-        .fltrList.flexBox.flexWrap
-          .fltrOptn
-            a(href='#') Blanket Ladders
-          .fltrOptn
-            a(href='#') Wine & Pot Racks
-          .fltrOptn
-            a(href='#') Wall Hooks
+      filter-strip(:items="filterItems")
   section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')" style='margin-top: 150px;')
-    .container
+    .container(id="f-Blanket-Ladders")
       .nAPrtBnB
         .nABnrTxt
           h3.fontSerif.fw400 Blanket Ladders
@@ -36,7 +28,7 @@
             p.smallTxt Wall Mounted
             p From $521
   section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
-    .container
+    .container(id="f-Wine-Pot-Racks")
       .nAPrtBnB
         .nABnrTxt
           h3.fontSerif.fw400 Wine & Pot Racks
@@ -61,7 +53,7 @@
             p.smallTxt Wall Mounted
             p From $102
   section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-    .container
+    .container(id="f-Wall-Hooks")
       .nAPrtBnB
         .nABnrTxt
           h3.fontSerif.fw400 Wall Hooks
@@ -147,4 +139,18 @@
 
 <script setup>
 let filters = $ref([]);
+const filterItems = ref([
+  {
+    id: 'f-Blanket-Ladders',
+    text: 'Blanket Ladders'
+  },
+  {
+    id: 'f-Wine-Pot-Racks',
+    text: 'Wine & Pot Racks'
+  },
+  {
+    id: 'f-Wall-Hooks',
+    text: 'Wall Hooks'
+  }
+]);
 </script>

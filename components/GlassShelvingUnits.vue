@@ -8,12 +8,7 @@ section.nArrBnr
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1668162916/monty-whitewashed-white-oak-shelving-in-bar-2_xkjfas.png' alt='')
 section.nArrFltr.filterBox
   .container
-    .fltrAll
-      h4 FILTERS
-      .fltrList.flexBox.flexWrap
-        .fltrOptn(v-for="item in filterItems" :key="item.id")
-          a(v-if="'routePath' in item" :href="item.routePath") {{ item.text }}
-          a(v-else :href="`#${item.id}`") {{ item.text }}
+    filter-strip(:items="filterItems")
 section.nArrHow
   .container
     .secTop.txtCenter
