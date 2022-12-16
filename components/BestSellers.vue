@@ -80,27 +80,30 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/hugo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1664474639/Black-Hugo-Metal-Half__62841.1647549925_yy5dz9.png' alt='')
-        .nAPdCdTxt
-          h5 Hugo Unit
-          p.smallTxt Wall Mounted
-          p From $102
-      .nAPdCd
-        a(href='/esme-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1664474639/aged-brassEsme-One-Glass-Front_rqqsvz.png' alt='')
-        .nAPdCdTxt
-          h5 Esme Unit
-          p.smallTxt Wall Mounted
-          p From $102
-      .nAPdCd
-        a(href='/leo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1664474638/Black-Leo-1inch-glass_qvif2y.png' alt='')
-        .nAPdCdTxt
-          h5 Leo Unit
-          p.smallTxt Wall Mounted but Stabilized on the Ceiling
-          p From $309
+      ProductItem(
+        title="Hugo Unit"
+        type="Wall Mounted"
+        price="$102"
+        href="/hugo-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1664474639/Black-Hugo-Metal-Half__62841.1647549925_yy5dz9.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Esme Unit"
+        type="Wall Mounted"
+        price="$102"
+        href="/esme-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1664474639/aged-brassEsme-One-Glass-Front_rqqsvz.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Leo Unit"
+        type="Wall Mounted but Stabilized on the Ceiling"
+        price="$309"
+        href="/leo-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1664474638/Black-Leo-1inch-glass_qvif2y.png",
+        imageAlt=""
+      )
     //- .btnBox.txtCenter
     //-   a.btn.btnBg.btnWhiteBB(href='#') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
@@ -114,27 +117,30 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories'
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/roux-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1664474814/Roux-glass-unit-BLACK-all-colors-Recovered_bkusn1.png' alt='')
-        .nAPdCdTxt
-          h5 Roux Unit
-          p.smallTxt Wall mounted and stabilized on floor or counter
-          p From $330
-      .nAPdCd
-        a(href='/faye-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1664474814/faye-black-brackets-glass-whitebackground_2_qoc9it.png' alt='')
-        .nAPdCdTxt
-          h5 Faye Unit
-          p.smallTxt Wall mounted and stabilized on floor or counter
-          p From $75
-      .nAPdCd
-        a(href='/simon-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1664474814/SIMON-GLASS-SHELVING-SHELF-UNIT_ixy0to.png' alt='')
-        .nAPdCdTxt
-          h5 Simon Unit
-          p.smallTxt Wall mounted and stabilized on floor or counter
-          p From $99
+      ProductItem(
+        title="Roux Unit"
+        type="Wall mounted and stabilized on floor or counter"
+        price="$330"
+        href="/roux-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1664474814/Roux-glass-unit-BLACK-all-colors-Recovered_bkusn1.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Faye Unit"
+        type="Wall mounted and stabilized on floor or counter"
+        price="$75"
+        href="/faye-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1664474814/faye-black-brackets-glass-whitebackground_2_qoc9it.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Simon Unit"
+        type="Wall mounted and stabilized on floor or counter"
+        price="$99"
+        href="/simon-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1664474814/SIMON-GLASS-SHELVING-SHELF-UNIT_ixy0to.png",
+        imageAlt=""
+      )
     //- .btnBox.txtCenter
     //-   a.btn.btnBg.btnWhiteBB(href='#') SEE MORE ACCESSORIES
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
@@ -148,13 +154,14 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Ready')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/felix-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1664474959/felix.black.6_2_vh27a8.png' alt='')
-        .nAPdCdTxt
-          h5 Felix Glass Unit
-          p.smallTxt Wall Mounted
-          p From $110
+      ProductItem(
+        title="Felix Glass Unit"
+        type="Wall Mounted"
+        price="$110"
+        href="/felix-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1664474959/felix.black.6_2_vh27a8.png",
+        imageAlt=""
+      )
     //- .btnBox.txtCenter
     //-   a.btn.btnBg.btnWhiteBB(href='#') SEE MORE READY TO SHIP
 

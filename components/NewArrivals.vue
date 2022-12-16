@@ -41,27 +41,30 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/riviera-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png' alt='')
-        .nAPdCdTxt
-          h5 Riviera Unit
-          p.smallTxt Ceiling Mounted
-          p From $521
-      .nAPdCd
-        a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png' alt='')
-        .nAPdCdTxt
-          h5 Monty Unit
-          p.smallTxt Ceiling Mounted
-          p From $506
-      .nAPdCd
-        a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png' alt='')
-        .nAPdCdTxt
-          h5 Oslo Unit
-          p.smallTxt Ceiling Mounted
-          p From $506
+      ProductItem(
+        title="Riviera Unit"
+        type="Ceiling Mounted"
+        price="$521"
+        href="/riviera-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Monty Unit"
+        type="Ceiling Mounted"
+        price="$506"
+        href="/monty-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-12_gcq5lm.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Oslo Unit"
+        type="Ceiling Mounted"
+        price="$506"
+        href="/oslo-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-13_ze12vn.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
@@ -75,27 +78,30 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/monty-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-21_o270or.png' alt='')
-        .nAPdCdTxt
-          h5 Monty Bracket
-          p.smallTxt Ceiling Mounted
-          p From $102
-      .nAPdCd
-        a(href='/hugo-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-22_dpaxca.png' alt='')
-        .nAPdCdTxt
-          h5 Hugo Bracket
-          p.smallTxt Wall Mounted
-          p From $102
-      .nAPdCd
-        a(href='/roux-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-23_jkfh5f.png' alt='')
-        .nAPdCdTxt
-          h5 Roux Bracket
-          p.smallTxt Wall mounted and stabilized on floor or counter
-          p From $309
+      ProductItem(
+        title="Monty Bracket"
+        type="Ceiling Mounted"
+        price="$102"
+        href="/monty-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-21_o270or.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Hugo Bracket"
+        type="Wall Mounted"
+        price="$102"
+        href="/hugo-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-22_dpaxca.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Roux Bracket"
+        type="Wall mounted and stabilized on floor or counter"
+        price="$309"
+        href="/roux-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-23_jkfh5f.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
@@ -109,27 +115,30 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories'
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/78-round-iron-blanket-ladder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-31_tjkfoy.png' alt='')
-        .nAPdCdTxt
-          h5 Margot Blanket Ladder
-          p.smallTxt Wall Mounted
-          p From $330
-      .nAPdCd
-        a(href='/fitz-potrack-towel-holder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-32_wv9vi7.png' alt='')
-        .nAPdCdTxt
-          h5 Fitz Pot/Towel Rack
-          p.smallTxt Wall Mounted
-          p From $75
-      .nAPdCd
-        a(href='/remi-wall-hook/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-33_erwbhq.png' alt='')
-        .nAPdCdTxt
-          h5 Remi Wall Hook
-          p.smallTxt Wall Mounted
-          p From $99
+      ProductItem(
+        title="Margot Blanket Ladder"
+        type="Wall Mounted"
+        price="$330"
+        href="/78-round-iron-blanket-ladder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-31_tjkfoy.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Fitz Pot/Towel Rack"
+        type="Wall Mounted"
+        price="$75"
+        href="/7fitz-potrack-towel-holder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-32_wv9vi7.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Remi Wall Hook"
+        type="Wall Mounted"
+        price="$99"
+        href="/remi-wall-hook/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-33_erwbhq.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
