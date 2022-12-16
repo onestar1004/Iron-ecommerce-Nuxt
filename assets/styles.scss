@@ -1956,6 +1956,7 @@ textarea.fInput {
       display: inline-flex;
 
       .opInfoBtn {
+        position: relative;
         height: 16px;
         width: auto;
         cursor: pointer;
@@ -2008,7 +2009,7 @@ textarea.fInput {
         filter: drop-shadow((-5px) -5px 6px rgba(0, 0, 0, 0.16));
         font-size: 16px;
         line-height: 1.2;
-        z-index: 20;
+        z-index: 300;
 
         &::before {
           content: "";
