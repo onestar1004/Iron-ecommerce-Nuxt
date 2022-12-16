@@ -1598,6 +1598,17 @@ textarea.fInput {
   .fltrList {
     gap: 18px;
   }
+  .fltrOptn .box {
+    width: 16px;
+    height: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    display: inline-block;
+  }
+  .fltrOptn .text {
+    margin-top: 2.5px;
+  }
   .fltrOptn a {
     display: inline-block;
     padding: 6px 10px;

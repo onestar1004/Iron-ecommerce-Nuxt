@@ -8,15 +8,7 @@ section.nArrBnr
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031631/banner-na-1_hzk1wx.png' alt='')
 section.nArrFltr.filterBox
   .container
-    .fltrAll
-      h4 FILTERS
-      .fltrList.flexBox.flexWrap
-        .fltrOptn
-          a(href='#') Shelving Units
-        .fltrOptn
-          a(href='#') Brackets
-        .fltrOptn
-          a(href='#') Accessories
+    filter-strip(:items="filterItems")
 section.nArrHow
   .container
     .secTop.txtCenter
@@ -39,7 +31,7 @@ section.nArrHow
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031594/howStep-4_izwjdk.svg' alt='')
         h5 CHOOSE YOUR SIZE
 section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
-  .container
+  .container(id="f-Shelving-Units")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Shelving Units
@@ -73,7 +65,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
-  .container
+  .container(id="f-Brackets")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Brackets
@@ -107,7 +99,7 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-  .container
+  .container(id="f-Accessories")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Accessories
@@ -213,4 +205,18 @@ Footer
 
 <script setup>
 let filters = $ref([]);
+const filterItems = ref([
+  {
+    id: 'f-Shelving-Units',
+    text: 'Shelving Units'
+  },
+  {
+    id: 'f-Brackets',
+    text: 'Brackets'
+  },
+  {
+    id: 'f-Accessories',
+    text: 'Accessories'
+  }
+]);
 </script>
