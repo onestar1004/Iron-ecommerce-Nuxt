@@ -2267,6 +2267,11 @@ textarea.fInput {
       font-size: 10px;
       font-weight: 500;
       cursor: pointer;
+      transition: scale 0.2s ease-in-out;
+
+      &:hover {
+        scale: 1.1;
+      }
 
       input {
         position: absolute;
