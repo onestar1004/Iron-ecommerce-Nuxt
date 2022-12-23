@@ -1905,7 +1905,7 @@ textarea.fInput {
 
   .accHead {
     position: relative;
-    padding: 0 30px 0 20px;
+    padding: 8px 30px 8px 20px;
     background-color: rgba(77, 77, 77, 0.15);
     cursor: pointer;
 
@@ -1930,23 +1930,25 @@ textarea.fInput {
 
     .numberBox {
       margin-right: 12px;
-      height: 20px;
-      width: 24px;
+      height: 25px;
+      width: 30px;
       min-width: 24px;
       background-color: #4d4d4d;
       box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
       font-weight: 500;
       color: #fff;
-      line-height: 20px;
+      line-height: 26px;
       text-align: center;
+      font-size: 18px;
     }
 
     .opName {
       margin-right: 15px;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 500;
       white-space: nowrap;
       text-transform: uppercase;
+      color: #707070;
     }
 
     .opInfo {
@@ -1957,7 +1959,7 @@ textarea.fInput {
 
       .opInfoBtn {
         position: relative;
-        height: 16px;
+        height: 22px;
         width: auto;
         cursor: pointer;
       }
