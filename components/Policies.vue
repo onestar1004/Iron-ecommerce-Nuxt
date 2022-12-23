@@ -194,23 +194,23 @@ section.policySec.cmnSec
                   p.fontSerif Note: Anything that is not offered on our standard listings and requires you to leave a note to alter the product or have a custom listing made for you will not qualify for a free exchange.
                   h5 PRODUCTS THAT DO QUALIFY FOR FREE EXCHANGES
                   p.fontSerif * Standard brackets: 
-                    p.fontSerif * Overall Height: 
-                    p.fontSerif * 8in- 1 shelf, 30in- 2 shelf, 42in- 2 shelf or 3 shelf, 54in- 3 shelf or 4 shelf, 66in- 4 shelf or 5 shelf 
-                    p.fontSerif * Shelf Depth: 
-                    p.fontSerif *8in, 10in, 12in 
-                    p.fontSerif * Finish: 
-                    p.fontSerif * Aged Brass, Light Brass, Nickel, Dark Bronze, Beige, White, Black 
-                    p.fontSerif * Mounting Style 
-                    p.fontSerif * Monty Bracket Style: Only 1 type of mounting style ( Ceiling-Mount or Wall-Mount) 
-                    p.fontSerif * Hugo, Esme, Faye, Roux: Wall- Mount 
-                    p.fontSerif * Oslo, Riviera, Simon: Ceiling- Mount
+                    p.fontSerif &emsp; * Overall Height: 
+                    p.fontSerif &emsp;&emsp; * 8in- 1 shelf, 30in- 2 shelf, 42in- 2 shelf or 3 shelf, 54in- 3 shelf or 4 shelf, 66in- 4 shelf or 5 shelf 
+                    p.fontSerif &emsp; * Shelf Depth: 
+                    p.fontSerif &emsp;&emsp; *8in, 10in, 12in 
+                    p.fontSerif &emsp; * Finish: 
+                    p.fontSerif &emsp;&emsp; * Aged Brass, Light Brass, Nickel, Dark Bronze, Beige, White, Black 
+                    p.fontSerif &emsp; * Mounting Style 
+                    p.fontSerif &emsp;&emsp; * Monty Bracket Style: Only 1 type of mounting style ( Ceiling-Mount or Wall-Mount) 
+                    p.fontSerif &emsp;&emsp; * Hugo, Esme, Faye, Roux: Wall- Mount 
+                    p.fontSerif &emsp;&emsp; * Oslo, Riviera, Simon: Ceiling- Mount
                   h5 IF YOU WOULD LIKE TO REQUEST AN EXCHANGE, CLICK HERE.
                   p.fontSerif * In order to receive your exchange fast:
-                  p.fontSerif 1. You should fill out the request form above. 
-                    p.fontSerif 2. Once your exchange is approved, you can checkout with the new product so we can start making it right away. 
-                    p.fontSerif 3. Next, carefully package up your return (see the return tab below for more information on how to do this correctly). 
-                    p.fontSerif 4. If we receive your return within our 60-day return window: we will inspect the return and give you a full refund if it arrives in its original condition. 
-                    p.fontSerif 5. Your account will be refunded within 2-5 days of receipt of your item.
+                    p.fontSerif &emsp; 1. You should fill out the request form above. 
+                    p.fontSerif &emsp; 2. Once your exchange is approved, you can checkout with the new product so we can start making it right away. 
+                    p.fontSerif &emsp; 3. Next, carefully package up your return (see the return tab below for more information on how to do this correctly). 
+                    p.fontSerif &emsp; 4. If we receive your return within our 60-day return window: we will inspect the return and give you a full refund if it arrives in its original condition. 
+                    p.fontSerif &emsp; 5. Your account will be refunded within 2-5 days of receipt of your item.
                   p.fontSerif * If you would like to exchange your order - do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will be responsible for these shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: If you would like to Request an Exchange, click here.
             .polAcc.cmnAccdn
               .accHead(@click="selectItem('Stan10')" :class="{'active': activeItem == 'Stan10'}") 60 DAY EXCHANGE - ON EVERYTHING ELSE
@@ -227,11 +227,11 @@ section.policySec.cmnSec
                   p.fontSerif * Uninstalled wood shelves with a depth of 8in+
                   h5 IF YOU WOULD LIKE TO REQUEST AN EXCHANGE, CLICK HERE.
                   p.fontSerif * In order to receive your exchange fast:
-                  p.fontSerif 1. You should fill out the request form above. 
-                    p.fontSerif 2. Once your exchange is approved, you can checkout with the new product so we can start making it right away. 
-                    p.fontSerif 3. Next, carefully package up your return (see the return tab above for more information on how to do this correctly). 
-                    p.fontSerif 4. If we receive your return within our 60-day return window: we will inspect the return and give you a full refund minus the production and manufacturing fee, if it arrives in its original condition. 
-                    p.fontSerif 5. Your account will be refunded within 2-5 days of receipt of your item.
+                    p.fontSerif &emsp; 1. You should fill out the request form above. 
+                    p.fontSerif &emsp; 2. Once your exchange is approved, you can checkout with the new product so we can start making it right away. 
+                    p.fontSerif &emsp; 3. Next, carefully package up your return (see the return tab above for more information on how to do this correctly). 
+                    p.fontSerif &emsp; 4. If we receive your return within our 60-day return window: we will inspect the return and give you a full refund minus the production and manufacturing fee, if it arrives in its original condition. 
+                    p.fontSerif &emsp; 5. Your account will be refunded within 2-5 days of receipt of your item.
                   p.fontSerif * If you would like to exchange your order- do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will be responsible for these shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: If you would like to Request an Exchange, click here.
         #pReturn
           .polInfo
