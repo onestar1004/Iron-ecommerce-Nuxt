@@ -86,7 +86,7 @@
         .howSVideo
           .videoBox
             .videoLink
-              iframe(src='https://www.youtube.com/embed/428GSCXCMoE' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='' width='560' height='315' frameborder='0')
+              iframe(src='https://www.youtube.com/embed/2BatUGLecho' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='' width='560' height='315' frameborder='0')
           .btnBox.txtCenter
             a.btn.btnBg.btnBlGry.btnTxtWht(href='/complete-shelving-units/') BUILD YOUR OWN
         .howSInfo
