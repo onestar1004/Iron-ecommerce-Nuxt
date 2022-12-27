@@ -1014,11 +1014,31 @@ label {
   }
 }
 
+
 .lifestyleGallery {
   border: 1px solid rgba(0,0,0,0.2);
   padding: 20px;
   max-width: 590px;
   margin: 0 auto;
+
+  .hero {
+    height: 500px;
+    width: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .hero_thumbnail {
+    height: 94px;
+    width: 94px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgb(234, 234, 234);
+    margin: 10px;
+  }
+
   .prodGall {
     margin: 0;
     .prodMainImg {
