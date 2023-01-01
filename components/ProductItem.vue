@@ -57,19 +57,40 @@
           div.prdctOptionTile(
             :style="{ backgroundImage: `url(${'/demo-style-patterns/st2.jpg'})`}"
           )
-      p 70+ Length, Depth, and Height Options
-      p 2 Bracket Thickness Options
+      p(v-for="item in listInfo" :key="`product-item-${$uuid()}`") {{ item }}
 </template>
 
 <script setup>
-const props = defineProps([
-  'title',
-  'type',
-  'price',
-  'imageUrl',
-  'href',
-  'imageAlt'
-])
-const onHover = ref(false)
+const props = defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
+  type: {
+    type: String,
+    default: '',
+  },
+  price: {
+    type: String,
+    default: ''
+  },
+  imageUrl: {
+    type: String,
+    default: ''
+  },
+  href: {
+    type: String,
+    default: ''
+  },
+  imageAlt: {
+    type: String,
+    default: ''
+  },
+  listInfo: {
+    type: Array,
+    default: []
+  }
+})
 
+const onHover = ref(false)
 </script>
