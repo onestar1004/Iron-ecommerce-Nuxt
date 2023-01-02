@@ -11,8 +11,8 @@
           span.numberBox {{optionNumber(option)}}
           h5.opName {{option.label}} #[span.required(v-if="option.required") *]
 
-          .opInfo(@click="selectActiveTooltip(option); openOption(option)" v-if="option.explainer")
-            img.opInfoBtn.showMsg(src='https://res.cloudinary.com/ironabode/image/upload/v1663031595/info_wcxuyj.svg' alt='')
+          .opInfo(@click="selectActiveTooltip(option); openOption(option)" @mouseenter="() => infoHoverId = option.id" @mouseleave="() => infoHoverId = ''" v-if="option.explainer")
+            img.opInfoBtn.showMsg(:src="infoHoverId === option.id ? 'https://res.cloudinary.com/ironabode/image/upload/v1672552067/info_wcxuyj_1_negzrs.svg' : 'https://res.cloudinary.com/ironabode/image/upload/v1663031595/info_wcxuyj.svg'" alt='')
             span.infoHover Click for more information
             .infoMsg.fontSerif(v-if="activeTooltip == option.id" v-html="option.explainer")
 
@@ -81,6 +81,7 @@ let activeTooltip = $ref(null);
 
 let hiddenOptions = $ref([]);
 let refreshKey = $ref(0);
+const infoHoverId = ref('')
 
 watch($$(quantity), newQuantity => {
   if(newQuantity <= 0) newQuantity = 1;
