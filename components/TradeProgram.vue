@@ -27,7 +27,7 @@ section.trdPerks
           p.fontSerif Free Trade Program Collection*
           p.fontSerif Free Shipping and Extended 90 returns or exchanges on standard sized bracket orders.
           p.fontSerif Unlimited access to our design team
-          a.btn.btnBg.btnWhiteBB(href='#perks') JOIN NOW
+          a.btn.btnBg.btnWhiteBB(href='#join') JOIN NOW
           //- a.btn.btnBg.btnWhiteBB(href='#') JOIN NOW
       .trPrkCd
         .imgBox
@@ -39,7 +39,7 @@ section.trdPerks
           p.fontSerif Free Trade Program Collection*
           p.fontSerif Free Shipping and Extended 90 returns or exchanges on standard sized bracket orders.
           p.fontSerif Unlimited access to our design team
-          a.btn.btnBg.btnWhiteBB(href='#perks') JOIN NOW
+          a.btn.btnBg.btnWhiteBB(href='#join') JOIN NOW
           //- a.btn.btnBg.btnWhiteBB(href='#') JOIN NOW
 section.trdColl
   .container
@@ -59,7 +59,7 @@ section.trdForm.formSec
         b Thank you for your Interest in partnering with us!
       p.fontSerif We will be in touch with you soon.
     .frmBox
-      h4.frmTtl JOIN THE IRON ABODE TRADE PROGRAM
+      h4.frmTtl#join JOIN THE IRON ABODE TRADE PROGRAM
       form(action='')
         .frmGrid2
           .frmGrp

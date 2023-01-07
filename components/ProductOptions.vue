@@ -58,7 +58,7 @@
       button.btn.btnBg.btnBlGry.btnTxtWht(@click="addToCart()" v-if="!isLoading('adding')") ADD TO CART
       button.btn.btnBg.btnBlGry.btnTxtWht(v-if="isLoading('adding')") #[i.fas.fa-spin.fa-spinner]
       button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = true; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="!showCustom && !content.hide_custom") CUSTOMIZE IT FURTHER
-      button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = false; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="showCustom") #[i.fal.fa-arrow-left] BACK TO SIMPLE VIEW
+      button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = false; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="showCustom") #[i.fal.fa-arrow-left] BACK TO STANDARD
 
     //- TODO: Delivery Estimate Process + Affirm Integration
     //- .footTxt.txtCenter

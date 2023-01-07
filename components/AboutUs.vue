@@ -20,7 +20,7 @@ section.abUsTop
       .vidBox
         .videoBox
           .videoLink
-            iframe(src='https://www.youtube.com/embed/hfjPrwL4rbs' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='' width='560' height='315' frameborder='0')
+            iframe(src='https://www.youtube.com/embed/oJ44wZYhHns' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='' width='560' height='315' frameborder='0')
 section.abUsInfo
   .container
     .abUsInB
