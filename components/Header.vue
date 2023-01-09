@@ -14,8 +14,10 @@ header.header
           span
           span
           span
-        a.searchMobi.navBtn.flexInline(href='#')
+        a.searchMobi.navBtn.flexInline(@click="showSearch=!showSearch")
           SearchSVG
+        GlobalSearch(v-if="showSearch")
+
       a.brandLogo(href='/')
         img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png' alt='')
       ul.menuList.flexInline.flexJcb.flexAic.noList
@@ -157,7 +159,8 @@ header.header
         li
           a(href='/best-sellers/') Best Sellers
       .navBtnBox.flexInline.flexAic
-        a.searchBtn.navBtn.flexInline(href='#')
+        GlobalSearch(v-if="showSearch")
+        a.searchBtn.navBtn.flexInline(@click="showSearch=!showSearch")
           SearchSVG
         a.usrBtn.navBtn.flexInline(href='/my-account')
           AccountSVG
@@ -266,4 +269,6 @@ const props = defineProps({
     default: () => { return false }
   }
 })
+
+let showSearch = $ref(false);
 </script>
