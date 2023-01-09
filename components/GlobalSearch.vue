@@ -1,12 +1,12 @@
 <template lang="pug">
 .siteSearch
   .input
-    input(type="text" v-model="search" @input="debounce(() => startSearch())" placeholder="Search")
+    input(type="text" ref="searchInput" v-model="search" @input="startSearch()" placeholder="Search")
 
   .results(v-if="search && results")
     .searching(v-if="is('searchingSite')"): i.fal.fa-spin.fa-spinner
     slot(v-if="!is('searchingSite')")
-      .noResults(v-if="!results.length") - Nothing Found -
+      .noResults.fullResults(v-if="!results.length") - Nothing Found -
       .fullResults(v-if="results.length")
         NuxtLink.item(v-for="product in results" :to="'/'+product.url")
           .image
@@ -17,15 +17,24 @@
 
 <script setup>
 let search = $ref(null);
+let searchInput = $ref(null);
 let debounce = createDebounce();
 let results = $ref([]);
 
+onMounted(() => {
+  setTimeout(() => {
+    searchInput.focus();
+  }, 10);
+})
+
 function startSearch() {
   startLoad('searchingSite');
-  POST('/api/search-site', {search})
-  .then(response => {
-    results = response;
-    endLoad('searchingSite');
+  debounce(() => {
+    POST('/api/search-site', {search})
+    .then(response => {
+      results = response;
+      endLoad('searchingSite');
+    })
   })
 }
 </script>
