@@ -16,7 +16,7 @@ header.header
           span
         a.searchMobi.navBtn.flexInline(@click="showSearch=!showSearch")
           SearchSVG
-        GlobalSearch(v-if="showSearch")
+        GlobalSearch.mobileGlobal(v-if="showSearch && viewportWidth() < 800")
 
       a.brandLogo(href='/')
         img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png' alt='')
@@ -254,7 +254,7 @@ header.header
         li
           a(href='/best-sellers/') Best Sellers
       .navBtnBox.flexInline.flexAic
-        GlobalSearch(v-if="showSearch")
+        GlobalSearch(v-if="showSearch && viewportWidth() > 800")
         a.searchBtn.navBtn.flexInline(@click="showSearch=!showSearch")
           SearchSVG
         a.usrBtn.navBtn.flexInline(href='/my-account')

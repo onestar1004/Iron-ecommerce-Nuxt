@@ -44,9 +44,11 @@
       p.fontSerif As Configured:
       h3 {{currency(totalPrice(filteredOptions()) * quantity)}}
     .selectBox.flexBox.flexJcb.flexAic
-      div
+      div(v-if="!content.title.includes('Bracket')")
         select.cSelect(v-model="quantity")
           option(:value="n" v-for="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]") {{n}}
+      div(v-if="content.title.includes('Bracket')")
+        BracketExplainerDropdown(:quantity="quantity" @change="value => quantity = value")
       div(v-if="!savedBoard()")
         label.saveBtn(@click="saveForLater()")
           span Save for later
@@ -196,6 +198,7 @@ async function handlePreselections() {
 
     if(!selection.option_id) continue;
     if(!selection.choice_id) continue;
+    if(!content.options) continue;
 
     for(let option of content.options) {
       if(option.id == selection.option_id) {
@@ -390,6 +393,9 @@ function filteredChoices(option, group) {
 }
 
 function filteredOptions() {
+
+  if(!content.options) return [];
+
   return content.options.filter(option => {
     let showOption = ruleResults(option.rules);
 
