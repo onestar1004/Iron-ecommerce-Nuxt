@@ -1,6 +1,6 @@
 <template lang="pug">
 .checkout.wrapper
-Header
+ReamazeButton
 section.pageHead
   .container
     .secTop

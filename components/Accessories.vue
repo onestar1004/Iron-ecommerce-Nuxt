@@ -1,6 +1,5 @@
 <template lang="pug">
 .guide.wrapper
-  Header
   section.nArrBnr
     .nABnrTxt
       h3.fontSerif.fw400 Accessories
@@ -9,17 +8,9 @@
       img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031631/banner-na-1_hzk1wx.png' alt='')
   section.nArrFltr.filterBox
     .container
-      .fltrAll
-        h4 FILTERS
-        .fltrList.flexBox.flexWrap
-          .fltrOptn
-            a(href='#') Blanket Ladders
-          .fltrOptn
-            a(href='#') Wine & Pot Racks
-          .fltrOptn
-            a(href='#') Wall Hooks
+      filter-strip(:items="filterItems")
   section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')" style='margin-top: 150px;')
-    .container
+    .container(id="f-Blanket-Ladders")
       .nAPrtBnB
         .nABnrTxt
           h3.fontSerif.fw400 Blanket Ladders
@@ -29,15 +20,16 @@
   section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
     .container
       .nAPrdtGrid
-        .nAPdCd
-          a(href='/78-round-iron-blanket-ladder/')
-            img(src='https://res.cloudinary.com/ironabode/image/upload/v1665179574/Round-Ladder-Black-Front-View-Whitebackground_ycj5y0.png' alt='')
-          .nAPdCdTxt
-            h5 Blanket Ladder
-            p.smallTxt Wall Mounted
-            p From $521
+        ProductItem(
+          title="Blanket Ladder"
+          type="Wall Mounted"
+          price="$521"
+          href="/78-round-iron-blanket-ladder/"
+          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1665179574/Round-Ladder-Black-Front-View-Whitebackground_ycj5y0.png",
+          imageAlt=""
+        )
   section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
-    .container
+    .container(id="f-Wine-Pot-Racks")
       .nAPrtBnB
         .nABnrTxt
           h3.fontSerif.fw400 Wine & Pot Racks
@@ -47,22 +39,24 @@
   section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
     .container
       .nAPrdtGrid
-        .nAPdCd
-          a(href='/wine-rack/')
-            img(src='https://res.cloudinary.com/ironabode/image/upload/v1665179797/New_Wine_Rack_1-white_background_iivn2d.png' alt='')
-          .nAPdCdTxt
-            h5 Rene Wine Rack
-            p.smallTxt Wall Mounted
-            p From $102
-        .nAPdCd
-          a(href='/fitz-potrack-towel-holder/')
-            img(src='https://res.cloudinary.com/ironabode/image/upload/v1665179796/Pot_Holder_Black-_White_Backgroud_diud4p.png' alt='')
-          .nAPdCdTxt
-            h5 Fitz Pot / Towel Bar
-            p.smallTxt Wall Mounted
-            p From $102
+        ProductItem(
+          title="Rene Wine Rack"
+          type="Wall Mounted"
+          price="$102"
+          href="/wine-rack/"
+          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1665179797/New_Wine_Rack_1-white_background_iivn2d.png",
+          imageAlt=""
+        )
+        ProductItem(
+          title="Fitz Pot / Towel Bar"
+          type="Wall Mounted"
+          price="$102"
+          href="/fitz-potrack-towel-holder/"
+          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1665179796/Pot_Holder_Black-_White_Backgroud_diud4p.png",
+          imageAlt=""
+        )
   section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-    .container
+    .container(id="f-Wall-Hooks")
       .nAPrtBnB
         .nABnrTxt
           h3.fontSerif.fw400 Wall Hooks
@@ -72,13 +66,14 @@
   section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
     .container
       .nAPrdtGrid
-        .nAPdCd
-          a(href='/remi-wall-hook/')
-            img(src='https://res.cloudinary.com/ironabode/image/upload/v1665179932/Roux-glass-unit-BLACKdd-all-colors-Recovered_ssdmdt.png' alt='')
-          .nAPdCdTxt
-            h5 Remi Wall Hook
-            p.smallTxt Wall Mounted
-            p From $330
+        ProductItem(
+          title="Remi Wall Hook"
+          type="Wall Mounted"
+          price="$330"
+          href="/remi-wall-hook/"
+          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1665179932/Roux-glass-unit-BLACKdd-all-colors-Recovered_ssdmdt.png",
+          imageAlt=""
+        )
   //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
   //-   .container
   //-     .nAPrtBnB
@@ -148,4 +143,18 @@
 
 <script setup>
 let filters = $ref([]);
+const filterItems = ref([
+  {
+    id: 'f-Blanket-Ladders',
+    text: 'Blanket Ladders'
+  },
+  {
+    id: 'f-Wine-Pot-Racks',
+    text: 'Wine & Pot Racks'
+  },
+  {
+    id: 'f-Wall-Hooks',
+    text: 'Wall Hooks'
+  }
+]);
 </script>

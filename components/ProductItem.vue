@@ -3,16 +3,14 @@
   @mouseenter="() => onHover = true"
   @mouseleave="() => onHover = false"
 )
-  a(:href="href")
-    img(:src="imageUrl" :alt="imageAlt || ''")
+  img(:src="imageUrl" :alt="imageAlt || ''")
   .nAPdCdTxt
     h5 {{ title }}
     p.smallTxt {{ type }}
     p From {{ price }}
 
-  .hover-content(:show="onHover")
-    a(:href="href")
-      img(:src="imageUrl" :alt="imageAlt || ''")
+  a.hover-content(:show="onHover" :href="href")
+    img(:src="imageUrl" :alt="imageAlt || ''")
     .nAPdCdTxt
       h5 {{ title }}
       p.smallTxt {{ type }}
@@ -58,7 +56,7 @@
             :style="{ backgroundImage: `url(${'/demo-style-patterns/st2.jpg'})`}"
           )
       p 70+ Length, Depth, and Height Options
-      P 2 Bracket Thickness Options
+      p 2 Bracket Thickness Options
 </template>
 
 <script setup>

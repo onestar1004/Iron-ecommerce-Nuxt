@@ -1,6 +1,5 @@
 <template lang="pug">
 .odrQnPage.wrapper
-Header
 section.faqBanner
   img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1663031590/faq-banner_wzfzjl.png' alt='')
 section.odrQnBox.faqBox

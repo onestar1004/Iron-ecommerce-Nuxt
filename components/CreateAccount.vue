@@ -1,6 +1,5 @@
 <template lang="pug">
 .articlePage.wrapper
-Header
 section.pageHead
   .container
     .secTop

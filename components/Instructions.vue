@@ -1,6 +1,5 @@
 <template lang="pug">
 .guide.wrapper
-  Header
   ImagePopup(v-if="popupImage" :image="popupImage" @close="popupImage=null")
   section.instSec
     .container
@@ -8,7 +7,7 @@
         .instVdo
           .videoBox
             .videoLink
-              iframe(src='https://www.youtube.com/embed/428GSCXCMoE' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='' width='560' height='315' frameborder='0')
+              iframe(src='https://www.youtube.com/embed/YrArtcmADmU' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='' width='560' height='315' frameborder='0')
         .instnfo.txtCenter
           h3.pageTitle MONTY INSTALLATION INSTRUCTIONS
           p Click the tabs below to view what's included with your brackets or unit as well as how to install your brackets or unit.

@@ -11,8 +11,8 @@
           span.numberBox {{optionNumber(option)}}
           h5.opName {{option.label}} #[span.required(v-if="option.required") *]
 
-          .opInfo(@click="selectActiveTooltip(option); openOption(option)" v-if="option.explainer")
-            img.opInfoBtn.showMsg(src='https://res.cloudinary.com/ironabode/image/upload/v1663031595/info_wcxuyj.svg' alt='')
+          .opInfo(@click="selectActiveTooltip(option); openOption(option)" @mouseenter="() => infoHoverId = option.id" @mouseleave="() => infoHoverId = ''" v-if="option.explainer")
+            img.opInfoBtn.showMsg(:src="infoHoverId === option.id ? 'https://res.cloudinary.com/ironabode/image/upload/v1672552067/info_wcxuyj_1_negzrs.svg' : 'https://res.cloudinary.com/ironabode/image/upload/v1663031595/info_wcxuyj.svg'" alt='')
             span.infoHover Click for more information
             .infoMsg.fontSerif(v-if="activeTooltip == option.id" v-html="option.explainer")
 
@@ -58,7 +58,7 @@
       button.btn.btnBg.btnBlGry.btnTxtWht(@click="addToCart()" v-if="!isLoading('adding')") ADD TO CART
       button.btn.btnBg.btnBlGry.btnTxtWht(v-if="isLoading('adding')") #[i.fas.fa-spin.fa-spinner]
       button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = true; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="!showCustom && !content.hide_custom") CUSTOMIZE IT FURTHER
-      button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = false; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="showCustom") #[i.fal.fa-arrow-left] BACK TO SIMPLE VIEW
+      button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = false; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="showCustom") #[i.fal.fa-arrow-left] BACK TO STANDARD
 
     //- TODO: Delivery Estimate Process + Affirm Integration
     //- .footTxt.txtCenter
@@ -79,11 +79,19 @@ let quantity = $ref(1);
 let showCustom = $ref(false);
 let activeTooltip = $ref(null);
 
+let hiddenOptions = $ref([]);
 let refreshKey = $ref(0);
+const infoHoverId = ref('')
 
 watch($$(quantity), newQuantity => {
   if(newQuantity <= 0) newQuantity = 1;
   quantity = parseFloat(newQuantity);
+})
+
+watchEffect(() => {
+  if (content?.preselections) {
+    handlePreselections()
+  }
 })
 
 // FUNCTIONS
@@ -179,7 +187,6 @@ async function calcPrices() {
 }
 calcPrices();
 
-let hiddenOptions = $ref([]);
 for(let selection of content.preselections) {
   if(selection.hidden) hiddenOptions.push(selection.option_id);
 }
@@ -205,7 +212,6 @@ async function handlePreselections() {
     }
   }
 }
-handlePreselections();
 
 if(useRoute().query.saved_id) {
   let savedOptions = await fetchPost('/api/get-saved-options', {saved_id: useRoute().query.saved_id});

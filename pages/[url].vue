@@ -1,58 +1,60 @@
 <template lang="pug">
-NuxtLoadingIndicator.nuxtLoadingStyle
-.heroLoading(v-if="!pageReady")
-  .flexBox.flexJcc.flexAic(style="height: 100%;")
-    .logoWrapper
-      img.animate-flicker(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png' alt='')
-.urlWrapper
+.homePage.wrapper
+  Header
+  ReamazeButton
+  NuxtLoadingIndicator.nuxtLoadingStyle
+  .heroLoading(v-if="!pageReady")
+    .flexBox.flexJcc.flexAic(style="height: 100%;")
+      .logoWrapper
+        img.animate-flicker(src='https://res.cloudinary.com/ironabode/image/upload/v1671439563/loading_g9cuz0.gif' alt='')
+  .urlWrapper
 
-  Head
-    Title {{content.title}}
-    meta(name="description" :content="content.meta_description || 'Easily customize your own glass, metal, or wood shelving unit online.'")
-    meta(property="og:url" :content="'https://ironabode.com/'+content.url")
-    meta(property="og:type" :content="contentType()")
-    meta(property="og:title" :content="content.title")
-    meta(property="og:description" :content="content.meta_description || 'Easily customize your own glass, metal, or wood shelving unit online.'")
-    meta(property="og:image" :content="contentImage()")
+    Head
+      Title {{content.title}}
+      meta(name="description" :content="content.meta_description || 'Easily customize your own glass, metal, or wood shelving unit online.'")
+      meta(property="og:url" :content="'https://ironabode.com/'+content.url")
+      meta(property="og:type" :content="contentType()")
+      meta(property="og:title" :content="content.title")
+      meta(property="og:description" :content="content.meta_description || 'Easily customize your own glass, metal, or wood shelving unit online.'")
+      meta(property="og:image" :content="contentImage()")
 
-    .schema(v-html="productSchema()" v-if="content.type=='Product'")
+      .schema(v-html="productSchema()" v-if="content.type=='Product'")
 
-  Category(v-if="template == 'Category'" :content="content" :products="products")
-  Product(v-if="template == 'Product' || (content && content.type == 'Product' && !template)" :content="content")
-  FourOhFour(v-if="template == 404")
-  AboutUs(v-if="template == 'AboutUs'") 
-  Blog(v-if="template == 'Blog'" :content="content")
-  BlogPost(v-if="template == 'BlogPost'" :content="content")
-  Collaborations(v-if="template == 'Collaborations'")
-  CreateAccount(v-if="template == 'CreateAccount'") 
-  Faq(v-if="template == 'Faq'")  
-  Gallery(v-if="template == 'Gallery'")  
-  WillFit(v-if="template == 'WillFit'")  
-  Instructions(v-if="template == 'Instructions'")  
-  NewArrivals(v-if="template == 'NewArrivals'")
-  WhiteOakShelvingUnits(v-if="template == 'WhiteOakShelvingUnits'")
-  WhitewashedWhiteOakUnits(v-if="template == 'WhitewashedWhiteOakUnits'")
-  WalnutShelvingUnits(v-if="template == 'WalnutShelvingUnits'")
-  MetalShelvingUnits(v-if="template == 'MetalShelvingUnits'")
-  ReadyToShip(v-if="template == 'ReadyToShip'")
-  RoundCollection(v-if="template == 'RoundCollection'")  
-  GlassShelvingUnits(v-if="template == 'GlassShelvingUnits'")   
-  Brackets(v-if="template == 'Brackets'")   
-  OrderingQuestions(v-if="template == 'OrderingQuestions'")   
-  MyAccount(v-if="template == 'MyAccount'")
-  Policies(v-if="template == 'Policies'")  
-  ProblemOrder(v-if="template == 'ProblemOrder'")  
-  ProductNew(v-if="template == 'ProductNew'")  
-  SignIn(v-if="template == 'SignIn'")  
-  TradeProgram(v-if="template == 'TradeProgram'")   
-  ShelvingUnits(v-if="template == 'ShelvingUnits'")   
-  ShelfBrackets(v-if="template == 'ShelfBrackets'")   
-  BestSellers(v-if="template == 'BestSellers'")   
-  Accessories(v-if="template == 'Accessories'")   
-  FeaturedArticles(v-if="template == 'FeaturedArticles'")   
-  ManufacturingQuestions(v-if="template == 'ManufacturingQuestions'")   
-  Cleaning(v-if="template == 'Cleaning'")   
-  
+    Category(v-if="template == 'Category'" :content="content" :products="products")
+    Product(v-if="template == 'Product' || (content && content.type == 'Product' && !template)" :content="content")
+    FourOhFour(v-if="template == 404")
+    AboutUs(v-if="template == 'AboutUs'") 
+    Blog(v-if="template == 'Blog'" :content="content")
+    BlogPost(v-if="template == 'BlogPost'" :content="content")
+    Collaborations(v-if="template == 'Collaborations'")
+    CreateAccount(v-if="template == 'CreateAccount'") 
+    Faq(v-if="template == 'Faq'")  
+    Gallery(v-if="template == 'Gallery'")  
+    WillFit(v-if="template == 'WillFit'")  
+    Instructions(v-if="template == 'Instructions'")  
+    NewArrivals(v-if="template == 'NewArrivals'")
+    WhiteOakShelvingUnits(v-if="template == 'WhiteOakShelvingUnits'")
+    WhitewashedWhiteOakUnits(v-if="template == 'WhitewashedWhiteOakUnits'")
+    WalnutShelvingUnits(v-if="template == 'WalnutShelvingUnits'")
+    MetalShelvingUnits(v-if="template == 'MetalShelvingUnits'")
+    ReadyToShip(v-if="template == 'ReadyToShip'")
+    RoundCollection(v-if="template == 'RoundCollection'")  
+    GlassShelvingUnits(v-if="template == 'GlassShelvingUnits'")   
+    Brackets(v-if="template == 'Brackets'")   
+    OrderingQuestions(v-if="template == 'OrderingQuestions'")   
+    MyAccount(v-if="template == 'MyAccount'")
+    Policies(v-if="template == 'Policies'")  
+    ProblemOrder(v-if="template == 'ProblemOrder'")  
+    ProductNew(v-if="template == 'ProductNew'")  
+    SignIn(v-if="template == 'SignIn'")  
+    TradeProgram(v-if="template == 'TradeProgram'")   
+    ShelvingUnits(v-if="template == 'ShelvingUnits'")   
+    ShelfBrackets(v-if="template == 'ShelfBrackets'")   
+    BestSellers(v-if="template == 'BestSellers'")   
+    Accessories(v-if="template == 'Accessories'")   
+    FeaturedArticles(v-if="template == 'FeaturedArticles'")   
+    ManufacturingQuestions(v-if="template == 'ManufacturingQuestions'")   
+    Cleaning(v-if="template == 'Cleaning'")  
 </template>
   
 <script setup>

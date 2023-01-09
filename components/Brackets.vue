@@ -1,6 +1,5 @@
 <template lang="pug">
 .guide.wrapper
-Header
 section.nArrBnr
   .nABnrTxt
     h3.fontSerif.fw400 Brackets
@@ -9,11 +8,7 @@ section.nArrBnr
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031631/banner-na-1_hzk1wx.png' alt='')
 section.nArrFltr.filterBox
   .container
-    .fltrAll
-      h4 FILTERS
-      .fltrList.flexBox.flexWrap
-        .fltrOptn(v-for="item in filterItems" :key="item.id")
-          a(href='#') {{ item.text }}
+    filter-strip(:items="filterItems")
 section.nArrHow
   .container
     .secTop.txtCenter
@@ -36,7 +31,7 @@ section.nArrHow
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031594/howStep-4_izwjdk.svg' alt='')
         h5 CHOOSE YOUR SIZE
 section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
-  .container
+  .container(id="f-Ceiling-Mounted")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Ceiling Mounted
@@ -46,31 +41,34 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/riviera-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668602696/riviera-glass-unit-with-round-mounts-iron-abode_ne1hhk.png' alt='')
-        .nAPdCdTxt
-          h5 Riviera Bracket
-          p.smallTxt Ceiling Mounted
-          p From $110
-      .nAPdCd
-        a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668602721/black-monty-brackets-halfinch_ms6ou0.png' alt='')
-        .nAPdCdTxt
-          h5 Monty Bracket
-          p.smallTxt Ceiling Mounted
-          p From $102
-      .nAPdCd
-        a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668602749/Black-Oslo-1inch-Brackets-4_ijb2dd.png' alt='')
-        .nAPdCdTxt
-          h5 Oslo Bracket
-          p.smallTxt Ceiling Mounted
-          p From $102
+      ProductItem(
+        title="Riviera Bracket"
+        type="Ceiling Mounted"
+        price="$110"
+        href="/riviera-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668602696/riviera-glass-unit-with-round-mounts-iron-abode_ne1hhk.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Monty Bracket"
+        type="Ceiling Mounted"
+        price="$102"
+        href="/monty-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668602721/black-monty-brackets-halfinch_ms6ou0.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Oslo Bracket"
+        type="Ceiling Mounted"
+        price="$102"
+        href="/oslo-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668602749/Black-Oslo-1inch-Brackets-4_ijb2dd.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
-  .container
+  .container(id="f-Wall-Mounted")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Wall Mounted
@@ -80,59 +78,64 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/monty-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-22_dpaxca.png' alt='')
-        .nAPdCdTxt
-          h5 Hugo Bracket
-          p.smallTxt Wall Mounted
-          p From $102
-      .nAPdCd
-        a(href='/hugo-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668603028/Esme-brackets-black-2-2_lnm97b.png' alt='')
-        .nAPdCdTxt
-          h5 Esme Bracket
-          p.smallTxt Wall Mounted
-          p From $208
-      .nAPdCd
-        a(href='/roux-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668603055/Black-Leo-Brass-1_Inch-Brackets-4_kdv1kn.png' alt='')
-        .nAPdCdTxt
-          h5 Leo Bracket
-          p.smallTxt Wall Mounted but Stabilized in the Ceiling
-          p From $102
+      ProductItem(
+        title="Hugo Bracket"
+        type="Wall Mounted"
+        price="$102"
+        href="/monty-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-22_dpaxca.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Esme Bracket"
+        type="Wall Mounted"
+        price="$208"
+        href="/hugo-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668603028/Esme-brackets-black-2-2_lnm97b.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Leo Bracket"
+        type="Wall Mounted but Stabilized in the Ceiling"
+        price="$102"
+        href="/roux-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668603055/Black-Leo-Brass-1_Inch-Brackets-4_kdv1kn.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-  .container
+  .container(id="f-Standing-Units")
     .nAPrtBnB
       .nABnrTxt
-        h3.fontSerif.fw400 Standing
+        h3.fontSerif.fw400 Standing Units
         p Browse our selection of ceiling-mounted shelving brackets below. Each bracket is sold individually.
       .imgBox
         img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-4_p6ga0l.png' alt='')
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/78-round-iron-blanket-ladder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668603186/Roux-glass-unit-BLACK-all-colors-Recovered_rk9sjf.png' alt='')
-        .nAPdCdTxt
-          h5 Roux Bracket
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $309
-      .nAPdCd
-        a(href='/fitz-potrack-towel-holder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668603211/faye-brackets-only-2_ibywte.png' alt='')
-        .nAPdCdTxt
-          h5 Faye Bracket
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $232
+      ProductItem(
+        title="Roux Bracket"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$309"
+        href="/78-round-iron-blanket-ladder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668603186/Roux-glass-unit-BLACK-all-colors-Recovered_rk9sjf.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Faye Bracket"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$232"
+        href="/fitz-potrack-towel-holder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668603211/faye-brackets-only-2_ibywte.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-  .container
+  .container(id="f-Hidden-Brackets")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Hidden Brackets
@@ -142,20 +145,22 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories'
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/78-round-iron-blanket-ladder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668603436/FLOATING-SHELF-ROD-BRACKET-2-2__23867.1616966475-4_zby2hd.png' alt='')
-        .nAPdCdTxt
-          h5 Heavy Duty Rod Bracket
-          p.smallTxt Wall Mounted
-          p From $12
-      .nAPdCd
-        a(href='/fitz-potrack-towel-holder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668603475/FLOATING-WOOD-SHELF-BRACKET-ROD__15379.1625096965_drjyva.png' alt='')
-        .nAPdCdTxt
-          h5 Medium Duty Rod Bracket
-          p.smallTxt Wall Mounted
-          p From $10
+      ProductItem(
+        title="Heavy Duty Rod Bracket"
+        type="Wall Mounted"
+        price="$12"
+        href="/78-round-iron-blanket-ladder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668603436/FLOATING-SHELF-ROD-BRACKET-2-2__23867.1616966475-4_zby2hd.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Medium Duty Rod Bracket"
+        type="Wall Mounted"
+        price="$10"
+        href="/fitz-potrack-towel-holder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668603475/FLOATING-WOOD-SHELF-BRACKET-ROD__15379.1625096965_drjyva.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
@@ -233,12 +238,12 @@ Footer
 let filters = $ref([]);
 const filterItems = ref([
   {
-    id: 'f-Wall-Mounted',
-    text: 'Wall-Mounted'
-  },
-  {
     id: 'f-Ceiling-Mounted',
     text: 'Ceiling-Mounted'
+  },
+  {
+    id: 'f-Wall-Mounted',
+    text: 'Wall-Mounted'
   },
   {
     id: 'f-Standing-Units',

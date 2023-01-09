@@ -10,7 +10,7 @@ header.header
   nav.navbar
     .container.flexBox.flexJcb.flexAic
       .navMobi.flexInline.flexAic
-        button#menuBtn.menuBtn(type='button' role='button' onclick='menuToggle()')
+        button#menuBtn.menuBtn(ref="refMenuBtn" type='button' role='button' @click="menuToggle")
           span
           span
           span
@@ -35,38 +35,88 @@ header.header
                 .sMnOptn.sMnOptnSu
                   .sMnOpBox
                     .sMnOpImgBox
-                      img.sMnOpImg.show(src='https://res.cloudinary.com/ironabode/image/upload/v1663031601/menuU11_kajdfm.png' alt='')
+                      img.sMnOpImg.show(:src="hoverImages.ceilingMountedUnits[hoverImages.ceilingMountedUnitsIndex]" alt='')
                       img.sMnOpImg(src='' alt='')
                       img.sMnOpImg(src='' alt='')
                     .sMnOpLinkBox.flexBox.flexColumn.flexAis
                       h5
                         span CEILING MOUNTED UNITS
-                      a.sMnOpLink(href='/monty-shelving-unit/') MONTY BRACKETS
-                      a.sMnOpLink(href='/oslo-shelving-unit/') OSLO BRACKETS
-                      a.sMnOpLink(href='/riviera-shelving-unit/') RIVIERA BRACKETS
+                      a.sMnOpLink(
+                        href='/monty-shelving-unit/'
+                        @mouseenter="() => setHoverImage('ceilingMountedUnits', 0)"
+                        @mouseleave="() => setHoverImage('ceilingMountedUnits', -1)"
+                      )
+                        | MONTY UNIT
+                      a.sMnOpLink(
+                        href='/oslo-shelving-unit/'
+                        @mouseenter="() => setHoverImage('ceilingMountedUnits', 1)"
+                        @mouseleave="() => setHoverImage('ceilingMountedUnits', -1)"
+                      )
+                        | OSLO UNIT
+                      a.sMnOpLink(
+                        href='/riviera-shelving-unit/'
+                        @mouseenter="() => setHoverImage('ceilingMountedUnits', 2)"
+                        @mouseleave="() => setHoverImage('ceilingMountedUnits', -1)"
+                      )
+                        | RIVIERA UNIT
                   .sMnOpBox
                     .sMnOpImgBox
-                      img.sMnOpImg.show(src='https://res.cloudinary.com/ironabode/image/upload/v1663031601/menuU21_dltpvt.png' alt='')
+                      img.sMnOpImg.show(:src="hoverImages.wallMountedUnits[hoverImages.wallMountedUnitsIndex]" alt='')
                       img.sMnOpImg(src='' alt='')
                       img.sMnOpImg(src='' alt='')
                     .sMnOpLinkBox.flexBox.flexColumn.flexAis
                       h5
                         span WALL MOUNTED UNITS
-                      a.sMnOpLink(href='/esme-shelving-unit/') ESME BRACKETS
-                      a.sMnOpLink(href='/hugo-shelving-unit/') HUGO BRACKETS
-                      a.sMnOpLink(href='/monty-shelving-unit/') MONTY BRACKETS
-                      a.sMnOpLink(href='/leo-shelving-unit/') LEO BRACKETS
+                      a.sMnOpLink(
+                        href='/esme-shelving-unit/'
+                        @mouseenter="() => setHoverImage('wallMountedUnits', 0)"
+                        @mouseleave="() => setHoverImage('wallMountedUnits', -1)"
+                      )
+                        | ESME UNIT
+                      a.sMnOpLink(
+                        href='/hugo-shelving-unit/'
+                        @mouseenter="() => setHoverImage('wallMountedUnits', 1)"
+                        @mouseleave="() => setHoverImage('wallMountedUnits', -1)"
+                      )
+                        | HUGO UNIT
+                      a.sMnOpLink(
+                        href='/monty-shelving-unit/'
+                        @mouseenter="() => setHoverImage('wallMountedUnits', 2)"
+                        @mouseleave="() => setHoverImage('wallMountedUnits', -1)"
+                      )
+                        | MONTY UNIT
+                      a.sMnOpLink(
+                        href='/leo-shelving-unit/'
+                        @mouseenter="() => setHoverImage('wallMountedUnits', 3)"
+                        @mouseleave="() => setHoverImage('wallMountedUnits', -1)"
+                      )
+                        | LEO UNIT
                   .sMnOpBox
                     .sMnOpImgBox
-                      img.sMnOpImg.show(src='https://res.cloudinary.com/ironabode/image/upload/v1663031601/menuU31_svre6u.png' alt='')
+                      img.sMnOpImg.show(:src="hoverImages.standingUnits[hoverImages.standingUnitsIndex]" alt='')
                       img.sMnOpImg(src='' alt='')
                       img.sMnOpImg(src='' alt='')
                     .sMnOpLinkBox.flexBox.flexColumn.flexAis
                       h5
                         span STANDING UNITS
-                      a.sMnOpLink(href='/faye-shelving-unit/') FAYE BRACKETS
-                      a.sMnOpLink(href='/roux-shelving-unit/') ROUX BRACKETS
-                      a.sMnOpLink(href='/simon-shelving-unit/') SIMON BRACKETS
+                      a.sMnOpLink(
+                        href='/faye-shelving-unit/'
+                        @mouseenter="() => setHoverImage('standingUnits', 0)"
+                        @mouseleave="() => setHoverImage('standingUnits', -1)"
+                      )
+                        | FAYE UNIT
+                      a.sMnOpLink(
+                        href='/roux-shelving-unit/'
+                        @mouseenter="() => setHoverImage('standingUnits', 1)"
+                        @mouseleave="() => setHoverImage('standingUnits', -1)"
+                      )
+                        | ROUX UNIT
+                      a.sMnOpLink(
+                        href='/simon-shelving-unit/'
+                        @mouseenter="() => setHoverImage('standingUnits', 2)"
+                        @mouseleave="() => setHoverImage('standingUnits', -1)"
+                      )
+                        | SIMON UNIT
                   .sMnOpBox
                     .sMnOpImgBox
                       img.sMnOpImg.show(src='https://res.cloudinary.com/ironabode/image/upload/v1663031601/menuU41_w8c39a.png' alt='')
@@ -88,38 +138,83 @@ header.header
                 .sMnOptn.sMnOptnBk
                   .sMnOpBox
                     .sMnOpImgBox
-                      img.sMnOpImg.show(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuB11_ytnn7u.png' alt='')
+                      img.sMnOpImg.show(:src="hoverImages.ceilingMountedBrackets[hoverImages.ceilingMountedBracketsIndex]" alt='')
                       img.sMnOpImg(src='' alt='')
                       img.sMnOpImg(src='' alt='')
                     .sMnOpLinkBox.flexBox.flexColumn.flexAis
                       h5
                         span CEILING MOUNTED BRACKETS
-                      a.sMnOpLink(href='/monty-bracket/') MONTY BRACKETS
-                      a.sMnOpLink(href='/oslo-bracket/') OSLO BRACKETS
-                      a.sMnOpLink(href='/riviera-bracket/') RIVIERA BRACKETS
+                      a.sMnOpLink(
+                        href='/monty-bracket/'
+                        @mouseenter="() => setHoverImage('ceilingMountedBrackets', 0)"
+                        @mouseleave="() => setHoverImage('ceilingMountedBrackets', -1)"
+                      )
+                        | MONTY BRACKETS
+                      a.sMnOpLink(
+                        href='/oslo-bracket/'
+                        @mouseenter="() => setHoverImage('ceilingMountedBrackets', 1)"
+                        @mouseleave="() => setHoverImage('ceilingMountedBrackets', -1)"
+                      )
+                        | OSLO BRACKETS
+                      a.sMnOpLink(
+                        href='/riviera-bracket/'
+                        @mouseenter="() => setHoverImage('ceilingMountedBrackets', 2)"
+                        @mouseleave="() => setHoverImage('ceilingMountedBrackets', -1)"
+                      )
+                        | RIVIERA BRACKETS
                   .sMnOpBox
                     .sMnOpImgBox
-                      img.sMnOpImg.show(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuB21_nrbsta.png' alt='')
+                      img.sMnOpImg.show(:src="hoverImages.wallMountedBrackets[hoverImages.wallMountedBracketsIndex]" alt='')
                       img.sMnOpImg(src='' alt='')
                       img.sMnOpImg(src='' alt='')
                     .sMnOpLinkBox.flexBox.flexColumn.flexAis
                       h5
                         span WALL MOUNTED BRACKETS
-                      a.sMnOpLink(href='/esme-bracket/') ESME BRACKETS
-                      a.sMnOpLink(href='/hugo-bracket/') HUGO BRACKETS
-                      a.sMnOpLink(href='/monty-bracket') MONTY BRACKETS
+                      a.sMnOpLink(
+                        href='/esme-bracket/'
+                        @mouseenter="() => setHoverImage('wallMountedBrackets', 0)"
+                        @mouseleave="() => setHoverImage('wallMountedBrackets', -1)"
+                      )
+                        | ESME BRACKETS
+                      a.sMnOpLink(
+                        href='/hugo-bracket/'
+                        @mouseenter="() => setHoverImage('wallMountedBrackets', 1)"
+                        @mouseleave="() => setHoverImage('wallMountedBrackets', -1)"
+                      )
+                        | HUGO BRACKETS
+                      a.sMnOpLink(
+                        href='/monty-bracket'
+                        @mouseenter="() => setHoverImage('wallMountedBrackets', 2)"
+                        @mouseleave="() => setHoverImage('wallMountedBrackets', -1)"
+                      )
+                        | MONTY BRACKETS
                       a.sMnOpLink(href='/leo-bracket/') LEO BRACKETS
                   .sMnOpBox
                     .sMnOpImgBox
-                      img.sMnOpImg.show(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menub31_zvdmxj.png' alt='')
+                      img.sMnOpImg.show(:src="hoverImages.standingMountedBrackets[hoverImages.standingMountedBracketsIndex]" alt='')
                       img.sMnOpImg(src='' alt='')
                       img.sMnOpImg(src='' alt='')
                     .sMnOpLinkBox.flexBox.flexColumn.flexAis
                       h5
                         span STANDING BRACKETS
-                      a.sMnOpLink(href='/faye-bracket/') FAYE BRACKETS
-                      a.sMnOpLink(href='/roux-bracket/') ROUX BRACKETS
-                      a.sMnOpLink(href='/simon-bracket/') SIMON BRACKETS
+                      a.sMnOpLink(
+                        href='/faye-bracket/'
+                        @mouseenter="() => setHoverImage('standingMountedBrackets', 0)"
+                        @mouseleave="() => setHoverImage('standingMountedBrackets', -1)"
+                      )
+                        | FAYE BRACKETS
+                      a.sMnOpLink(
+                        href='/roux-bracket/'
+                        @mouseenter="() => setHoverImage('standingMountedBrackets', 1)"
+                        @mouseleave="() => setHoverImage('standingMountedBrackets', -1)"
+                      )
+                        | ROUX BRACKETS
+                      a.sMnOpLink(
+                        href='/simon-bracket/'
+                        @mouseenter="() => setHoverImage('standingMountedBrackets', 2)"
+                        @mouseleave="() => setHoverImage('standingMountedBrackets', -1)"
+                      )
+                        | SIMON BRACKETS
         li.subMenu
           a(href='/accessories/') ACCESSORIES
           .subMenuBox
@@ -167,7 +262,7 @@ header.header
         a#cartBtn.cartBtn.navBtn.flexInline(href="/cart")
           CartSVG
           span.cartNo(v-if="!isLoading('cart')") {{useStore().cartData.cart.length}}
-    #menuMobi.menuMobi
+    #menuMobi.menuMobi(ref="refMenuMobi")
       .mmGrid
         a.mmGCard(href='#')
           .flexBox.flexJcb.flexAic
@@ -271,4 +366,73 @@ const props = defineProps({
 })
 
 let showSearch = $ref(false);
+const refMenuMobi = ref(null)
+const refMenuBtn = ref(null)
+
+const menuToggle = function () {
+  if (refMenuMobi.value) {
+    refMenuMobi.value.classList.toggle('open')
+    refMenuBtn.value.classList.toggle('on')
+  }
+}
+
+let hoverImageInterval = null
+
+const hoverImages = ref({
+  ceilingMountedUnitsIndex: 0,
+  wallMountedUnitsIndex: 0,
+  standingUnitsIndex: 0,
+  ceilingMountedBracketsIndex: 0,
+  wallMountedBracketsIndex: 0,
+  standingMountedBracketsIndex: 0,
+  ceilingMountedUnits: [
+    'https://res.cloudinary.com/ironabode/image/upload/v1663031601/menuU11_kajdfm.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671607044/Oslo-One-Inch-Front-Brackets-2_vzjcnt.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671607172/Riviera_liio8m.png'
+  ],
+  wallMountedUnits: [
+    'https://res.cloudinary.com/ironabode/image/upload/v1663031601/menuU21_dltpvt.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671607346/Hugo_uyn8yw.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671607419/Monty_unit_ldlxlp.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671607455/Leo_hypocv.png'
+  ],
+  standingUnits: [
+    'https://res.cloudinary.com/ironabode/image/upload/v1663031601/menuU31_svre6u.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671607542/Roux_vnbonm.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671607583/Simon_vabu4f.png'
+  ],
+  ceilingMountedBrackets: [
+    'https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuB11_ytnn7u.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuB11_ytnn7u.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuB11_ytnn7u.png'
+  ],
+  wallMountedBrackets: [
+    'https://res.cloudinary.com/ironabode/image/upload/v1671628747/Hugo_Bracket_Step_3_pcoca3.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671628794/Monty_Bracket_Step_3_jrzvml.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671628828/Leo_Bracket_Step_3_gjb0xf.png'
+  ],
+  standingMountedBrackets: [
+    'https://res.cloudinary.com/ironabode/image/upload/v1671629060/Roux_Bracket_and_wall_hkaorq.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671629060/Roux_Bracket_and_wall_hkaorq.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1671629082/Simon_lnrakb.png'
+  ]
+})
+
+const setHoverImage = function (type, index) {
+  console.log('here::', type, index)
+  clearInterval(hoverImageInterval)
+
+  const setIndex = function (index) {
+    hoverImages.value[`${type}Index`] = index
+  }
+
+  if (index < 0) {
+    hoverImageInterval = setInterval(() => {
+      clearInterval(hoverImageInterval)
+      setIndex(0)
+    }, 100)
+  } else {
+    setIndex(index)
+  }
+}
 </script>

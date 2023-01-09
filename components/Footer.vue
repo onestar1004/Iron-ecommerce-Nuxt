@@ -8,7 +8,8 @@ footer.footer.clrWhite
           input.emailInput(type='email' placeholder='email')
           p Join for exclusive deals, design inspiration, and more!
         .ftrLogo
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png' alt='')
+          a.brandLogo(href='/')
+            img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png' alt='')
   .ftrMain.bgGray
     .container
       .ftrMainBox
@@ -58,7 +59,7 @@ footer.footer.clrWhite
               li
                 a(href='/policies/') Shipping and Return Policies
               li
-                a(href='#') Start a Return
+                a(href='/my-account/') Start a Return
               li
                 a(href='/faq/') FAQ
               li
@@ -81,7 +82,7 @@ footer.footer.clrWhite
             div
               h5 CALL
               p (208) 258-9733
-          a.ftrCard(href='')
+          a.ftrCard(@click="onClickNeedHelp")
             div
               h5 LIVE CHAT
               p M-F 8:30-5:00 pm MST
@@ -89,3 +90,11 @@ footer.footer.clrWhite
     p.fontSerif &copy; IRON ABODE 2022. All Rights Reserved
 
 </template>
+
+
+<script setup>
+const onClickNeedHelp = function () {
+  const ele = document.getElementById('reamazeContactBtn')
+  ele && ele.click()
+}
+</script>

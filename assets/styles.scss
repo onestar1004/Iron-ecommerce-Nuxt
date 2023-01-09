@@ -1598,6 +1598,17 @@ textarea.fInput {
   .fltrList {
     gap: 18px;
   }
+  .fltrOptn .box {
+    width: 16px;
+    height: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    display: inline-block;
+  }
+  .fltrOptn .text {
+    margin-top: 2.5px;
+  }
   .fltrOptn a {
     display: inline-block;
     padding: 6px 10px;
@@ -1894,7 +1905,7 @@ textarea.fInput {
 
   .accHead {
     position: relative;
-    padding: 0 30px 0 20px;
+    padding: 8px 30px 8px 20px;
     background-color: rgba(77, 77, 77, 0.15);
     cursor: pointer;
 
@@ -1919,23 +1930,25 @@ textarea.fInput {
 
     .numberBox {
       margin-right: 12px;
-      height: 20px;
-      width: 24px;
+      height: 25px;
+      width: 30px;
       min-width: 24px;
       background-color: #4d4d4d;
       box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
       font-weight: 500;
       color: #fff;
-      line-height: 20px;
+      line-height: 26px;
       text-align: center;
+      font-size: 18px;
     }
 
     .opName {
       margin-right: 15px;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 500;
       white-space: nowrap;
       text-transform: uppercase;
+      color: #707070;
     }
 
     .opInfo {
@@ -1945,7 +1958,8 @@ textarea.fInput {
       display: inline-flex;
 
       .opInfoBtn {
-        height: 16px;
+        position: relative;
+        height: 22px;
         width: auto;
         cursor: pointer;
       }
@@ -1991,20 +2005,20 @@ textarea.fInput {
         left: -215px;
         padding: 15px 20px;
         margin-top: 10px;
-        width: 300px;
+        width: 400px;
         border-radius: 5px;
         background-color: #fff;
         filter: drop-shadow((-5px) -5px 6px rgba(0, 0, 0, 0.16));
         font-size: 16px;
         line-height: 1.2;
-        z-index: 20;
+        z-index: 300;
 
         &::before {
           content: "";
           position: absolute;
 
           /* left: calc(50% - 5px); */
-          left: 73%;
+          left: 55%;
           top: -5px;
           width: 10px;
           height: 10px;
@@ -2056,8 +2070,8 @@ textarea.fInput {
 
     .opCd {
       position: relative;
-      width: 85px;
-      height: 98px;
+      width: 148px;
+      height: 148px;
       border: 1px solid #707070;
       background-color: #fff;
       transition: all 0.3s;
@@ -2255,6 +2269,11 @@ textarea.fInput {
       font-size: 10px;
       font-weight: 500;
       cursor: pointer;
+      transition: scale 0.2s ease-in-out;
+
+      &:hover {
+        scale: 1.1;
+      }
 
       input {
         position: absolute;
@@ -2452,6 +2471,7 @@ textarea.fInput {
     padding: 20px 0;
     border-top: 1px solid #707070;
     border-bottom: 1px solid #707070;
+    margin-bottom: 90px;
   }
 
   .uniqRow {
@@ -3671,6 +3691,7 @@ textarea.fInput {
     position: relative;
     border: 1px solid #4d4d4d;
     height: auto;
+    z-index: 100;
 
     .hover-content {
       opacity: 0;
@@ -4236,13 +4257,22 @@ textarea.fInput {
   .cmnAccLst {
     h5 {
       margin-bottom: 5px;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500;
+      line-height: 48px;
     }
 
     p {
       margin-bottom: 10px;
-      font-size: 20px;
+      font-size: 18px;
+    }
+
+    ol, li {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    li {
+      margin-left: 28px;
     }
   }
 }
@@ -5324,7 +5354,7 @@ textarea.fInput {
   }
   .cmnPgGrid {
     display: grid;
-    grid-template-columns: 389px 0.90fr;
+    grid-template-columns: 200px 0.90fr;
     grid-gap: 40px;
   }
   .abUsInfo .abUsInB {
@@ -5973,12 +6003,25 @@ textarea.fInput {
   background-color: #fff;
 
   & .logoWrapper {
-    background-color: #4D4D4D;
-    padding: 16px;
-
     & img {
       width: auto;
-      height: 48px;
+      height: 256px;
+    }
+  }
+}
+
+.reamazeBtnWrapper {
+  position: fixed;
+  top: 40%;
+  left: 0;
+  width: auto;
+  z-index: 99999;
+}
+
+.polMain {
+  .infoBox {
+    h5, p {
+      font-size: 18px;
     }
   }
 }

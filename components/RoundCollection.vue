@@ -1,6 +1,5 @@
 <template lang="pug">
 .guide.wrapper
-Header
 section.nArrBnr
   .nABnrTxt
     h3.fontSerif.fw400 Round Collection
@@ -9,15 +8,7 @@ section.nArrBnr
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031631/banner-na-1_hzk1wx.png' alt='')
 section.nArrFltr.filterBox
   .container
-    .fltrAll
-      h4 FILTERS
-      .fltrList.flexBox.flexWrap
-        .fltrOptn
-          a(href='#') Shelving Units
-        .fltrOptn
-          a(href='#') Brackets
-        .fltrOptn
-          a(href='#') Accessories
+    filter-strip(:items="filterItems")
 section.nArrHow
   .container
     .secTop.txtCenter
@@ -40,7 +31,7 @@ section.nArrHow
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031594/howStep-4_izwjdk.svg' alt='')
         h5 CHOOSE YOUR SIZE
 section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
-  .container
+  .container(id="f-Shelving-Units")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Shelving Units
@@ -50,31 +41,34 @@ section.nArrPrtBn(v-if="!filters.length || filters.includes('Shelving')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/riviera-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png' alt='')
-        .nAPdCdTxt
-          h5 Riviera Unit
-          p.smallTxt Ceiling Mounted
-          p From $521
-      .nAPdCd
-        a(href='/monty-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592187/aged-brassEsme-One-Glass-Front_akqnwt.png' alt='')
-        .nAPdCdTxt
-          h5 Esme Unit
-          p.smallTxt Wall Mounted
-          p From $1,019
-      .nAPdCd
-        a(href='/oslo-shelving-unit/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592225/Roux-glass-unit-BLACK-all-colors-Recovered_luj8pv.png' alt='')
-        .nAPdCdTxt
-          h5 Roux Unit
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $1,221
+      ProductItem(
+        title="Riviera Unit"
+        type="Ceiling Mounted"
+        price="$521"
+        href="/riviera-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031603/new-arrival-11_y9tago.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Esme Unit"
+        type="Wall Mounted"
+        price="$1,019"
+        href="/monty-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668592187/aged-brassEsme-One-Glass-Front_akqnwt.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Roux Unit"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$1,221"
+        href="/oslo-shelving-unit/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668592225/Roux-glass-unit-BLACK-all-colors-Recovered_luj8pv.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/complete-shelving-units/') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
-  .container
+  .container(id="f-Brackets")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Brackets
@@ -84,31 +78,34 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
 section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/monty-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592715/1_xmtmap.png' alt='')
-        .nAPdCdTxt
-          h5 Riviera Bracket
-          p.smallTxt Ceiling Mounted
-          p From $116
-      .nAPdCd
-        a(href='/hugo-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1668592768/Esme-brackets-black-2-2_hxitpz.png' alt='')
-        .nAPdCdTxt
-          h5 Esme Bracket
-          p.smallTxt Wall Mounted
-          p From $208
-      .nAPdCd
-        a(href='/roux-bracket/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-23_jkfh5f.png' alt='')
-        .nAPdCdTxt
-          h5 Roux Bracket
-          p.smallTxt Wall Mounted but Stabilized on the Floor
-          p From $309
+      ProductItem(
+        title="Riviera Bracket"
+        type="Ceiling Mounted"
+        price="$116"
+        href="/monty-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668592715/1_xmtmap.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Esme Bracket"
+        type="Wall Mounted"
+        price="$208"
+        href="/hugo-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1668592768/Esme-brackets-black-2-2_hxitpz.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Roux Bracket"
+        type="Wall Mounted but Stabilized on the Floor"
+        price="$309"
+        href="/roux-bracket/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-23_jkfh5f.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/shelf-brackets/') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
-  .container
+  .container(id="f-Accessories")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Accessories
@@ -118,27 +115,22 @@ section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories'
 section.nArrPrdt(v-if="!filters.length || filters.includes('Accessories')")
   .container
     .nAPrdtGrid
-      .nAPdCd
-        a(href='/78-round-iron-blanket-ladder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-31_tjkfoy.png' alt='')
-        .nAPdCdTxt
-          h5 Margot Blanket Ladder
-          p.smallTxt Wall Mounted
-          p From $330
-      .nAPdCd(style="display: none;")
-        a(href='/fitz-potrack-towel-holder/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-32_wv9vi7.png' alt='')
-        .nAPdCdTxt
-          h5 Fitz Pot/Towel Rack
-          p.smallTxt Wall Mounted
-          p From $75
-      .nAPdCd
-        a(href='/remi-wall-hook/')
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-33_erwbhq.png' alt='')
-        .nAPdCdTxt
-          h5 Remi Wall Hook
-          p.smallTxt Wall Mounted
-          p From $99
+      ProductItem(
+        title="Margot Blanket Ladder"
+        type="Wall Mounted"
+        price="$330"
+        href="/78-round-iron-blanket-ladder/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031604/new-arrival-31_tjkfoy.png",
+        imageAlt=""
+      )
+      ProductItem(
+        title="Remi Wall Hook"
+        type="Wall Mounted"
+        price="$99"
+        href="/remi-wall-hook/"
+        imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-33_erwbhq.png",
+        imageAlt=""
+      )
     .btnBox.txtCenter
       a.btn.btnBg.btnWhiteBB(href='/accessories/') SEE MORE ACCESSORIES
 //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
@@ -214,4 +206,18 @@ Footer
 
 <script setup>
 let filters = $ref([]);
+const filterItems = ref([
+  {
+    id: 'f-Shelving-Units',
+    text: 'Shelving Units'
+  },
+  {
+    id: 'f-Brackets',
+    text: 'Brackets'
+  },
+  {
+    id: 'f-Accessories',
+    text: 'Accessories'
+  }
+]);
 </script>

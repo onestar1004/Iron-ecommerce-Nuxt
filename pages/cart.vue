@@ -1,8 +1,8 @@
 <template lang="pug">
 .cartPage
   .aboutUsPg.wrapper
-  Header
 
+  ReamazeButton
   SaveProductPopup(v-if="savingProduct" @close="savingProduct = false" @save="savingProduct = false; refreshUser();" :content="savingProduct")
 
 
@@ -95,15 +95,15 @@
             .btnBox
               a.btn.btnBg.btnBlGry.btnTxtWht(@click="openCheckout()") CONTINUE TO CHECKOUT
           .cSumLinks
-            .cSmLink.flexBox.flexJcb.flexAic
+            NuxtLink.cSmLink.flexBox.flexJcb.flexAic(to="/policies")
               h5 SHIPPING AND RETURN POLICIES
               div
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/arrow-right_tao85y.svg' alt='')
-            .cSmLink.flexBox.flexJcb.flexAic
+            a.cSmLink.flexBox.flexJcb.flexAic(@click="onClickNeedHelp")
               h5 NEED HELP? CONTACT OUR DESIGN TEAM
               div
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/arrow-right_tao85y.svg' alt='')
-            .cSmLink.flexBox.flexJcb.flexAic
+            NuxtLink.cSmLink.flexBox.flexJcb.flexAic(to="/trade-program")
               h5 JOIN OUR TRADE PROGRAM
               div
                 img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031603/arrow-right_tao85y.svg' alt='')
@@ -230,5 +230,10 @@ async function saveForLater(product) {
 
     endLoad('saving');
   }
+}
+
+const onClickNeedHelp = function () {
+  const ele = document.getElementById('reamazeContactBtn')
+  ele && ele.click()
 }
 </script>
