@@ -48,7 +48,14 @@
         select.cSelect(v-model="quantity")
           option(:value="n" v-for="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]") {{n}}
       div(v-if="content.title.includes('Bracket')")
-        BracketExplainerDropdown(:quantity="quantity" @change="value => quantity = value")
+        BracketExplainerDropdown(:quantity="quantity" @change="value => quantity = value" style="max-width: 99px;")
+        ProductQtyDetails
+          template(#text)
+            p(style="margin-bottom: 1.5rem;") Font is for one bracket. Installation hardware is included with your order.
+            p Please note that for the self lengths under 48", 2 brackets will be needed. 3 brackets will be needed for shelf lengths over 48
+          template(#meta)
+            img(src="https://res.cloudinary.com/ironabode/image/upload/v1666651315/Website_Icons-_Ladder_Icon_z2jspy.png")
+            p.highlightTextV1 Price is per 1 bracket
       div(v-if="!savedBoard()")
         label.saveBtn(@click="saveForLater()")
           span Save for later

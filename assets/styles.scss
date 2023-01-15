@@ -2025,13 +2025,6 @@ textarea.fInput {
           background-color: #fff;
           transform: rotate(45deg);
         }
-
-        a {
-          display: block;
-          margin-top: 5px;
-          color: #764c41;
-          text-decoration: underline;
-        }
       }
 
       .opInfoBtn.showMsg ~ .infoMsg {
@@ -6024,4 +6017,12 @@ textarea.fInput {
       font-size: 18px;
     }
   }
+}
+
+.highlightTextV1 {
+  background-color: #B6B2AD;
+  width: 100%;
+  padding: 2px auto;
+  font-size: 10px;
+  text-align: center;
 }
