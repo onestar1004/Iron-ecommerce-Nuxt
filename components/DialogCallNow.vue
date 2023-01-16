@@ -83,6 +83,18 @@ defineExpose({ show, hide })
         grid-column: span 7 / span 7;
         font-size: 14px;
       }
+
+      // Display breakpoint for extra small screen
+      @media (max-width: 600px) {
+        .title { grid-column: span 12 / span 12; }
+        .info { grid-column: span 12 / span 12; }
+      }
+
+      // Display breakpoint for small screen
+      @media (min-width: 600px) and (max-width: 960px) {
+        .title { grid-column: span 12 / span 12; }
+        .info { grid-column: span 12 / span 12; }
+      }
     }
   }
 }
