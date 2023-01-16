@@ -44,7 +44,7 @@ onMounted(() => {
   filter: drop-shadow((-5px) -5px 6px rgba(0, 0, 0, 0.16));
   padding: 40px;
   z-index: 600;
-  width: 512px;
+  width: 32vw;
   height: auto;
 
   &::before {
@@ -89,6 +89,37 @@ onMounted(() => {
     }
   }
 }
+
+@media (max-width: 600px) {
+  .infoBox {
+    width: 92vw;
+
+    .grid {
+      .item-info {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Display breakpoint for small screen
+@media (min-width: 600px) and (max-width: 960px) {
+  .infoBox {
+    width: 92vw;
+  }
+}
+
+// Display breakpoint for medium screen
+@media (min-width: 960px) and (max-width: 1264px) {}
+
+// Display breakpoint for large screen
+@media (min-width: 1264px) and (max-width: 1904px) {}
+
+// Display breakpoint for large screen
+@media (min-width: 1904px) and (max-width: 1904px) {}
+
+// Display breakpoint for large screen and more
+@media (min-width: 1904px) {}
 
 .p-info {
   text-align: center;
