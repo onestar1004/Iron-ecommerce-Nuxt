@@ -78,7 +78,7 @@ footer.footer.clrWhite
             div
               h5 EMAIL
               p help@ironabode.com
-          a.ftrCard(href='tel:2082589733')
+          a.ftrCard(@click="onClickCallCard")
             div
               h5 CALL
               p (208) 258-9733
@@ -89,12 +89,18 @@ footer.footer.clrWhite
   .copyRight.bgGray.clrBlack.txtCenter
     p.fontSerif &copy; IRON ABODE 2022. All Rights Reserved
 
+  DialogCallNow(ref="refDialogCallNow")
 </template>
 
 
 <script setup>
+const refDialogCallNow = ref(null)
 const onClickNeedHelp = function () {
   const ele = document.getElementById('reamazeContactBtn')
   ele && ele.click()
+}
+
+const onClickCallCard = function () {
+  refDialogCallNow.value.show()
 }
 </script>
