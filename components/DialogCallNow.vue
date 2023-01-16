@@ -6,8 +6,8 @@
         a.close-btn(@click="hide")
           img(src="/icon-close.svg" width="24" height="24")
       .title
-        a(href='tel:2082589733' style="font-weight: 500;") CALL NOW AT:
-        p(style="font-family: 'Cormorant Garamond', serif;") 208-258-9733
+        p(style="font-weight: 500;") CALL NOW AT:
+        a(href='tel:2082589733' style="font-family: 'Cormorant Garamond', serif;") 208-258-9733
       .info
         p Our office hours are 9 am to 5 pm MST. If calling outside these hours, please leave a voicemail and we will get back to you as soon as possible.
 </template>
