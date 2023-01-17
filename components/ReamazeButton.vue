@@ -1,6 +1,6 @@
 <template lang="pug">
 div.reamazeBtnWrapper
-  a(href="#" data-reamaze-lightbox="contact")
+  a(id="reamazeContactBtn" href="#" data-reamaze-lightbox="contact")
     img(src="/reamazeBtn.png" width="48px" height="auto")
 </template>
 

@@ -14,8 +14,10 @@ header.header
           span
           span
           span
-        a.searchMobi.navBtn.flexInline(href='#')
+        a.searchMobi.navBtn.flexInline(@click="showSearch=!showSearch")
           SearchSVG
+        GlobalSearch.mobileGlobal(v-if="showSearch && viewportWidth() < 800")
+
       a.brandLogo(href='/')
         img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png' alt='')
       ul.menuList.flexInline.flexJcb.flexAic.noList
@@ -44,19 +46,19 @@ header.header
                         @mouseenter="() => setHoverImage('ceilingMountedUnits', 0)"
                         @mouseleave="() => setHoverImage('ceilingMountedUnits', -1)"
                       )
-                        | MONTY BRACKETS
+                        | MONTY UNIT
                       a.sMnOpLink(
                         href='/oslo-shelving-unit/'
                         @mouseenter="() => setHoverImage('ceilingMountedUnits', 1)"
                         @mouseleave="() => setHoverImage('ceilingMountedUnits', -1)"
                       )
-                        | OSLO BRACKETS
+                        | OSLO UNIT
                       a.sMnOpLink(
                         href='/riviera-shelving-unit/'
                         @mouseenter="() => setHoverImage('ceilingMountedUnits', 2)"
                         @mouseleave="() => setHoverImage('ceilingMountedUnits', -1)"
                       )
-                        | RIVIERA BRACKETS
+                        | RIVIERA UNIT
                   .sMnOpBox
                     .sMnOpImgBox
                       img.sMnOpImg.show(:src="hoverImages.wallMountedUnits[hoverImages.wallMountedUnitsIndex]" alt='')
@@ -70,25 +72,25 @@ header.header
                         @mouseenter="() => setHoverImage('wallMountedUnits', 0)"
                         @mouseleave="() => setHoverImage('wallMountedUnits', -1)"
                       )
-                        | ESME BRACKETS
+                        | ESME UNIT
                       a.sMnOpLink(
                         href='/hugo-shelving-unit/'
                         @mouseenter="() => setHoverImage('wallMountedUnits', 1)"
                         @mouseleave="() => setHoverImage('wallMountedUnits', -1)"
                       )
-                        | HUGO BRACKETS
+                        | HUGO UNIT
                       a.sMnOpLink(
                         href='/monty-shelving-unit/'
                         @mouseenter="() => setHoverImage('wallMountedUnits', 2)"
                         @mouseleave="() => setHoverImage('wallMountedUnits', -1)"
                       )
-                        | MONTY BRACKETS
+                        | MONTY UNIT
                       a.sMnOpLink(
                         href='/leo-shelving-unit/'
                         @mouseenter="() => setHoverImage('wallMountedUnits', 3)"
                         @mouseleave="() => setHoverImage('wallMountedUnits', -1)"
                       )
-                        | LEO BRACKETS
+                        | LEO UNIT
                   .sMnOpBox
                     .sMnOpImgBox
                       img.sMnOpImg.show(:src="hoverImages.standingUnits[hoverImages.standingUnitsIndex]" alt='')
@@ -102,19 +104,19 @@ header.header
                         @mouseenter="() => setHoverImage('standingUnits', 0)"
                         @mouseleave="() => setHoverImage('standingUnits', -1)"
                       )
-                        | FAYE BRACKETS
+                        | FAYE UNIT
                       a.sMnOpLink(
                         href='/roux-shelving-unit/'
                         @mouseenter="() => setHoverImage('standingUnits', 1)"
                         @mouseleave="() => setHoverImage('standingUnits', -1)"
                       )
-                        | ROUX BRACKETS
+                        | ROUX UNIT
                       a.sMnOpLink(
                         href='/simon-shelving-unit/'
                         @mouseenter="() => setHoverImage('standingUnits', 2)"
                         @mouseleave="() => setHoverImage('standingUnits', -1)"
                       )
-                        | SIMON BRACKETS
+                        | SIMON UNIT
                   .sMnOpBox
                     .sMnOpImgBox
                       img.sMnOpImg.show(src='https://res.cloudinary.com/ironabode/image/upload/v1663031601/menuU41_w8c39a.png' alt='')
@@ -252,7 +254,8 @@ header.header
         li
           a(href='/best-sellers/') Best Sellers
       .navBtnBox.flexInline.flexAic
-        a.searchBtn.navBtn.flexInline(href='#')
+        GlobalSearch(v-if="showSearch && viewportWidth() > 800")
+        a.searchBtn.navBtn.flexInline(@click="showSearch=!showSearch")
           SearchSVG
         a.usrBtn.navBtn.flexInline(href='/my-account')
           AccountSVG
@@ -362,6 +365,7 @@ const props = defineProps({
   }
 })
 
+let showSearch = $ref(false);
 const refMenuMobi = ref(null)
 const refMenuBtn = ref(null)
 

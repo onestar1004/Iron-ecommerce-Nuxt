@@ -2,7 +2,11 @@
 .prodAbout
   h2.prodTitle.fontSerif #[slot(v-if="showCustom") Custom] {{content.title}}
 
-  p.prodTxt.fontSerif Handcrafted in the U.S | Free Shipping &amp; Exchanges* 
+  p(v-if="showCustom").prodTxt.fontSerif Handcrafted in the U.S | Free Shipping  | Custom items are non-returnable. 
+    br
+    a(href='#') *Exclusions Apply
+
+  p(v-else).prodTxt.fontSerif Handcrafted in the U.S | Free Shipping &amp; Exchanges* 
     br
     a(href='#') *Exclusions Apply
 
