@@ -135,6 +135,14 @@ table {
   font-family: "Cormorant Garamond", serif;
 }
 
+.fontCormorant {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.fontAvenir {
+  font-family: "Avenir", sans-serif;
+}
+
 .fsI {
   font-style: italic;
 }
@@ -1119,6 +1127,10 @@ textarea.fInput {
   .copyRight p {
     padding: 15px 0;
   }
+}
+
+.space-y-4 > * {
+  margin-top: 20px;
 }
 
 /**/
