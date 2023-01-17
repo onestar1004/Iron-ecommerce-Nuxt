@@ -5,7 +5,7 @@
   SignInPopup(v-if="loggingIn" @close="loggingIn = false")
 
   .prodOptn
-    .pOptnCard(v-for="(option, index) in filteredOptions()" :class="[optionClass(option), {'hiddenOption': !isAdmin() && hiddenOptions.includes(option.id), 'adminFaded': isAdmin() && hiddenOptions.includes(option.id)}]")
+    .pOptnCard(v-for="(option, index) in filteredOptions" :class="[optionClass(option), {'hiddenOption': !isAdmin() && hiddenOptions.includes(option.id), 'adminFaded': isAdmin() && hiddenOptions.includes(option.id)}]")
       .accHead(@click="openOption(option)" :class="{'active': openOptions.includes(option.id)}")
         .headInner.flexBox.flexAic
           span.numberBox {{optionNumber(option)}}
@@ -42,7 +42,7 @@
   .prodInfo
     .prodPrice.flexBox.flexJcc.flexAic
       p.fontSerif As Configured:
-      h3 {{currency(totalPrice(filteredOptions()) * quantity)}}
+      h3 {{currency(totalPrice(filteredOptions) * quantity)}}
     .selectBox.flexBox.flexJcb.flexAic
       div(v-if="!content.title.includes('Bracket')")
         select.cSelect(v-model="quantity")
@@ -90,11 +90,30 @@ let activeTooltip = $ref(null);
 
 let hiddenOptions = $ref([]);
 let refreshKey = $ref(0);
-const infoHoverId = ref('')
+const infoHoverId = ref('');
+
+const filteredOptions = $computed(() => {
+
+  if(!content.options) return [];
+
+  return content.options.filter(option => {
+    let showOption = ruleResults(option.rules);
+
+    if(!showCustom && option.custom_option) {
+      showOption = false;
+    }
+
+    if(showCustom && option.hide_when_custom) {
+      showOption = false;
+    }
+
+    return showOption;
+  });
+});
 
 watch($$(quantity), newQuantity => {
   if(newQuantity <= 0) newQuantity = 1;
-  quantity = parseFloat(newQuantity);
+  quantity = parseFloat(newQuantity) || 1;
 })
 
 watchEffect(() => {
@@ -146,7 +165,7 @@ function optionGroups(option) {
 
 async function calcPrices() {
   // Set Base Prices
-  for(let option of filteredOptions()) {
+  for(let option of filteredOptions) {
     for(let choice of option.choices) {
       if(!choice.price) choice.price = 0;
       choice.modified_price = parseFloat(choice.price);
@@ -155,7 +174,7 @@ async function calcPrices() {
   }
 
   // Calculate Final Price
-  for(let option of filteredOptions()) {
+  for(let option of filteredOptions) {
 
     let modifiers = null;
 
@@ -180,7 +199,7 @@ async function calcPrices() {
 
         if(!allRulesMet) continue;
 
-        for(let modifiedOption of filteredOptions()) {
+        for(let modifiedOption of filteredOptions) {
           if(modifiedOption.id == modifier.option_id) {
             for(let choice of modifiedOption.choices) {
               let formula = `${parseFloat(choice.modified_price)} ${modifier.operator} ${modifier.value}`;
@@ -362,7 +381,7 @@ function ruleResults(rules) {
 }
 
 function checkInvalidChoices() {
-  for(let option of filteredOptions()) {
+  for(let option of filteredOptions) {
     let validChoices = filteredChoices(option);
     if(option.selection && option.selection.label) {
       let isValidChoice = false;
@@ -399,27 +418,8 @@ function filteredChoices(option, group) {
   })
 }
 
-function filteredOptions() {
-
-  if(!content.options) return [];
-
-  return content.options.filter(option => {
-    let showOption = ruleResults(option.rules);
-
-    if(!showCustom && option.custom_option) {
-      showOption = false;
-    }
-
-    if(showCustom && option.hide_when_custom) {
-      showOption = false;
-    }
-
-    return showOption;
-  });
-}
-
 let visibleOptions = () => {
-  return filteredOptions().filter(option => {
+  return filteredOptions.filter(option => {
     let showOption = true;
     if(hiddenOptions.includes(option.id)) showOption = false;
     return showOption;
@@ -455,7 +455,7 @@ function openOption(option) {
 
 async function addToCart() {
   // Check if all required options are chosen
-  for(let option of filteredOptions()) {
+  for(let option of filteredOptions) {
     if(option.required && !option.selection) {
       Swal.fire({
         icon: 'error',
@@ -478,7 +478,7 @@ async function addToCart() {
   let cartItem = {
     title: content.title,
     url: content.url,
-    options: filteredOptions(),
+    options: filteredOptions,
     price: content.price,
     quantity: parseFloat(quantity) || 1,
     image: content.gallery[0].src,
