@@ -54,6 +54,7 @@
     Accessories(v-if="template == 'Accessories'")   
     FeaturedArticles(v-if="template == 'FeaturedArticles'")   
     ManufacturingQuestions(v-if="template == 'ManufacturingQuestions'")   
+    SquareCollection(v-if="template == 'SquareCollection'")   
     Cleaning(v-if="template == 'Cleaning'")  
 </template>
   
