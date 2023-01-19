@@ -6,7 +6,7 @@ div.menu-wrapper
         slot(name="text")
       .item-img
         slot(name="meta")
-  a(ref="refTriggerBtn").p-info(@click="show") Please see the details
+  a.p-info(ref="refTriggerBtn" @click="show") Please see the details
 </template>
 
 <script setup>
