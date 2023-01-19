@@ -71,6 +71,10 @@ section.nArrPrdt(v-show="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
       ProductItem(
+        :listInfo="[\
+          '70 + Length, Depth, and Height Options',\
+          '2 Bracket Thickness Options'\
+        ]"
         title="Riviera Unit"
         type="Ceiling Mounted"
         price="$521"
@@ -79,6 +83,10 @@ section.nArrPrdt(v-show="!filters.length || filters.includes('Shelving')")
         imageAlt=""
       )
       ProductItem(
+        :listInfo="[\
+          '70 + Length, Depth, and Height Options',\
+          '2 Bracket Thickness Options'\
+        ]"
         title="Monty Unit"
         type="Ceiling Mounted"
         price="$506"
@@ -87,6 +95,10 @@ section.nArrPrdt(v-show="!filters.length || filters.includes('Shelving')")
         imageAlt=""
       )
       ProductItem(
+        :listInfo="[\
+          '70 + Length, Depth, and Height Options',\
+          '2 Bracket Thickness Options'\
+        ]"
         title="Oslo Unit"
         type="Ceiling Mounted"
         price="$506"
@@ -236,6 +248,11 @@ const filterItems = ref([
   {
     id: 'f-Hidden-Bracket-Units',
     text: 'Hidden Bracket Units'
+  },
+  {
+    id: 'f-GLASS-SHELVES',
+    text: 'GLASS SHELVES',
+    routePath: '/glass-shelving-units'
   }
 ]);
 </script>

@@ -18,56 +18,49 @@
       .flexInline.flexGap2.flexAic
         p 5 Shelf Options
         .flexInline.flexGap2
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st1.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st2.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st3.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st4.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st1.jpg'})`}"
-          )
+          div.prdctOptionTile(v-for="(item, index) in shelfOptions" :key="`product-item-shelf-options-${uuidv4()}-${index}`" :style="{ backgroundImage: `url(${item.url})` }")
 
       .flexInline.flexGap2.flexAic
         p 7 Finish Options
         .flexInline.flexGap2
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st2.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st1.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st3.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st4.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st1.jpg'})`}"
-          )
-          div.prdctOptionTile(
-            :style="{ backgroundImage: `url(${'/demo-style-patterns/st2.jpg'})`}"
-          )
-      p 70+ Length, Depth, and Height Options
-      p 2 Bracket Thickness Options
+          div.prdctOptionTile(v-for="(item, index) in swatches" :key="`product-item-shelf-options-${uuidv4()}-${index}`" :style="{ backgroundImage: `url(${item.url})` }")
+      p(v-for="item in listInfo" :key="`product-item-${$uuid()}`") {{ item }}
 </template>
 
 <script setup>
-const props = defineProps([
-  'title',
-  'type',
-  'price',
-  'imageUrl',
-  'href',
-  'imageAlt'
-])
-const onHover = ref(false)
+import { v4 as uuidv4 } from 'uuid'
+import { shelfOptions, swatches } from '@/lib/product-values/shared/product-options'
 
+const props = defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
+  type: {
+    type: String,
+    default: '',
+  },
+  price: {
+    type: String,
+    default: ''
+  },
+  imageUrl: {
+    type: String,
+    default: ''
+  },
+  href: {
+    type: String,
+    default: ''
+  },
+  imageAlt: {
+    type: String,
+    default: ''
+  },
+  listInfo: {
+    type: Array,
+    default: []
+  }
+})
+
+const onHover = ref(false)
 </script>

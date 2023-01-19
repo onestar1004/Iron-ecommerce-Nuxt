@@ -1617,6 +1617,10 @@ textarea.fInput {
     border-width: 1px;
     border-color: black;
     display: inline-block;
+    
+    &[filled=true] {
+      background-color: black;
+    }
   }
   .fltrOptn .text {
     margin-top: 2.5px;
