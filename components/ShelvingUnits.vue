@@ -248,6 +248,11 @@ const filterItems = ref([
   {
     id: 'f-Hidden-Bracket-Units',
     text: 'Hidden Bracket Units'
+  },
+  {
+    id: 'f-GLASS-SHELVES',
+    text: 'GLASS SHELVES',
+    routePath: '/glass-shelving-units'
   }
 ]);
 </script>
