@@ -26,7 +26,7 @@ section.policySec.cmnSec
         #pShipping
           .polInfo
             .imgBox
-              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1663031616/policy-1_x6epch.png' alt='')
+              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1672783980/Policy%20and%20Other%20Photos/Policy-1_dlpilq.png' alt='')
             .infoBox.txtCenter
               h5 FAST & FREE SHIPPING
               p.fontSerif We don't believe in hidden shipping costs. That's why all orders to the Contiguous U.S ship free. Click the tabs below to learn more before placing your order.
@@ -44,7 +44,7 @@ section.policySec.cmnSec
                   p.fontSerif * We primarily use UPS, USPS, and sometimes FedEx to ship our orders. You must contact IRON ABODE for any special shipping requests (signature request, proof of delivery, preferred carrier) before placing your order.
                   p.fontSerif * We will only send our small items (Floating Rod Brackets & Wall Hooks) to a P.O Box. If you need other items sent to your P.O Box, additional costs will be required - please contact us before placing your order.
                   p.fontSerif * The shipping rate is calculated by weight of the product and the delivery address. * You will be sent a tracking number when your shipping label prints, please allow at least 12 hours for tracking information to be updated.
-                  p.fontSerif If you would like to return your order - do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will always be responsible for shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: Click here to request.
+                  p.fontSerif If you would like to return your order - do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will always be responsible for shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: #[a(href="/my-account/") click here to request.]
             .polAcc.cmnAccdn
               .accHead(@click="selectItem('Stan2')" :class="{'active': activeItem == 'Stan2'}") EXPEDITED SHIPPING
               .accList(v-if="activeItem == 'Stan2'")
@@ -61,8 +61,7 @@ section.policySec.cmnSec
                   p.fontSerif * If you notice the box your order arrives in looks damaged upon your arrival- take pictures of it immediately (within 48 hours of receipt). Failure to do this will make it so you're unable to submit a claim, if needed, with the carrier to get your money back.
                   p.fontSerif * Iron Abode will not be responsible if the carrier makes mistakes. However, we can and will help you with things that are in our control.
                   p.fontSerif * In case of damage we will work with you to resolve the issue to your satisfaction with expert product repair, parts replacement or an exchange. However, you must be able to provide proof of damage to the box and items with pictures within 72 hours of receipt.
-                  p.fontSerif
-                    a(href='#') CLICK HERE IF THERE WAS A PROBLEM WITH YOUR ORDER 
+                  p.fontSerif #[a(href="/my-account/") CLICK HERE.]
                   p.fontSerif * IRON ABODE will not be responsible for any items lost or stolen during shipping.
                   p.fontSerif * Note: If you are unsure whether or not your package is safe on your door step please require a signature (additional carrier fees may apply)- you must contact IRON ABODE before placing your order if you want to add this option.
             .polAcc.cmnAccdn
@@ -78,11 +77,11 @@ section.policySec.cmnSec
                     p.fontSerif * Units over 54in Overall Height, 3 shelves, or 40in Shelf Length 
                     p.fontSerif * Brackets over 54in Overall Height
                   p.fontSerif * Please note: We can only send a maximum of 3 sets of our 1/2in brackets or 2 sets for our 1in brackets due to International shipping restraints.
-                  p.fontSerif * If you would like to return your order- do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will always be responsible for shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: Click here to request.
+                  p.fontSerif * If you would like to return your order- do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will always be responsible for shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: #[a(href="/my-account/") click here to request]
         #pProtection
           .polInfo
             .imgBox
-              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1663031616/policy-2_tqzjmy.png' alt='')
+              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1672783987/Policy%20and%20Other%20Photos/Policy-2_c1qnym.png' alt='')
             .infoBox.txtCenter
               h5 FREE SHIPPING PROTECTION
               p.fontSerif
@@ -118,7 +117,7 @@ section.policySec.cmnSec
         #pWarranty
           .polInfo
             .imgBox
-              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1663031617/policy-3_z2rlxx.png' alt='')
+              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1672783985/Policy%20and%20Other%20Photos/Policy-3_liaqgd.png' alt='')
             .infoBox.txtCenter
               h5 2 YEAR WARRANTY
               p.fontSerif
@@ -128,7 +127,7 @@ section.policySec.cmnSec
               .accHead(@click="selectItem('Stan66')" :class="{'active': activeItem == 'Stan66'}") 2 YEAR WARRANTY
               .accList(v-if="activeItem == 'Stan66'")
                 .cmnAccLst
-                  p.fontSerif With each order we include this warranty card that explains the extent to what our warranty covers, regarding your brackets purchased here on our website:
+                  p.fontSerif With each order we include this warranty card that explains the extent to what our warranty covers, regarding your brackets purchased here on our website.
                   div
                     img(src='' alt='')
             .polAcc.cmnAccdn
@@ -142,7 +141,7 @@ section.policySec.cmnSec
         #pTime
           .polInfo
             .imgBox
-              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1663031617/policy-4_ii5lcn.png' alt='')
+              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1672784020/Policy%20and%20Other%20Photos/Policy-4_noovdt.jpg' alt='')
             .infoBox.txtCenter
               h5 PRODUCTION TIME
               p.fontSerif
@@ -175,7 +174,7 @@ section.policySec.cmnSec
         #pExchanges
           .polInfo
             .imgBox
-              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1663031617/policy-5_kb6djk.png' alt='')
+              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1672783990/Policy%20and%20Other%20Photos/Policy-5_ryazye.png' alt='')
             .infoBox.txtCenter
               h5 FREE EXCHANGES
               p.fontSerif
@@ -194,24 +193,26 @@ section.policySec.cmnSec
                   p.fontSerif Note: Anything that is not offered on our standard listings and requires you to leave a note to alter the product or have a custom listing made for you will not qualify for a free exchange.
                   h5 PRODUCTS THAT DO QUALIFY FOR FREE EXCHANGES
                   p.fontSerif * Standard brackets: 
-                    p.fontSerif * Overall Height: 
-                    p.fontSerif * 8in- 1 shelf, 30in- 2 shelf, 42in- 2 shelf or 3 shelf, 54in- 3 shelf or 4 shelf, 66in- 4 shelf or 5 shelf 
-                    p.fontSerif * Shelf Depth: 
-                    p.fontSerif *8in, 10in, 12in 
-                    p.fontSerif * Finish: 
-                    p.fontSerif * Aged Brass, Light Brass, Nickel, Dark Bronze, Beige, White, Black 
-                    p.fontSerif * Mounting Style 
-                    p.fontSerif * Monty Bracket Style: Only 1 type of mounting style ( Ceiling-Mount or Wall-Mount) 
-                    p.fontSerif * Hugo, Esme, Faye, Roux: Wall- Mount 
-                    p.fontSerif * Oslo, Riviera, Simon: Ceiling- Mount
-                  h5 IF YOU WOULD LIKE TO REQUEST AN EXCHANGE, CLICK HERE.
+                    p.fontSerif &emsp; * Overall Height: 
+                    p.fontSerif &emsp;&emsp; * 8in- 1 shelf, 30in- 2 shelf, 42in- 2 shelf or 3 shelf, 54in- 3 shelf or 4 shelf, 66in- 4 shelf or 5 shelf 
+                    p.fontSerif &emsp; * Shelf Depth: 
+                    p.fontSerif &emsp;&emsp; *8in, 10in, 12in 
+                    p.fontSerif &emsp; * Finish: 
+                    p.fontSerif &emsp;&emsp; * Aged Brass, Light Brass, Nickel, Dark Bronze, Beige, White, Black 
+                    p.fontSerif &emsp; * Mounting Style 
+                    p.fontSerif &emsp;&emsp; * Monty Bracket Style: Only 1 type of mounting style ( Ceiling-Mount or Wall-Mount) 
+                    p.fontSerif &emsp;&emsp; * Hugo, Esme, Faye, Roux: Wall- Mount 
+                    p.fontSerif &emsp;&emsp; * Oslo, Riviera, Simon: Ceiling- Mount
+                  h5 IF YOU WOULD LIKE TO REQUEST AN EXCHANGE, #[a(href="/my-account/") CLICK HERE.]
                   p.fontSerif * In order to receive your exchange fast:
-                  p.fontSerif 1. You should fill out the request form above. 
-                    p.fontSerif 2. Once your exchange is approved, you can checkout with the new product so we can start making it right away. 
-                    p.fontSerif 3. Next, carefully package up your return (see the return tab below for more information on how to do this correctly). 
-                    p.fontSerif 4. If we receive your return within our 60-day return window: we will inspect the return and give you a full refund if it arrives in its original condition. 
-                    p.fontSerif 5. Your account will be refunded within 2-5 days of receipt of your item.
-                  p.fontSerif * If you would like to exchange your order - do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will be responsible for these shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: If you would like to Request an Exchange, click here.
+                  ol.fontSerif 
+                    li You should fill out the request form above. 
+                    li Once your exchange is approved, you can checkout with the new product so we can start making it right away. 
+                    li Next, carefully package up your return (see the return tab below for more information on how to do this correctly). 
+                    li If we receive your return within our 60-day return window: we will inspect the return and give you a full refund if it arrives in its original condition. 
+                    li Your account will be refunded within 2-5 days of receipt of your item.
+                    li * If you would like to exchange your order - do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will be responsible for these shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: If you would like to Request an Exchange, #[a(href="/my-account/") CLICK HERE.]
+
             .polAcc.cmnAccdn
               .accHead(@click="selectItem('Stan10')" :class="{'active': activeItem == 'Stan10'}") 60 DAY EXCHANGE - ON EVERYTHING ELSE
               .accList(v-if="activeItem == 'Stan10'")
@@ -225,18 +226,19 @@ section.policySec.cmnSec
                   p.fontSerif * Standard sized home decor (blanket ladders, wine glass racks, hooks)
                   h5 PRODUCTS THAT DO QUALIFY FOR EXCHANGES (WITH 15% PRODUCTION AND SHIPPING FEE)
                   p.fontSerif * Uninstalled wood shelves with a depth of 8in+
-                  h5 IF YOU WOULD LIKE TO REQUEST AN EXCHANGE, CLICK HERE.
+                  h5 IF YOU WOULD LIKE TO REQUEST AN EXCHANGE, #[a(href="/my-account/") CLICK HERE.]
                   p.fontSerif * In order to receive your exchange fast:
-                  p.fontSerif 1. You should fill out the request form above. 
-                    p.fontSerif 2. Once your exchange is approved, you can checkout with the new product so we can start making it right away. 
-                    p.fontSerif 3. Next, carefully package up your return (see the return tab above for more information on how to do this correctly). 
-                    p.fontSerif 4. If we receive your return within our 60-day return window: we will inspect the return and give you a full refund minus the production and manufacturing fee, if it arrives in its original condition. 
-                    p.fontSerif 5. Your account will be refunded within 2-5 days of receipt of your item.
-                  p.fontSerif * If you would like to exchange your order- do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will be responsible for these shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: If you would like to Request an Exchange, click here.
+                  ol.fontSerif 
+                    li You should fill out the request form above. 
+                    li Once your exchange is approved, you can checkout with the new product so we can start making it right away. 
+                    li Next, carefully package up your return (see the return tab above for more information on how to do this correctly). 
+                    li If we receive your return within our 60-day return window: we will inspect the return and give you a full refund minus the production and manufacturing fee, if it arrives in its original condition.
+                    li Your account will be refunded within 2-5 days of receipt of your item.
+                    li * If you would like to exchange your order- do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will be responsible for these shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: If you would like to Request an Exchange, #[a(href="/my-account/") CLICK HERE.]
         #pReturn
           .polInfo
             .imgBox
-              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1663031618/policy-6_zbqout.png' alt='')
+              img.imgRes(src='https://res.cloudinary.com/ironabode/image/upload/v1672783976/Policy%20and%20Other%20Photos/Policy-6_dvafgq.png' alt='')
             .infoBox.txtCenter
               h5 RETURNS AND CANCELLATIONS
               p.fontSerif We know that home renovations come with a lot of unexpected twists. Our Return Policy won't be one of them. We offer a best in class return policy because, not only do we offer the most customizable standard options, but we also allow most of these to be returned or exchanged. To top it all off, we allow 60 Days for you to return most items- double what competitors offer. Please click the tabs below to see which products are eligible for returns before placing your order.
@@ -245,8 +247,7 @@ section.policySec.cmnSec
               .accHead(@click="selectItem('Stan11')" :class="{'active': activeItem == 'Stan11'}") 60 DAY RETURNS
               .accList(v-if="activeItem == 'Stan11'")
                 .cmnAccLst
-                  p
-                    a.txtDcUn(href='#') If you would like to Request a Return, click here. 
+                  .fontSerif: p If you would like to Request a Return, #[a(href="/my-account/") CLICK HERE.]
                   h5 Items That Are Accepted For Return:
                   p.fontSerif * Standard Bracket returns and exchanges will be accepted, within 60 days of the delivery confirmation date. 
                     p.fontSerif *Note: We must receive the return within 60 days of delivery. 
@@ -263,7 +264,7 @@ section.policySec.cmnSec
                     p.fontSerif * On all returns of our standard sized home decor (blanket ladders, wine glass racks, hooks), we charge a 20% manufacturing and shipping fee. 
                     p.fontSerif * The 15% manufacturing and shipping fee (brackets) and 30% manufacturing and shipping fee (wood shelves) is only applicable to returns on orders placed on or after March 10, 2022.
                   h5 How To Return:
-                  p.fontSerif * Fill out a Return Request Form: If you would like to Request a Return, click here. 
+                  p.fontSerif * Fill out a Return Request Form: If you would like to Request a Return, #[a(href="/my-account/") click here]
                     p.fontSerif * You can request a free return label on the form above, if you return request is approved. 
                     p.fontSerif * If your return request is approved, your items should be wrapped up tightly so there's no movement in the package. If there is a little movement in the package, the items will hit together in transit, resulting in a lot of loss in value. You will be responsible for this loss in value and it will be shown in the amount refunded to you.
                   h5 How You Will Be Refunded
@@ -271,7 +272,7 @@ section.policySec.cmnSec
                     p.fontSerif * The amount refunded to your account will be the original amount minus the manufacturing and shipping fee, as described above. Less will be refunded to your account if the return arrives to us in a damaged/poor condition. 
                     p.fontSerif * We do not reimburse shipping costs (we will be reimbursed for some of this cost through the manufacturing and shipping fee, as described above). 
                     p.fontSerif * Important: We will need to receive your return within 60 days of original delivery. If it arrives after 60 days, or includes custom items, your package will be rerouted back to you. 
-                    p.fontSerif * If you would like to return your order - do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will then be responsible for these shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: Click here to request.
+                    p.fontSerif * If you would like to return your order - do not refuse the package. The carrier will charge top dollar for return shipping if you refuse the package. The buyer will then be responsible for these shipping costs. Instead, go to this link to request a discounted return shipping label and start your return: #[a(href="/my-account/") click here to request]
             .polAcc.cmnAccdn
               .accHead(@click="selectItem('Stan12')" :class="{'active': activeItem == 'Stan12'}") CANCELLATIONS
               .accList(v-if="activeItem == 'Stan12'")

@@ -48,6 +48,16 @@ export const getImage = (parameters) => {
   }
 }
 
+export const createDebounce = () => {
+  let timeout = null;
+  return function (fnc, delayMs) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      fnc();
+    }, delayMs || 500);
+  }
+}
+
 export const smoothScroll = (data) => {
   let item = document.querySelector(data.element);
   let scroller = window;

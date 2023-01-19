@@ -6,19 +6,13 @@ section.tradeTop.pageTopSec
       h3.pageTitle Trade Program
       p.fontSerif Our artisan-made shelving + decor is truly one-of-a-kind and will instantly transform your projects to the next level. Scroll down to view the exclusive discounts and perks you get from joining the IRON ABODE Trade Program.
       a.btn.btnBg.btnWhiteBB(href='#perks') VIEW THE PERKS
-  .collabPrImg.prodImg
-    .prodImgBox
-      .pdImgSlide.flexBox
-        .pdImgCd
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031627/trade-1_pefxr1.png' alt='')
-        .pdImgCd
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031626/trade-2_yyspic.png' alt='')
-        .pdImgCd
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031627/trade-3_ejhxi3.png' alt='')
-        .pdImgCd
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031628/trade-4_cipnzc.png' alt='')
-        .pdImgCd
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1666909890/modends_tcvalz.png' alt='')
+  
+  Carousel(:items-to-show="2.5" :wrap-around="true" style="margin-bottom: 100px;")
+    Slide(v-for="(slide, index) in slides" :key="`trade-program-section-1-image-index-${index}`")
+      .carousel__item(:style="{ 'background-image': `url(${slide})` }")
+    template(#addons)
+      Navigation
+
 section.trdPerks
   .container
     .secTop.txtCenter
@@ -33,6 +27,7 @@ section.trdPerks
           p.fontSerif Free Trade Program Collection*
           p.fontSerif Free Shipping and Extended 90 returns or exchanges on standard sized bracket orders.
           p.fontSerif Unlimited access to our design team
+          a.btn.btnBg.btnWhiteBB(href='#join') JOIN NOW
           //- a.btn.btnBg.btnWhiteBB(href='#') JOIN NOW
       .trPrkCd
         .imgBox
@@ -44,6 +39,7 @@ section.trdPerks
           p.fontSerif Free Trade Program Collection*
           p.fontSerif Free Shipping and Extended 90 returns or exchanges on standard sized bracket orders.
           p.fontSerif Unlimited access to our design team
+          a.btn.btnBg.btnWhiteBB(href='#join') JOIN NOW
           //- a.btn.btnBg.btnWhiteBB(href='#') JOIN NOW
 section.trdColl
   .container
@@ -58,8 +54,12 @@ section.trdColl
         a.btn.btnBg.btnGry.btnTxtWht(href='/trade-program-collection/') GET THE COLLECTION
 section.trdForm.formSec
   .container
+    .secTop.txtCenter(style="margin-bottom: 120px;")
+      p.fontSerif
+        b Thank you for your Interest in partnering with us!
+      p.fontSerif We will be in touch with you soon.
     .frmBox
-      h4.frmTtl JOIN THE IRON ABODE TRADE PROGRAM
+      h4.frmTtl#join JOIN THE IRON ABODE TRADE PROGRAM
       form(action='')
         .frmGrid2
           .frmGrp
@@ -118,4 +118,21 @@ WhatMakesUnique
 Footer
 
 
-</template>p
+</template>
+
+<script setup>
+const slides = ref([
+  'https://res.cloudinary.com/ironabode/image/upload/v1663031627/trade-1_pefxr1.png',
+  'https://res.cloudinary.com/ironabode/image/upload/v1663031626/trade-2_yyspic.png',
+  'https://res.cloudinary.com/ironabode/image/upload/v1663031627/trade-3_ejhxi3.png',
+  'https://res.cloudinary.com/ironabode/image/upload/v1663031628/trade-4_cipnzc.png',
+  'https://res.cloudinary.com/ironabode/image/upload/v1666909890/modends_tcvalz.png'
+])
+</script>
+
+<style scoped>
+.carousel__item {
+  height: 565px;
+  width: 557px;
+}
+</style>

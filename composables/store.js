@@ -106,3 +106,7 @@ export const isLoading = (loader) => {
   let store = useStore();
   return store.isLoading(loader);
 }
+
+export const is = (loader) => {
+  return isLoading(loader);
+}

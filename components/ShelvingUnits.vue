@@ -8,17 +8,7 @@ section.nArrBnr
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031631/banner-na-1_hzk1wx.png' alt='')
 section.nArrFltr.filterBox
   .container
-    .fltrAll
-      h4 FILTERS
-      .fltrList.flexBox.flexWrap
-        .fltrOptn
-          a(@click="smoothScroll({element: '.ceilingMountedSection'})") Ceiling Mounted Units
-        .fltrOptn
-          a(href='#') Wall Mounted Units
-        .fltrOptn
-          a(href='#') Standing Units
-        .fltrOptn
-          a(href='#') Hidden Bracket Units
+    filter-strip(:items="filterItems")
         //- .fltrOptn
         //-   label
         //-     input.fCheckbox(type='checkbox' v-model="filters" value="Shelving")
@@ -70,7 +60,7 @@ section.nArrHow
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031594/howStep-4_izwjdk.svg' alt='')
         h5 CHOOSE YOUR SIZE
 section.nArrPrtBn(v-show="!filters.length || filters.includes('Shelving')")
-  .container.ceilingMountedSection
+  .container.ceilingMountedSection(id="f-Ceiling-Mounted-Units")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Ceiling Mounted Units
@@ -119,7 +109,7 @@ section.nArrPrdt(v-show="!filters.length || filters.includes('Shelving')")
     //- .btnBox.txtCenter
     //-   a.btn.btnBg.btnWhiteBB(href='#') SEE MORE SHELVING UNITS
 section.nArrPrtBn.bgGray(v-show="!filters.length || filters.includes('Brackets')")
-  .container
+  .container(id="f-Wall-Mounted-Units")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Wall Mounted Units
@@ -156,7 +146,7 @@ section.nArrPrdt(v-show="!filters.length || filters.includes('Brackets')")
     //- .btnBox.txtCenter
     //-   a.btn.btnBg.btnWhiteBB(href='#') SEE MORE BRACKETS
 section.nArrPrtBn.bgGray(v-show="!filters.length || filters.includes('Accessories')")
-  .container
+  .container(id="f-Standing-Units")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Standing Units
@@ -193,7 +183,7 @@ section.nArrPrdt(v-show="!filters.length || filters.includes('Accessories')")
     //- .btnBox.txtCenter
     //-   a.btn.btnBg.btnWhiteBB(href='#') SEE MORE ACCESSORIES
 section.nArrPrtBn.bgGray(v-show="!filters.length || filters.includes('Ready')")
-  .container
+  .container(id="f-Hidden-Bracket-Units")
     .nAPrtBnB
       .nABnrTxt
         h3.fontSerif.fw400 Hidden Brackets Units
@@ -241,4 +231,23 @@ if(useRoute().query.scroll) {
     smoothScroll({element: `.${useRoute().query.scroll}`});
   }, 1);
 }
+
+const filterItems = ref([
+  {
+    id: 'f-Ceiling-Mounted-Units',
+    text: 'Ceiling Mounted Units'
+  },
+  {
+    id: 'f-Wall-Mounted-Units',
+    text: 'Wall Mounted Units'
+  },
+  {
+    id: 'f-Standing-Units',
+    text: 'Standing-Units'
+  },
+  {
+    id: 'f-Hidden-Bracket-Units',
+    text: 'Hidden Bracket Units'
+  }
+]);
 </script>

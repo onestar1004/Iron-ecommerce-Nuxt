@@ -7,7 +7,22 @@
       .prGlThumb(v-for="image in filteredGallery()")
         a(@click="mainImage = image"): img(:src="getImage({image: image.src, width: 100, height: 100, type: 'c_fill'})")
 
+
   .lifestyleGallery.xlMore.xl.lg.md.sm(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length")
+    Carousel(id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide" :wrapAround="true")
+      template(#addons)
+        Navigation
+      Slide(v-for="(slide, index) in content.lifestyle_gallery" :key="`product-gallery-${index}`")
+        .carousel__item.hero(:style="{ 'background-image': `url(${getImage({ image: slide.src, width: 600, height: 600, type: 'c_fill' })})` }")
+
+    Carousel(id="thumbnail" :items-to-show="4" :wrap-around="true" v-model="currentSlide" style="margin-top: 22px;")
+      Slide(v-for="(slide, index) in content.lifestyle_gallery" :key="`product-gallery-thumbnail-${index}`")
+        .carousel__item.hero_thumbnail(
+          @click="() => slideTo(index - 1)"
+          :style="{ 'background-image': `url(${getImage({ image: slide.src, width: 100, height: 100, type: 'c_fill' })})` }"
+        )
+
+  .lifestyleGallery.xlMore.xl.lg.md.sm(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length" style="display: none;")
     .glide
       .glide__track(data-glide-el="track")
         .glide__slides
@@ -24,14 +39,6 @@
         .glide__slides
           .glide__slide(@click="setLifestyleImage(index)" v-for="(image, index) of content.lifestyle_gallery")
             .image: img(:src="getImage({image: image.src, width: 100, height: 100, type: 'c_fill'})")
-    //- .pMainGall.prodGall
-    //-   .prodMainImg
-    //-     .arrowLeft: i.fal.fa-chevron-left
-    //-     .image: img(:src="getImage({image: lifestyleImage.src, width: 600, height: 600, type: 'c_fill'})" v-if="lifestyleImage")
-    //-     .arrowRight: i.fal.fa-chevron-right
-    //-   .prodGlRow
-    //-     .prGlThumb(v-for="image in content.lifestyle_gallery")
-    //-       a(@click="lifestyleImage = image"): img(:src="getImage({image: image.src, width: 100, height: 100, type: 'c_fill'})")
 </template>
 
 <script setup>
@@ -49,6 +56,12 @@ onMounted(() => {
 
 function setLifestyleImage(index) {
   glideMain.go(`=${index}`);
+}
+
+const currentSlide = ref(0)
+
+const slideTo = function (val) {
+  currentSlide.value = val
 }
 
 function filteredGallery() {

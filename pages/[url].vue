@@ -6,7 +6,7 @@
   .heroLoading(v-if="!pageReady")
     .flexBox.flexJcc.flexAic(style="height: 100%;")
       .logoWrapper
-        img.animate-flicker(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/logo-white_jepwq2.png' alt='')
+        img.animate-flicker(src='https://res.cloudinary.com/ironabode/image/upload/v1671439563/loading_g9cuz0.gif' alt='')
   .urlWrapper
 
     Head
@@ -54,6 +54,7 @@
     Accessories(v-if="template == 'Accessories'")   
     FeaturedArticles(v-if="template == 'FeaturedArticles'")   
     ManufacturingQuestions(v-if="template == 'ManufacturingQuestions'")   
+    SquareCollection(v-if="template == 'SquareCollection'")   
     Cleaning(v-if="template == 'Cleaning'")  
 </template>
   

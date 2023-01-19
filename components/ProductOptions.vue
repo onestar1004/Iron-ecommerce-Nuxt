@@ -5,14 +5,14 @@
   SignInPopup(v-if="loggingIn" @close="loggingIn = false")
 
   .prodOptn
-    .pOptnCard(v-for="(option, index) in filteredOptions()" :class="[optionClass(option), {'hiddenOption': !isAdmin() && hiddenOptions.includes(option.id), 'adminFaded': isAdmin() && hiddenOptions.includes(option.id)}]")
+    .pOptnCard(v-for="(option, index) in filteredOptions" :class="[optionClass(option), {'hiddenOption': !isAdmin() && hiddenOptions.includes(option.id), 'adminFaded': isAdmin() && hiddenOptions.includes(option.id)}]")
       .accHead(@click="openOption(option)" :class="{'active': openOptions.includes(option.id)}")
         .headInner.flexBox.flexAic
           span.numberBox {{optionNumber(option)}}
           h5.opName {{option.label}} #[span.required(v-if="option.required") *]
 
-          .opInfo(@click="selectActiveTooltip(option); openOption(option)" v-if="option.explainer")
-            img.opInfoBtn.showMsg(src='https://res.cloudinary.com/ironabode/image/upload/v1663031595/info_wcxuyj.svg' alt='')
+          .opInfo(@click="selectActiveTooltip(option); openOption(option)" @mouseenter="() => infoHoverId = option.id" @mouseleave="() => infoHoverId = ''" v-if="option.explainer")
+            img.opInfoBtn.showMsg(:src="infoHoverId === option.id ? 'https://res.cloudinary.com/ironabode/image/upload/v1672552067/info_wcxuyj_1_negzrs.svg' : 'https://res.cloudinary.com/ironabode/image/upload/v1663031595/info_wcxuyj.svg'" alt='')
             span.infoHover Click for more information
             .infoMsg.fontSerif(v-if="activeTooltip == option.id" v-html="option.explainer")
 
@@ -42,11 +42,20 @@
   .prodInfo
     .prodPrice.flexBox.flexJcc.flexAic
       p.fontSerif As Configured:
-      h3 {{currency(totalPrice(filteredOptions()) * quantity)}}
+      h3 {{currency(totalPrice(filteredOptions) * quantity)}}
     .selectBox.flexBox.flexJcb.flexAic
-      div
+      div(v-if="!content.title.includes('Bracket')")
         select.cSelect(v-model="quantity")
           option(:value="n" v-for="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]") {{n}}
+      div(v-if="content.title.includes('Bracket')")
+        BracketExplainerDropdown(:quantity="quantity" @change="value => quantity = value" style="max-width: 99px;")
+        ProductQtyDetails
+          template(#text)
+            p(style="margin-bottom: 1.5rem;") Font is for one bracket. Installation hardware is included with your order.
+            p Please note that for the self lengths under 48", 2 brackets will be needed. 3 brackets will be needed for shelf lengths over 48
+          template(#meta)
+            img(src="https://res.cloudinary.com/ironabode/image/upload/v1666651315/Website_Icons-_Ladder_Icon_z2jspy.png")
+            p.highlightTextV1 Price is per 1 bracket
       div(v-if="!savedBoard()")
         label.saveBtn(@click="saveForLater()")
           span Save for later
@@ -58,7 +67,7 @@
       button.btn.btnBg.btnBlGry.btnTxtWht(@click="addToCart()" v-if="!isLoading('adding')") ADD TO CART
       button.btn.btnBg.btnBlGry.btnTxtWht(v-if="isLoading('adding')") #[i.fas.fa-spin.fa-spinner]
       button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = true; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="!showCustom && !content.hide_custom") CUSTOMIZE IT FURTHER
-      button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = false; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="showCustom") #[i.fal.fa-arrow-left] BACK TO SIMPLE VIEW
+      button.btn.btnBg.btnGry.btnTxtWht(@click="showCustom = false; checkInvalidChoices(); calcPrices(); $emit('showCustom', showCustom); $emit('change', content);" v-if="showCustom") #[i.fal.fa-arrow-left] BACK TO STANDARD
 
     //- TODO: Delivery Estimate Process + Affirm Integration
     //- .footTxt.txtCenter
@@ -81,10 +90,30 @@ let activeTooltip = $ref(null);
 
 let hiddenOptions = $ref([]);
 let refreshKey = $ref(0);
+const infoHoverId = ref('');
+
+const filteredOptions = $computed(() => {
+
+  if(!content.options) return [];
+
+  return content.options.filter(option => {
+    let showOption = ruleResults(option.rules);
+
+    if(!showCustom && option.custom_option) {
+      showOption = false;
+    }
+
+    if(showCustom && option.hide_when_custom) {
+      showOption = false;
+    }
+
+    return showOption;
+  });
+});
 
 watch($$(quantity), newQuantity => {
   if(newQuantity <= 0) newQuantity = 1;
-  quantity = parseFloat(newQuantity);
+  quantity = parseFloat(newQuantity) || 1;
 })
 
 watchEffect(() => {
@@ -136,7 +165,7 @@ function optionGroups(option) {
 
 async function calcPrices() {
   // Set Base Prices
-  for(let option of filteredOptions()) {
+  for(let option of filteredOptions) {
     for(let choice of option.choices) {
       if(!choice.price) choice.price = 0;
       choice.modified_price = parseFloat(choice.price);
@@ -145,7 +174,7 @@ async function calcPrices() {
   }
 
   // Calculate Final Price
-  for(let option of filteredOptions()) {
+  for(let option of filteredOptions) {
 
     let modifiers = null;
 
@@ -170,7 +199,7 @@ async function calcPrices() {
 
         if(!allRulesMet) continue;
 
-        for(let modifiedOption of filteredOptions()) {
+        for(let modifiedOption of filteredOptions) {
           if(modifiedOption.id == modifier.option_id) {
             for(let choice of modifiedOption.choices) {
               let formula = `${parseFloat(choice.modified_price)} ${modifier.operator} ${modifier.value}`;
@@ -195,6 +224,7 @@ async function handlePreselections() {
 
     if(!selection.option_id) continue;
     if(!selection.choice_id) continue;
+    if(!content.options) continue;
 
     for(let option of content.options) {
       if(option.id == selection.option_id) {
@@ -351,7 +381,7 @@ function ruleResults(rules) {
 }
 
 function checkInvalidChoices() {
-  for(let option of filteredOptions()) {
+  for(let option of filteredOptions) {
     let validChoices = filteredChoices(option);
     if(option.selection && option.selection.label) {
       let isValidChoice = false;
@@ -388,24 +418,8 @@ function filteredChoices(option, group) {
   })
 }
 
-function filteredOptions() {
-  return content.options.filter(option => {
-    let showOption = ruleResults(option.rules);
-
-    if(!showCustom && option.custom_option) {
-      showOption = false;
-    }
-
-    if(showCustom && option.hide_when_custom) {
-      showOption = false;
-    }
-
-    return showOption;
-  });
-}
-
 let visibleOptions = () => {
-  return filteredOptions().filter(option => {
+  return filteredOptions.filter(option => {
     let showOption = true;
     if(hiddenOptions.includes(option.id)) showOption = false;
     return showOption;
@@ -441,7 +455,7 @@ function openOption(option) {
 
 async function addToCart() {
   // Check if all required options are chosen
-  for(let option of filteredOptions()) {
+  for(let option of filteredOptions) {
     if(option.required && !option.selection) {
       Swal.fire({
         icon: 'error',
@@ -464,7 +478,7 @@ async function addToCart() {
   let cartItem = {
     title: content.title,
     url: content.url,
-    options: filteredOptions(),
+    options: filteredOptions,
     price: content.price,
     quantity: parseFloat(quantity) || 1,
     image: content.gallery[0].src,

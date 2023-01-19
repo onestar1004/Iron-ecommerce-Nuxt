@@ -31,7 +31,7 @@
             img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031626/theDiff-1_gk4n4m.png' alt='')
           .tDifInfo
             h4
-              span.fontSerif BEFORE |
+              span.fontSerif BEFORE | 
               span MAINSTREAM SHELVING
             p There's no focal point in this space. Also, there's too much of the same color and material (wood) which makes the space feel a little bland.
             // <a href="#" class="txtLink">Read More</a>
@@ -86,7 +86,7 @@
         .howSVideo
           .videoBox
             .videoLink
-              iframe(src='https://www.youtube.com/embed/428GSCXCMoE' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='' width='560' height='315' frameborder='0')
+              iframe(src='https://www.youtube.com/embed/KfxdxLPJlzU' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='' width='560' height='315' frameborder='0')
           .btnBox.txtCenter
             a.btn.btnBg.btnBlGry.btnTxtWht(href='/complete-shelving-units/') BUILD YOUR OWN
         .howSInfo
