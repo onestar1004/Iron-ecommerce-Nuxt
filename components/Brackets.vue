@@ -42,6 +42,10 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
   .container
     .nAPrdtGrid
       ProductItem(
+        :listInfo="[\
+          '10+ Depth, and Height Options',\
+          '2 Bracket Thickness Options'\
+        ]"
         title="Riviera Bracket"
         type="Ceiling Mounted"
         price="$110"
@@ -50,6 +54,10 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
         imageAlt=""
       )
       ProductItem(
+        :listInfo="[\
+          '10+ Depth, and Height Options',\
+          '2 Bracket Thickness Options'\
+        ]"
         title="Monty Bracket"
         type="Ceiling Mounted"
         price="$102"
@@ -58,6 +66,10 @@ section.nArrPrdt(v-if="!filters.length || filters.includes('Shelving')")
         imageAlt=""
       )
       ProductItem(
+        :listInfo="[\
+          '10+ Depth, and Height Options',\
+          '2 Bracket Thickness Options'\
+        ]"
         title="Oslo Bracket"
         type="Ceiling Mounted"
         price="$102"

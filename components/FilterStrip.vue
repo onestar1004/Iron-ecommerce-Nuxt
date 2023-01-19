@@ -10,13 +10,17 @@
             span.text {{ item.text }}
         a(v-else :href="`#${item.id}`")
           .flexBox(style="align-items: center; gap: 10px;")
-            .box
+            .box(:filled="filledItems.findIndex(x => x === (item.text || '').toUpperCase()) > -1")
             span.text {{ item.text }}
 </template>
 
 <script setup>
 const props = defineProps({
   items: {
+    type: Array,
+    default: []
+  },
+  filledItems: {
     type: Array,
     default: []
   }

@@ -8,7 +8,7 @@ section.nArrBnr
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1668162916/monty-whitewashed-white-oak-shelving-in-bar-2_xkjfas.png' alt='')
 section.nArrFltr.filterBox
   .container
-    filter-strip(:items="filterItems")
+    filter-strip(:items="filterItems" :filled-items=['GLASS SHELVES'])
 section.nArrHow
   .container
     .secTop.txtCenter
