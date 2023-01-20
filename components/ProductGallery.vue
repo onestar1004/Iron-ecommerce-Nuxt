@@ -51,7 +51,7 @@ onMounted(() => {
   setTimeout(() => {
     glideMain = new Glide('.glide').mount();
     glideThumbnails = new Glide('.glideThumbnails', { perView: content.lifestyle_gallery.length, bound: content.lifestyle_gallery.length }).mount();
-  }, 100);
+  }, 800);
 })
 
 function setLifestyleImage(index) {
