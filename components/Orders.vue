@@ -3,40 +3,40 @@
   .tabOdr
     #tOdrList.tOdrList.tabX
       .loading(v-if="isLoading('grabbingOrders')"): i.fas.fa-spin.fa-spinner
-      .tabXList
-        .tabXCard(v-for="order in orders")
-          .orderNo Order {{'#' + order.order_id}}
-          .itemLabel Items ({{order.cart.cart.length}})
-          .items
-            .item(v-for="item in order.cart.cart" style="margin: 30px 0;")
+      .div(v-for="order in orders")
+        .orderNo Order {{'#' + order.order_id}}
+        .itemLabel Items ({{order.cart.cart.length}})
+        .orders-wrapper(style="margin: 48px auto")
+          .order-item(v-for="item in order.cart.cart")
+            .tabXCard
               h4.tabXCdTtl {{item.title}}
-              .tabXCdInfo
-                .tabXCdImg
-                  img.imgRes(:src="getImage({image: item.image, width: 250, height: 250, type: 'c_fill'})")
-                .tabXCdTxt
-                  .options
-                    .option(v-for="option in item.options")
-                      .label #[b {{option.label}}:]
-                      .selection {{option.selection.label}} #[span.price(v-if="option.selection.price") {{currency(option.selection.price)}}]
+                .tabXCdInfo
+                  .tabXCdImg
+                    img.imgRes(:src="getImage({image: item.image, width: 250, height: 250, type: 'c_fill'})")
+                  .tabXCdTxt
+                    .options
+                      .option(v-for="option in item.options")
+                        .label #[b {{option.label}}:]
+                        .selection {{option.selection.label}} #[span.price(v-if="option.selection.price") {{currency(option.selection.price)}}]
 
               a.secondaryBTN.small(@click="returnOrder = order; returnItem = item;") Return {{item.title}}
+              .clear(style="height: 30px;")
 
-          .clear(style="height: 30px;")
+        .totals
+          .total.subTotal
+            .label Sub Total
+            .value {{currency(order.sub_total)}}
+          .total.tax
+            .label Tax
+            .value {{currency(order.tax)}}
+          .total.grandTotal
+            .label Total
+            .value {{currency(order.total)}}
 
-          .totals
-            .total.subTotal
-              .label Sub Total
-              .value {{currency(order.sub_total)}}
-            .total.tax
-              .label Tax
-              .value {{currency(order.tax)}}
-            .total.grandTotal
-              .label Total
-              .value {{currency(order.total)}}
-
-          .btnBox
-            //- button.orTbBtnSm.btn.btnBg.btnGry.btnTxtWht(onclick='showNext(tOdrDtl, tOdrList)') VIEW
-            button.orTbBtnSm.btn.btnBg.btnWhiteBB TRACK
+        .btnBox
+          //- button.orTbBtnSm.btn.btnBg.btnGry.btnTxtWht(onclick='showNext(tOdrDtl, tOdrList)') VIEW
+          button.orTbBtnSm.btn.btnBg.btnWhiteBB TRACK
+  
     //- #tOdrDtl.tOdrDtl
     //-   .topBox
     //-     .txtCenter
@@ -73,3 +73,42 @@ endLoad('grabbingOrders');
 let returnItem = $ref(null);
 let returnOrder = $ref(null);
 </script>
+
+<style scoped lang="scss">
+.orders-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.75rem; 
+
+  .order-item {
+    grid-column: span 6 / span 6;
+  }
+
+  @media (max-width: 600px) {
+    .order-item {
+      grid-column: span 12 / span 12;
+    }
+  }
+
+  // Display breakpoint for small screen
+  @media (min-width: 600px) and (max-width: 960px) {
+    .order-item {
+      grid-column: span 12 / span 12;
+    }
+  }
+
+  // Display breakpoint for medium screen
+  @media (min-width: 960px) and (max-width: 1264px) {
+    .order-item {
+      grid-column: span 6 / span 6;
+    }
+  }
+
+  // Display breakpoint for large screen
+  @media (min-width: 1264px) and (max-width: 1904px) {
+    .order-item {
+      grid-column: span 6 / span 6;
+    }
+  }
+}
+</style>
