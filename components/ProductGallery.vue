@@ -22,7 +22,7 @@
           :style="{ 'background-image': `url(${getImage({ image: slide.src, width: 100, height: 100, type: 'c_fill' })})` }"
         )
 
-  .lifestyleGallery.xlMore.xl.lg.md.sm(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length" style="display: none;")
+  //- .lifestyleGallery.xlMore.xl.lg.md.sm(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length" style="display: none;")
     .glide
       .glide__track(data-glide-el="track")
         .glide__slides
@@ -48,10 +48,10 @@ let mainImage = $ref(filteredGallery()[0]);
 let glideMain;
 let glideThumbnails;
 onMounted(() => {
-  setTimeout(() => {
-    glideMain = new Glide('.glide').mount();
-    glideThumbnails = new Glide('.glideThumbnails', { perView: content.lifestyle_gallery.length, bound: content.lifestyle_gallery.length }).mount();
-  }, 800);
+  // setTimeout(() => {
+  //   glideMain = new Glide('.glide').mount();
+  //   glideThumbnails = new Glide('.glideThumbnails', { perView: content.lifestyle_gallery.length, bound: content.lifestyle_gallery.length }).mount();
+  // }, 800);
 })
 
 function setLifestyleImage(index) {
