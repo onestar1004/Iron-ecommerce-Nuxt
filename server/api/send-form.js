@@ -3,9 +3,14 @@ import {default as db} from '~/composables/db-tools.js';
 import postmark from 'postmark';
 const mail = new postmark.Client(process.env.postmark_token);
 import {emailHeader, emailFooter, emailButton} from '~/composables/emailTemplates';
+import {fetchPost} from '~/composables/fetchingTools.js';
 
 export default defineEventHandler(async event => {
+  console.log('sending a form');
   let {formData, emailParameters} = await readBody(event);
+  let user = await fetchPost('/api/get-user', {authToken: getCookie(event, useRuntimeConfig().public.auth_cookie)});
+
+  if(user) formData.email = user.email;
 
   if(formData.email) {
     let table = `<table width="100%" border="1" cellpadding="10" cellspacing="1">`;
@@ -18,14 +23,21 @@ export default defineEventHandler(async event => {
         }
       }
 
-      if(key == 'selectedProducts') {
+      if(key == 'selectedProducts') response = null;
+
+      if(key == 'selectedProducts' && formData[key].length) {
         response = '';
-        for(let product of formData[key]) {
-          response += `<p><b>${product.title}</b><br>`
+        for(let i in formData[key]) {
+          response += '<p>';
+          let product = formData[key][i];
+          if(product.order_id) {
+            response += `<b>Order ID: ${product.order_id}</b><br>`;
+          }
+          response += `<b>${product.title}</b><br>`;
 
           for(let option of product.options) {
             if(option.selection) {
-              response += `${option.label}: ${option.selection.label} <br>`;
+              response += `<small>${option.label}: ${option.selection.label}</small> <br>`;
             }
           }
 
@@ -33,7 +45,7 @@ export default defineEventHandler(async event => {
         }
       }
 
-      table += `<tr><th style="text-align: right;">${key}</th><td>${response}</td></tr>`;
+      if(response) table += `<tr><th style="text-align: right;">${key}</th><td>${response}</td></tr>`;
     }
     table += `</table>`
 
@@ -49,6 +61,12 @@ export default defineEventHandler(async event => {
       ReplyTo: formData.email,
       Subject: emailParameters.subject,
       HtmlBody: html
+    })
+    .then(response => {
+      console.log(response, 'email response');
+    })
+    .catch(error => {
+      console.error(error.message, 'error sending form');
     })
   }
 

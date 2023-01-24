@@ -3,7 +3,7 @@
   .tabOdr
     #tOdrList.tOdrList.tabX
       .loading(v-if="isLoading('grabbingOrders')"): i.fas.fa-spin.fa-spinner
-      .div(v-for="order in orders")
+      .div.accountOrder(v-for="order in orders")
         .orderNo Order {{'#' + order.order_id}}
         .itemLabel Items ({{order.cart.cart.length}})
         .orders-wrapper(style="margin: 48px auto")
@@ -19,7 +19,7 @@
                         .label #[b {{option.label}}:]
                         .selection {{option.selection.label}} #[span.price(v-if="option.selection.price") {{currency(option.selection.price)}}]
 
-              a.secondaryBTN.small(@click="returnOrder = order; returnItem = item;") Return {{item.title}}
+              NuxtLink.secondaryBTN.small(to="/return") Return {{item.title}}
               .clear(style="height: 30px;")
 
         .totals
@@ -35,7 +35,7 @@
 
         .btnBox
           //- button.orTbBtnSm.btn.btnBg.btnGry.btnTxtWht(onclick='showNext(tOdrDtl, tOdrList)') VIEW
-          button.orTbBtnSm.btn.btnBg.btnWhiteBB TRACK
+          //- button.orTbBtnSm.btn.btnBg.btnWhiteBB TRACK
   
     //- #tOdrDtl.tOdrDtl
     //-   .topBox
