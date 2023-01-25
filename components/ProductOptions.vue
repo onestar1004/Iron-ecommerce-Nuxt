@@ -238,13 +238,14 @@ async function handlePreselections() {
         for(let choice of option.choices) {
           if(choice.id == selection.choice_id) {
             option.selection = choice; 
-            checkInvalidChoices();
-            calcPrices();
           }
         }
       }
     }
   }
+
+  checkInvalidChoices();
+  calcPrices();
   refreshKey++;
   $emit('change', content);
 }

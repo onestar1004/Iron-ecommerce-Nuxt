@@ -15,7 +15,7 @@
         .prodDtls
           ProductAbout(:content="content" :showCustom="showCustom")
 
-          ProductOptions(:content="content" @change="newContent => setupContent(newContent)" @showCustom="value => showCustom = value")
+          ProductOptions(:content="content" v-if="content && content.options" @change="newContent => setupContent(newContent)" @showCustom="value => showCustom = value")
 
   //- .lifestyleGallery.xs(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length" style="margin-top: -240px;")
     .glide
