@@ -9,13 +9,13 @@
 
 
   .lifestyleGallery.xlMore.xl.lg.md.sm(v-if="content.lifestyle_gallery && content.lifestyle_gallery.length")
-    Carousel(id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide" :wrapAround="true")
+    Carousel(ref="mainCarousel" id="gallery" :items-to-show="1" :wrap-around="false" :wrapAround="true" @slide-end="v => mainSlideIndex = v.currentSlideIndex")
       template(#addons)
         Navigation
       Slide(v-for="(slide, index) in content.lifestyle_gallery" :key="`product-gallery-${index}`")
         .carousel__item.hero(:style="{ 'background-image': `url(${getImage({ image: slide.src, width: 600, height: 600, type: 'c_fill' })})` }")
 
-    Carousel(id="thumbnail" :items-to-show="4" :wrap-around="true" v-model="currentSlide" style="margin-top: 22px;")
+    Carousel(ref="subCarousel" id="thumbnail" :items-to-show="4" :wrap-around="true" style="margin-top: 22px;" @slide-end="v => subSlideIndex = v.currentSlideIndex")
       Slide(v-for="(slide, index) in content.lifestyle_gallery" :key="`product-gallery-thumbnail-${index}`")
         .carousel__item.hero_thumbnail(
           @click="() => slideTo(index - 1)"
@@ -58,11 +58,26 @@ function setLifestyleImage(index) {
   glideMain.go(`=${index}`);
 }
 
-const currentSlide = ref(0)
+const mainSlideIndex = ref(0)
+const subSlideIndex = ref(0)
+
+const mainCarousel = ref(null)
+const subCarousel = ref(null)
+const currentSlide = $ref(0)
 
 const slideTo = function (val) {
-  currentSlide.value = val
+  subSlideIndex.value = val
 }
+
+watch(mainSlideIndex, (value) => {
+  subSlideIndex.value = value
+  subCarousel.value.slideTo(subSlideIndex.value)
+})
+
+watch(subSlideIndex, (value) => {
+  mainSlideIndex.value = value
+  mainCarousel.value.slideTo(mainSlideIndex.value)
+})
 
 function filteredGallery() {
   return content.gallery.filter(image => {
