@@ -116,11 +116,18 @@ watch($$(quantity), newQuantity => {
   quantity = parseFloat(newQuantity) || 1;
 })
 
-watchEffect(() => {
-  if (content?.preselections) {
-    handlePreselections()
-  }
+onMounted(() => {
+  setTimeout(() => {
+    if(content.preselections && content.preselections.length) {
+      handlePreselections();
+    }
+  }, 10);
 })
+// watchEffect(() => {
+//   if (content?.preselections) {
+//     handlePreselections()
+//   }
+// })
 
 // FUNCTIONS
 function productOptionsClass() {
@@ -233,13 +240,13 @@ async function handlePreselections() {
             option.selection = choice; 
             checkInvalidChoices();
             calcPrices();
-            refreshKey++;
-            $emit('change', content);
           }
         }
       }
     }
   }
+  refreshKey++;
+  $emit('change', content);
 }
 
 if(useRoute().query.saved_id) {
