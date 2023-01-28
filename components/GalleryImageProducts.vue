@@ -56,5 +56,36 @@ let products = await fetchPost('/api/get-specific-products', {product_ids});
       height: 198px;
     }
   }
+
+  @media (max-width: 600px) {
+    .image-view {
+      display: none;
+    }
+
+    .content-view {
+      grid-column: span 12 / span 12;
+    }
+  }
+
+  // Display breakpoint for small screen
+  @media (min-width: 600px) and (max-width: 960px) {
+  }
+
+  // Display breakpoint for medium screen
+  @media (min-width: 960px) and (max-width: 1264px) {
+  }
+
+  // Display breakpoint for large screen
+  @media (min-width: 1264px) and (max-width: 1904px) {
+  }
+
+  // Display breakpoint for large screen
+  @media (min-width: 1904px) and (max-width: 1904px) {
+  }
+
+  // Display breakpoint for large screen and more
+  @media (min-width: 1904px) {
+  }
+
 }
 </style>
