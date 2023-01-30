@@ -1,7 +1,7 @@
 <template lang="pug">
 .cartPage
   .aboutUsPg.wrapper
-
+  Header
   ReamazeButton
   SaveProductPopup(v-if="savingProduct" @close="savingProduct = false" @save="savingProduct = false; refreshUser();" :content="savingProduct")
 
