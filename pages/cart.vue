@@ -114,7 +114,7 @@
   AddAccessories
 
   //- YOU MAY ALSO LIKE
-  CartRecommendations
+  //- CartRecommendations
 
   //- WHAT MAKES US UNIQUE
   WhatMakesUsUnique
