@@ -57,7 +57,7 @@ export default defineEventHandler(async event => {
 
     mail.sendEmail({
       From: 'jordan@homerundev.com',
-      To: 'jordashtalon@gmail.com',
+      To: emailParameters.notify || 'jordashtalon@gmail.com',
       ReplyTo: formData.email,
       Subject: emailParameters.subject,
       HtmlBody: html

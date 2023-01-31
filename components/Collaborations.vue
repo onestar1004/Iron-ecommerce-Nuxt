@@ -164,7 +164,8 @@ let formData = $ref({
 async function sendForm() {
   startLoad('sending');
   let emailParameters = {
-    subject: 'Collaboration Request From Iron Abode'
+    subject: 'Collaboration Request From Iron Abode',
+    notify: 'marketing@ironabode.com'
   }
   let submissionResponse = await fetchPost('/api/send-form', {emailParameters, formData});
   endLoad('sending');

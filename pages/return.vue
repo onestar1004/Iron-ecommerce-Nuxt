@@ -86,7 +86,8 @@ endLoad('grabbingOrders');
 async function sendReturn() {
   startLoad('sending');
   let emailParameters = {
-    subject: 'Return Request From Iron Abode'
+    subject: 'Return Request From Iron Abode',
+    notify: 'help@ironabode.com'
   }
   let submissionResponse = await fetchPost('/api/send-form', {emailParameters, formData: data});
   endLoad('sending');
