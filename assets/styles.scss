@@ -179,6 +179,12 @@ table {
   background-color: #404040;
 }
 
+.btnSecondary {
+  padding: 4px 48px;
+  border-style: solid;
+  border-width: 1px;
+}
+
 .btn {
   position: relative;
   display: inline-block;
@@ -4781,6 +4787,8 @@ textarea.fInput {
   margin-bottom: 5px;
   font-size: 16px;
   font-weight: 300;
+  text-transform: uppercase;
+  font-family: "Cormorant Garamond", serif !important;
 }
 
 .blogMain .blogCd .blgBy, .articMain .artBy {
@@ -5545,8 +5553,20 @@ textarea.fInput {
   }
   .articMain .articBox {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 0 20px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    strong {
+      font-size: 22px;
+      font-family: "Avenir", sans-serif;
+      font-weight: 300;
+      margin: 20px 0px;
+      display: block;
+    }
+    p {
+      margin: 20px 0px;
+    }
   }
 }
 
