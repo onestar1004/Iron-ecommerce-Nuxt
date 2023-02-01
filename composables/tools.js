@@ -130,3 +130,25 @@ export const Toast = (parameters = {}) => {
 }
 
 export const delay = ms => new Promise(res => setTimeout(res, ms));
+
+// SHORTCUTS
+export const publicConfig = () => {
+  return useRuntimeConfig().public;
+}
+
+export const authCookie = () => {
+  return publicConfig().auth_cookie;
+}
+
+export const authToken = () => {
+  return useCookie(authCookie()).value;
+}
+
+export const setCookie = (name, value, options) => {
+  if(!options) options = {expires: DateTime.now().plus({days: 30}).toJSDate()}
+  useCookie(name, options).value = value;
+}
+
+export const deleteCookie = (name) => {
+  useCookie(name).value = null;
+}

@@ -9,14 +9,14 @@ export default defineNuxtConfig({
       script: [
         {src: 'https://cdn.jsdelivr.net/npm/sweetalert2@9'},
         {src: 'https://widget.cloudinary.com/v2.0/global/all.js'},
-        // {src: 'https://unpkg.com/@glidejs/glide@3.5.2/dist/glide.min.js'},
+        {src: 'https://unpkg.com/@glidejs/glide@3.5.2/dist/glide.min.js'},
         {src: 'https://cdn.reamaze.com/assets/reamaze.js', async: true},
         {src: 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js'},
       ],
       link: [
         {rel: 'icon', type: 'image/x-icon', href: 'https://res.cloudinary.com/ironabode/image/upload/v1665066045/index_r7xgcc.webp'},
-        // {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/css/glide.core.min.css'},
-        // {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/css/glide.theme.min.css'},
+        {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/css/glide.core.min.css'},
+        {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/css/glide.theme.min.css'},
         {rel: 'stylesheet', href: 'https://unpkg.com/flickity@2/dist/flickity.min.css'},
       ]
     }
@@ -55,7 +55,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      auth_cookie: process.env.auth_cookie
+      auth_cookie: process.env.auth_cookie,
+      nmi_public: process.env.nmi_public,
     }
   },
 

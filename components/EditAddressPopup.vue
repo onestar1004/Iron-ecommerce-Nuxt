@@ -29,7 +29,9 @@
           input.fInput(type='text' v-model="address.city")
         .inputBox
           label.fLabel.lblReq State/Province
-          input.fInput(type='text' v-model="address.state")
+          select(v-model="address.state" required)
+            option(v-for="state in states" :value="state.abbreviation") {{state.name}}
+          //- input.fInput(type='text' v-model="address.state")
         .inputBox
           label.fLabel.lblReq Zip/Postal code
           input.fInput(type='text' inputmode='numeric' v-model="address.zip")
@@ -44,4 +46,5 @@
 
 <script setup>
 let {address} = defineProps(['address']);
+import {states} from '~/composables/variables.js';
 </script>

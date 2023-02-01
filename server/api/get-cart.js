@@ -1,8 +1,9 @@
 import {default as db} from '~/composables/db-tools.js';
 import {totalPrice} from '~/composables/priceCalculations.js';
+import {fetchPost} from '~/composables/fetchingTools.js';
 
 export default defineEventHandler(async event => {
-  let {cart_id} = await readBody(event);
+  let {cart_id, checkout} = await readBody(event);
   if(!cart_id) {
     cart_id = getCookie(event, 'ia_cart');
   }
@@ -35,9 +36,16 @@ export default defineEventHandler(async event => {
         cartData.couponApplied = cartData.coupon;
       }
     }
+    cartData.grandTotal = subTotal - cartData.couponDiscount;
+
+    // Calculate tax
+    if(checkout && checkout.shipping && checkout.shipping.address && checkout.shipping.city && checkout.shipping.state && checkout.shipping.zip) {
+      let taxData = await fetchPost('/api/calculate-tax', {checkout, cartData});
+      cartData.tax = taxData.tax;
+    }
 
     // Calculate Grand Total
-    cartData.grandTotal = subTotal - cartData.couponDiscount;
+    cartData.grandTotal = parseFloat(cartData.tax) + parseFloat(cartData.grandTotal);
     if(cartData.grandTotal < 0) cartData.grandTotal = 0;
 
     return cartData;

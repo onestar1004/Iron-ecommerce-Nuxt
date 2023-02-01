@@ -37,12 +37,16 @@ export const useStore = defineStore({
   }
 })
 
-export const refreshCart = async () => {
-  let store = useStore();
-  store.startLoad('cart');
-  let cartData = await fetchPost('/api/get-cart');
-  store.setCartData(cartData);
-  store.endLoad('cart');
+export const refreshCart = async (checkout = null) => {
+  return new Promise(async resolve => {
+    let store = useStore();
+    store.startLoad('cart');
+    let cartData = await fetchPost('/api/get-cart', {checkout});
+    store.setCartData(cartData);
+    store.endLoad('cart');
+
+    return resolve(true);
+  })
 }
 
 export const refreshUser = async () => {

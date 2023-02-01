@@ -11,6 +11,9 @@
           label.fLabel.lblReq Last Name
           input.fInput(type='text' v-model="userData.last_name")
         .inputBox
+          label.fLabel Email
+          .email {{userData.email}}
+        .inputBox
           label.fLabel Company Name
           input.fInput(type='text' v-model="userData.company")
         .inputBox

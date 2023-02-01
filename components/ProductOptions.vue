@@ -407,7 +407,9 @@ function checkInvalidChoices() {
 }
 
 function filteredChoices(option, group) {
-  return option.choices.filter(choice => {
+  let choices = JSON.parse(JSON.stringify(option.choices));
+
+  return choices.filter(choice => {
     let showChoice = ruleResults(choice.rules);
 
     if(!showCustom && choice.custom_choice) {

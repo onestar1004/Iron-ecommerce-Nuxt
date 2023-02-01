@@ -1,5 +1,6 @@
 <template lang="pug">
 .pageWrapper
+  Header
   ReamazeButton
   .container.receipt
     .loading(v-if="pending"): i.fas.fa-spin.fa-spinner
@@ -49,10 +50,10 @@
         .label Billing Address
 
         .addressData
-          .name {{order.shipping.first_name}} {{order.shipping.last_name}}
-          .address.item {{order.shipping.address}}
-          .address2.item(v-if="order.shipping.address2") {{order.shipping.address2}}
-          .cityStateZip {{order.shipping.city}} {{order.shipping.state}}, {{order.shipping.zip}}
+          .name {{order.billing.first_name}} {{order.billing.last_name}}
+          .address.item {{order.billing.address}}
+          .address2.item(v-if="order.billing.address2") {{order.billing.address2}}
+          .cityStateZip {{order.billing.city}} {{order.billing.state}}, {{order.billing.zip}}
 
       //- pre {{order}}
 

@@ -79,10 +79,10 @@
                 p.flexBox.flexJcb.flexAic
                   span Subtotal
                   span {{currency(cartData.subTotal)}}
-                p.flexBox.flexJcb.flexAic
+                //- p.flexBox.flexJcb.flexAic
                   span Shipping
                   span FREE
-                p.flexBox.flexJcb.flexAic
+                //- p.flexBox.flexJcb.flexAic
                   span Tax
                   span {{currency(cartData.tax)}}
                 p.flexBox.flexJcb.flexAic(v-if="cartData.couponApplied")
@@ -174,16 +174,7 @@ async function removeCoupon() {
 }
 
 async function openCheckout() {
-  let insertResponse = await fetchPost('/api/insert-order');
-
-  if(!insertResponse.error) {
-    navigateTo(`/receipt?id=${insertResponse.order_id}`);
-  } else {
-    Swal.fire({
-      icon: 'error',
-      text: insertResponse.error,
-    })
-  }
+  location.href = '/checkout';
 }
 
 let savingProduct = $ref(false);

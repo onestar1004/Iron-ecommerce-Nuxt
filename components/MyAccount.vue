@@ -28,15 +28,17 @@
     .container
       ul.breadcrumb.flexBox.flexJcc.flexAic.noList
         li.bcItem
-          a(href='#') Home
+          a(href='/') Home
         li.bcItem
-          a(href='#') Your Account
-        li.bcItem.active Orders
-
+          a(href='/my-account') Your Account
+        //- li.bcItem.active Orders
 
   Footer
 </template>
 
 <script setup>
 let activeTab = $ref('Orders');
+if(useRoute().query.tab) {
+  activeTab = useRoute().query.tab;
+}
 </script>
