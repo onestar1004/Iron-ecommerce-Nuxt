@@ -56,7 +56,7 @@ section.crAccBox
                   input.cCheckbox(type='checkbox' v-model="newAccount.subscribed")
                   span I would like to receive updates and offers.
           .btnBox
-            button.btn.btnBg.btnGry.btnTxtWht() CREATE ACCOUNT
+            button.btn.btnBg.btnGry.btnTxtWht(v-if="!isLoading('registering')") CREATE ACCOUNT
             a.btn.btnBg.btnGry.btnTxtWht(v-if="isLoading('registering')") #[i.fas.fa-spin.fa-spinner]
 section.breadcrumbBox
   .container

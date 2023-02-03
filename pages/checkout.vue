@@ -100,15 +100,15 @@
                 p.flexBox.flexJcb.flexAic
                   span Subtotal
                   span {{currency(cartData.subTotal)}}
+                p.flexBox.flexJcb.flexAic(v-if="cartData.couponApplied")
+                  span Coupon/Gift Certificate
+                  span -{{currency(cartData.couponDiscount)}}
                 p.flexBox.flexJcb.flexAic
                   span Shipping
                   span FREE
                 p.flexBox.flexJcb.flexAic(v-if="cartData.tax")
                   span Tax
                   span {{currency(cartData.tax)}}
-                p.flexBox.flexJcb.flexAic(v-if="cartData.couponApplied")
-                  span Coupon/Gift Certificate
-                  span -{{currency(cartData.couponDiscount)}}
               .oSumCal.orInBxPt
                 p.flexBox.flexJcb.flexAic
                   span: b Total (USD)
@@ -178,15 +178,15 @@
                 p.flexBox.flexJcb.flexAic
                   span Subtotal
                   span {{currency(cartData.subTotal)}}
+                p.flexBox.flexJcb.flexAic(v-if="cartData.couponApplied")
+                  span Coupon/Gift Certificate
+                  span -{{currency(cartData.couponDiscount)}}
                 p.flexBox.flexJcb.flexAic
                   span Shipping
                   span FREE
                 p.flexBox.flexJcb.flexAic(v-if="cartData.tax")
                   span Tax
                   span {{currency(cartData.tax)}}
-                p.flexBox.flexJcb.flexAic(v-if="cartData.couponApplied")
-                  span Coupon/Gift Certificate
-                  span -{{currency(cartData.couponDiscount)}}
               .oSumCal.orInBxPt
                 p.flexBox.flexJcb.flexAic
                   span Total (USD)

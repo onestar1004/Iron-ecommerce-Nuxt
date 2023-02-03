@@ -239,7 +239,7 @@ export default defineEventHandler(async event => {
       `;
       if(item.options && item.options.length) {
         for(let option of item.options) {
-          cartTable += `<div style="font-size: 11px;"><b>${option.label}:</b> ${option.selection.label}`;
+          cartTable += `<div style="font-size: 11px;"><b>${option.label}:</b> ${option.selection.label} `;
           if(option.selection.price) cartTable += `${currency(option.selection.price)}`;
           cartTable += `</div>`;
         }
@@ -262,10 +262,12 @@ export default defineEventHandler(async event => {
     let totals = `
       <hr>
       <div style="text-align: right;"><b>Sub Total:</b> ${currency(cartData.subTotal)}</div>
-      <div style="text-align: right;"><b>Tax:</b> ${currency(cartData.tax)}</div>
     `;
     if(cartData.couponDiscount) {
-      totals += `<div style="text-align: right;"><b>Coupon Discount:</b> ${currency(cartData.couponDiscount)}</div>`;
+      totals += `<div style="text-align: right;"><b>Coupon Discount:</b> -${currency(cartData.couponDiscount)}</div>`;
+    }
+    if(cartData.tax) {
+      totals += `<div style="text-align: right;"><b>Tax:</b> ${currency(cartData.tax)}</div>`;
     }
     totals += `<div style="text-align: right;"><b>Grand Total:</b> ${currency(cartData.grandTotal)}</div>`;
 
