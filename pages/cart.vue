@@ -15,7 +15,39 @@
     .container
       .cartGrid
         .cartList
-          .cartItem(v-for="(item, index) in cartData.cart")
+          div(v-for="(item, index) in cartData.cart" :key="item.id")
+            .cartWrapper
+              .imgView
+                img.imgRes(:src="getImage({image: item.image, width: 200, height: 180, type: 'c_fill'})")
+              .infoView
+                .title {{item.title}}
+                ul.options.fontCormorant
+                  li(v-for="option in item.options")
+                    span.label {{ option.label }}
+                    span.info(style="margin-left: 10px;") {{ option.selection.label }} #[span.price(v-if="option.selection.price || option.selection.modified_price") {{currency(option.selection.modified_price || option.selection.price)}}]
+                .saved(v-if="item.saved_id"): a(@click="cartData.cart.splice(index, 1); updateCart();" :href="'/'+item.url+'?saved_id='+item.saved_id") #[i.fal.fa-edit] Edit
+            .overview-strip(style="margin-top: 22px;")
+              .eta Lead Time
+              .price Unit Price
+              .qty Quantity
+              .total Subtotal
+            .overview-strip(style="background: #F5F5F5; padding-top: 24px; padding-bottom: 24px;")
+              .eta {{ '-' }}
+              .price {{currency(totalPrice(item) * item.quantity)}}
+              .qty
+                select(name="card" id="cars" :value="`${item.quantity}`")
+                  option(value="") Select
+                  option(v-for="qtyIndex in 100" :value="`${qtyIndex}`") {{ qtyIndex }}
+              .total {{ '-' }}
+            .overview-actions(style="margin-top: 12px; margin-bottom: 22px;")
+              .grow
+              .biBtn
+                a.btn.btnBg.btnWhiteBB(@click="saveForLater(item)")
+                  img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031595/icon-download_h0onhp.png' alt='')
+                  span SAVE FOR LATER
+                a.btn.btnBg.btnWhiteBB(@click="cartData.cart.splice(index, 1); updateCart();") REMOVE
+
+          // .cartItem(v-for="(item, index) in cartData.cart" style="display: block;")
             .crtItmInfo
               .cartItmImg
                 img.imgRes(:src="getImage({image: item.image, width: 100, height: 80, type: 'c_fill'})")
@@ -228,3 +260,119 @@ const onClickNeedHelp = function () {
   ele && ele.click()
 }
 </script>
+
+<style lang="scss" scoped>
+
+.cartWrapper {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.2rem;
+
+  .imgView {
+    grid-column: span 4 / span 4;
+  }
+
+  .infoView {
+    grid-column: span 8 / span 8;
+
+    .title {
+      font-size: 28px;
+    }
+
+    .options {
+      list-style-type: none;
+      font-size: 18px;
+
+      .label {
+        font-weight: 700;
+      }
+
+      .info {
+        font-weight: 300;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .imgView { grid-column: span 12 / span 12; }
+    .infoView { grid-column: span 12 / span 12; }
+  }
+}
+
+.overview-strip {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.75rem;
+  font-weight: lighter;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 22px;
+  padding-right: 22px;
+
+  .eta {
+    grid-column: span 3 / span 3;
+  }
+
+  .price {
+    grid-column: span 3 / span 3;
+  }
+
+  .qty {
+    grid-column: span 3 / span 3;
+
+    select {
+      margin: 0;      
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      background-color: white;
+      border: thin solid rgb(29, 29, 29);
+      border-radius: 0px;
+      display: inline-block;
+      font: inherit;
+      line-height: 1.5em;
+      padding: 0.5em 3.5em 0.5em 1em;
+
+      &::after {
+        content: "\25BE"; /* Unicode character for a downward arrow */
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+    }
+  }
+
+  .total {
+    grid-column: span 3 / span 3;
+  }
+
+  @media (max-width: 600px) {
+    .eta {
+      grid-column: span 6 / span 6;
+    }
+
+    .price {
+      grid-column: span 6 / span 6;
+    }
+
+    .qty {
+      grid-column: span 6 / span 6;
+    }
+
+    .total {
+      grid-column: span 6 / span 6;
+    }
+  }
+}
+
+.overview-actions {
+  display: flex;
+  align-content: center;
+
+  .grow {
+    flex-grow: 1;
+  }
+}
+</style>
