@@ -2,7 +2,7 @@
 section.addAcc.bstSlr
   .container
     .secTop
-      h3.secTitle.txtCenter ADD ACCESSORIES 
+      h3.secTitle.txtCenter ADD ACCESSORIES
     .bSlrBox.flexBox
       .bSlrCard
         .bSlCrdImg
