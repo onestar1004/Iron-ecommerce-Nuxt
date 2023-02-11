@@ -21,6 +21,7 @@
     "moment-timezone": "^0.5.37",
     "nuxt": "^3.0.0-rc.14",
     "pg": "^8.8.0",
+    "pinia": "^2.0.30",
     "postmark": "^3.0.14",
     "sass": "^1.54.8",
     "sql-bricks-postgres": "^0.6.0",
