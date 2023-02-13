@@ -17,141 +17,151 @@
     .container
       .cartGrid
         .checkoutForm(v-if="!isLoading('user')")
-          .section(v-if="!user() || (user() && !user().email)")
-            .heading Customer
-            label Email
-              input(type="email" v-model="checkout.email" @change="checkEmail()" required)
-            slot(v-if="emailExists && !checkout.guestCheckout")
-              label Password
-                input.passwordInput(type="password" v-model="checkout.password")
-              a.primaryBTN(@click="login()" v-if="!is('loggingIn')") Login
-              a.primaryBTN(v-if="is('loggingIn')") #[i.fal.fa-spin.fa-spinner]
-              .explainer Login to your account for faster checkout
-              .explainer: NuxtLink.redLink(to="/forgot-password") Forgot Password?
-              .clear(style="height: 10px;")
-              .or: small - OR -
-              .clear(style="height: 10px;")
-              a.secondaryBTN.small(@click="checkout.guestCheckout = true") Checkout as Guest
-            slot(v-if="!emailExists && emailChecked && !checkout.guestCheckout")
-              .explainer #[b OPTIONAL:] Set a password to create an account for faster checkout in the future
-              label Password #[small optional]
-                input.passwordInput(type="password" v-model="checkout.password")
+          .section
+            div(class="panel-wrap" @click="openDropDown(1)")
+              div(class="sectionCount") 1
+              h2(class="panel-head") Customer
+            div(class="panel-description panel-description1" v-if="user() && user().email")
+              .name #[i.fal.fa-user] {{checkout.first_name}} {{checkout.last_name}}
+              .email #[i.fal.fa-envelope] {{checkout.email}}
+              .phone #[i.fal.fa-phone] {{checkout.phone}}
+              .edit: a.secondaryBTN.small(href="/my-account?tab=Settings") #[i.fal.fa-edit] Edit
+              .logout Not you? #[a(@click="logout()") #[i.fal.fa-sign-out] Logout]
+            div(class="panel-description panel-description1" v-else)
+              label Email Address
+              .loginsection
+                input(type="email" v-model="checkout.email" required style="width: 60%; height: 40px")
+                button(class="loginButton" @click="checkEmail()") CONTINUE AS GUEST
+              input(type="checkbox" style="margin: 20px 3px;")
+              label I would like to recieve updates and offers.
+              div Already have an account ? 
+               span(style="color: #66A7DF") Sign in here
+              div Or continue with Google 
+              slot(v-if="emailExists && !checkout.guestCheckout")
+                label Password
+                  input.passwordInput(type="password" v-model="checkout.password")
+                  a.primaryBTN(@click="login()" v-if="!is('loggingIn')") Login
+                  a.primaryBTN(v-if="is('loggingIn')") #[i.fal.fa-spin.fa-spinner]
+                  .explainer Login to your account for faster checkout
+                  .explainer: NuxtLink.redLink(to="/forgot-password") Forgot Password?
+                  .clear(style="height: 10px;")
+                  .or: small - OR -
+                  .clear(style="height: 10px;")
+              slot(v-if="!emailExists && emailChecked && !checkout.guestCheckout")
+                .explainer #[b OPTIONAL:] Set a password to create an account for faster checkout in the future
+                label Password #[small optional]
+                  input.passwordInput(type="password" v-model="checkout.password")
+                
+                label Confirm Password #[small optional]
+                  input(type="password" v-model="confirmPassword")
 
-              label Confirm Password #[small optional]
-                input(type="password" v-model="confirmPassword")
+                .error(v-if="checkout.password && confirmPassword && checkout.password != confirmPassword") #[i.fal.fa-exclamation-circle] Passwords do not match
 
-              .error(v-if="checkout.password && confirmPassword && checkout.password != confirmPassword") #[i.fal.fa-exclamation-circle] Passwords do not match
+              .clear(style="height: 15px;")
 
-            .clear(style="height: 15px;")
-
-          .section(v-if="user() && user().email")
-            .heading Customer
-            .name #[i.fal.fa-user] {{checkout.first_name}} {{checkout.last_name}}
-            .email #[i.fal.fa-envelope] {{checkout.email}}
-            .phone #[i.fal.fa-phone] {{checkout.phone}}
-            .edit: a.secondaryBTN.small(href="/my-account?tab=Settings") #[i.fal.fa-edit] Edit
-            .logout Not you? #[a(@click="logout()") #[i.fal.fa-sign-out] Logout]
-
-          .section(v-if="!user() || (user() && !user().addresses.length)")
-            .heading Shipping Address
-            slot(v-if="(!emailExists || checkout.guestCheckout) && (!user() || (user() && !user().email))")
-              label First Name
-                input(type="text" v-model="checkout.first_name" required)
-              label Last Name
-                input(type="text" v-model="checkout.last_name" required)
-              label Company #[small (optional)]
-                input(type="text" v-model="checkout.company")
-              label Phone
-                input(type="text" v-model="checkout.phone" required)
-            AddressFields(@update="value => {checkout.shipping = value; debounce(() => addressChanged())}" :modelData="checkout.shipping")
-          .section(v-if="!user() || (user() && !user().addresses.length)")
-            .heading Billing Address
-            label #[input(type="checkbox" v-model="checkout.billingSame")] Same as shipping?
-            AddressFields(@update="value => {checkout.billing = value;}" v-if="!checkout.billingSame")
-          .section(v-if="user() && user().addresses.length")
-            .heading Shipping Address
-            .addressList
-              .address(v-for="address in user().addresses" @click="checkout.shipping = address; refreshCart(checkout)" :class="{'selected': checkout.shipping.id == address.id}")
-                .selected(v-if="checkout.shipping.id == address.id"): i.fal.fa-check-circle
-                .selected(v-if="checkout.shipping.id != address.id"): i.fal.fa-circle
-                .line1 {{address.address}}
-                .line2(v-if="address.address2") {{address.address2}}
-                .cityStateZip {{address.city}} {{address.state}}, {{address.zip}}
-                .edit: a.smallBTN(@click="editAddress = address") #[i.fal.fa-edit] Edit
-              .address.add: a(@click="addAddress()") #[i.fal.fa-plus] Add Address
-          .section(v-if="user() && user().addresses.length")
-            .heading Billing Address
-            label #[input(type="checkbox" v-model="checkout.billingSame")] Same as shipping?
-            slot(v-if="!checkout.billingSame")
+            div(class="panel-wrap" @click="openDropDown(2)")
+              div(class="sectionCount") 2
+              h2(class="panel-head") Shipping Address
+            div(class="panel-description panel-description2" v-if="!user() || (user() && !user().addresses.length)")
+              slot(v-if="(!emailExists || checkout.guestCheckout) && (!user() || (user() && !user().email))")
+                label First Name
+                  input(type="text" v-model="checkout.first_name" required)
+                label Last Name
+                  input(type="text" v-model="checkout.last_name" required)
+                label Company #[small (optional)]
+                  input(type="text" v-model="checkout.company")
+                label Phone
+                  input(type="text" v-model="checkout.phone" required)
+              AddressFields(@update="value => {checkout.shipping = value; debounce(() => addressChanged())}" :modelData="checkout.shipping")
+            div(class="panel-description panel-description2" v-if="user() && user().addresses.length")
               .addressList
-                .address(v-for="address in user().addresses" @click="checkout.billing = address; refreshCart(checkout)" :class="{'selected': checkout.billing.id == address.id}")
-                  .selected(v-if="checkout.billing.id == address.id"): i.fal.fa-check-circle
-                  .selected(v-if="checkout.billing.id != address.id"): i.fal.fa-circle
+                .address(v-for="address in user().addresses" @click="checkout.shipping = address; refreshCart(checkout)" :class="{'selected': checkout.shipping.id == address.id}")
+                  .selected(v-if="checkout.shipping.id == address.id"): i.fal.fa-check-circle
+                  .selected(v-if="checkout.shipping.id != address.id"): i.fal.fa-circle
                   .line1 {{address.address}}
                   .line2(v-if="address.address2") {{address.address2}}
                   .cityStateZip {{address.city}} {{address.state}}, {{address.zip}}
                   .edit: a.smallBTN(@click="editAddress = address") #[i.fal.fa-edit] Edit
                 .address.add: a(@click="addAddress()") #[i.fal.fa-plus] Add Address
 
-          .section
-            .heading Payment
-            .paymentSummary
-              .oSumCal.orInBxPt
-                p.flexBox.flexJcb.flexAic
-                  span Subtotal
-                  span {{currency(cartData.subTotal)}}
-                p.flexBox.flexJcb.flexAic(v-if="cartData.couponApplied")
-                  span Coupon/Gift Certificate
-                  span -{{currency(cartData.couponDiscount)}}
-                p.flexBox.flexJcb.flexAic
-                  span Shipping
-                  span FREE
-                p.flexBox.flexJcb.flexAic(v-if="cartData.tax")
-                  span Tax
-                  span {{currency(cartData.tax)}}
-              .oSumCal.orInBxPt
-                p.flexBox.flexJcb.flexAic
-                  span: b Total (USD)
-                  span.totalP: b {{currency(cartData.grandTotal)}}
-            .clear(style="height: 15px;")
-            .cardWrapper(v-show="!hasSavedCard || checkout.newCard")
-              .creditCardForm
-                label.noMargin Credit / Debit Card #
-                #cardNumber(ref="ccnumber")
-                .sideBySide
-                  .input
-                    label.noMargin Expiration
-                    #cardExpiration
-                  .input
-                    label.noMargin CVV Code
-                    #cardCvv
-                .cancelSave(v-if="checkout.newCard")
-                  a.secondaryBTN.small(:href="'/checkout/'") #[i.fal.fa-credit-card] Use Saved Card
-                  .clear(style="height: 15px;")
+            div(class="panel-wrap" @click="openDropDown(3)")
+              div(class="sectionCount") 3
+              h2(class="panel-head") Billing Address
+            div(class="panel-description panel-description3" v-if="!user() || (user() && !user().addresses.length)")
+              label #[input(type="checkbox" v-model="checkout.billingSame")] Same as shipping?
+              AddressFields(@update="value => {checkout.billing = value;}" v-if="!checkout.billingSame")
+            div(class="panel-description panel-description3" v-if="user() && user().addresses.length")
+              label #[input(type="checkbox" v-model="checkout.billingSame")] Same as shipping?
+              slot(v-if="!checkout.billingSame")
+                .addressList
+                  .address(v-for="address in user().addresses" @click="checkout.billing = address; refreshCart(checkout)" :class="{'selected': checkout.billing.id == address.id}")
+                    .selected(v-if="checkout.billing.id == address.id"): i.fal.fa-check-circle
+                    .selected(v-if="checkout.billing.id != address.id"): i.fal.fa-circle
+                    .line1 {{address.address}}
+                    .line2(v-if="address.address2") {{address.address2}}
+                    .cityStateZip {{address.city}} {{address.state}}, {{address.zip}}
+                    .edit: a.smallBTN(@click="editAddress = address") #[i.fal.fa-edit] Edit
+                  .address.add: a(@click="addAddress()") #[i.fal.fa-plus] Add Address
+            div(class="panel-wrap" @click="openDropDown(4)")
+              div(class="sectionCount") 4
+              h2(class="panel-head") Payment
+            div(class="panel-description panel-description4")
+              .paymentSummary
+                .oSumCal.orInBxPt
+                  p.flexBox.flexJcb.flexAic
+                    span Subtotal
+                    span {{currency(cartData.subTotal)}}
+                  p.flexBox.flexJcb.flexAic(v-if="cartData.couponApplied")
+                    span Coupon/Gift Certificate
+                    span -{{currency(cartData.couponDiscount)}}
+                  p.flexBox.flexJcb.flexAic
+                    span Shipping
+                    span FREE
+                  p.flexBox.flexJcb.flexAic(v-if="cartData.tax")
+                    span Tax
+                    span {{currency(cartData.tax)}}
+                .oSumCal.orInBxPt
+                  p.flexBox.flexJcb.flexAic
+                    span: b Total (USD)
+                    span.totalP: b {{currency(cartData.grandTotal)}}
+              .clear(style="height: 15px;")
+              .cardWrapper(v-show="!hasSavedCard || checkout.newCard")
+                .creditCardForm
+                  label.noMargin Credit / Debit Card #
+                  #cardNumber(ref="ccnumber")
+                  .sideBySide
+                    .input
+                      label.noMargin Expiration
+                      #cardExpiration
+                    .input
+                      label.noMargin CVV Code
+                      #cardCvv
+                  .cancelSave(v-if="checkout.newCard")
+                    a.secondaryBTN.small(:href="'/checkout/'") #[i.fal.fa-credit-card] Use Saved Card
+                    .clear(style="height: 15px;")
 
-                .save(v-if="user() || (checkout.password && !checkout.guestCheckout)"): label #[input(type="checkbox" v-model="checkout.saveCard")] Save card for future purchases?
-                .subcsribe: label #[input(type="checkbox" v-model="checkout.subscribeNewsletter")] Subscribe to our newsletter?
-              .buttons
-                a#payButton.primaryBTN(@click="startLoad('purchasing')" v-if="!is('purchasing')") Complete Purchase
-                a.primaryBTN(v-if="is('purchasing')") #[i.fal.fa-spin.fa-spinner] Processing #[small Please Wait.]
+                  .save(v-if="user() || (checkout.password && !checkout.guestCheckout)"): label #[input(type="checkbox" v-model="checkout.saveCard")] Save card for future purchases?
+                  .subcsribe: label #[input(type="checkbox" v-model="checkout.subscribeNewsletter")] Subscribe to our newsletter?
+                .buttons
+                  a#payButton.primaryBTN(@click="startLoad('purchasing')" v-if="!is('purchasing')") Complete Purchase
+                  a.primaryBTN(v-if="is('purchasing')") #[i.fal.fa-spin.fa-spinner] Processing #[small Please Wait.]
+              slot(v-if="hasSavedCard && !checkout.newCard")
+                .heading Saved Card:
+                .savedCard.cardDetails
+                  .check: i.fas.fa-check
+                  .data
+                    .icon: i.fas.fa-credit-card
+                    .brand {{user().cc_type}}
+                    .num {{user().card_last_4}}
 
-            slot(v-if="hasSavedCard && !checkout.newCard")
-              .heading Saved Card:
-              .savedCard.cardDetails
-                .check: i.fas.fa-check
-                .data
-                  .icon: i.fas.fa-credit-card
-                  .brand {{user().cc_type}}
-                  .num {{user().card_last_4}}
+                  .changer: a(href="?changeCard=true") #[i.fas.fa-edit] Change
+                .buttons
+                  a.primaryBTN(@click="completePurchase()" v-if="!is('purchasing')") Complete Purchase
+                  a.primaryBTN(v-if="is('purchasing')") #[i.fal.fa-spin.fa-spinner] Processing #[small Please Wait.]
 
-                .changer: a(href="?changeCard=true") #[i.fas.fa-edit] Change
-              .buttons
-                a.primaryBTN(@click="completePurchase()" v-if="!is('purchasing')") Complete Purchase
-                a.primaryBTN(v-if="is('purchasing')") #[i.fal.fa-spin.fa-spinner] Processing #[small Please Wait.]
-
-            .clear(style="height: 10px;")
-
-            .disclaimer By completing a purchase you agree to our #[a.redLink(href="/policies") Terms of Service, Shipping &amp; Return Policies]
+              .clear(style="height: 10px;")
+              .disclaimer By completing a purchase you agree to our #[a.redLink(href="/policies") Terms of Service, Shipping &amp; Return Policies]
+            
         .cartSumm
           .ordrSumm
             .oSumTop.flexBox.flexJcb.flexAic.clrWhite
@@ -240,6 +250,16 @@ let debounce = createDebounce();
 
 let emailExists = $ref(false);
 let emailChecked = $ref(false);
+
+function openDropDown(num) {
+  let panelDescription = document.getElementsByClassName(`panel-description${num}`).item(0)
+  if (panelDescription.style.display === "block") {
+    panelDescription.style.display = "none";
+  } else {
+    panelDescription.style.display = "block";
+  }
+}
+
 async function checkEmail() {
   startLoad('checkingEmail');
   let userInfo = await fetchPost('/api/check-email', {email: checkout.email});
@@ -475,3 +495,58 @@ const onClickNeedHelp = function () {
   ele && ele.click()
 }
 </script>
+
+<style lang="sass" scoped>
+$font-stack2: 'Montserrat', sans-serif
+
+.section
+  background-color: white
+  padding: 0
+.panel-wrap
+  background: #757B76
+  margin-bottom: 10px
+  display: flex
+  cursor: pointer
+.panel-description1
+  display: none
+.panel-description2
+  display: none
+.panel-description3
+  display: none
+.panel-description4
+  display: none
+.panel-description
+  padding: 15px
+  background-color: white
+
+.panel-head
+  font-family: $font-stack2
+  position: relative
+  line-height: 55px
+  color: white
+  font-weight: lighter
+
+.sectionCount
+  width: 50px
+  background: #404341
+  margin-right: 10px
+  text-align: center
+  line-height: 55px
+  color: white
+  font-size: larger
+  font-weight: lighter
+  font-family: $font-stack2
+  
+.loginsection
+  display: flex
+  gap: 5px
+  font-size: 12px
+.loginButton
+  padding: 0 10px
+  background-color: #404341
+  color: white
+  border: none
+  font-weight: lighter
+  min-height: 30px
+  width: 40%
+</style>
