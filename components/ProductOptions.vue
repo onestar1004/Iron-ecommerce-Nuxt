@@ -248,13 +248,15 @@ async function calcPrices() {
               let formula = `${parseFloat(choice.modified_price)} ${modifier.operator} ${modifier.value}`;
               choice.formula.push(formula);
               choice.modified_price = eval(formula);
+              if(modifiedOption.selection.id == choice.id) {
+                modifiedOption.selection = choice;
+              }
             }
           }
         }
       }
     }
   }
-
 }
 calcPrices();
 
@@ -444,7 +446,7 @@ function checkInvalidChoices() {
 
 function filteredChoices(option, group) {
   if(!option.choices) return [];
-  
+
   let choices = JSON.parse(JSON.stringify(option.choices));
 
   return choices.filter(choice => {
