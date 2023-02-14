@@ -3,7 +3,7 @@
 
   EditAddressPopup(v-if="editAddress" @close="editAddress = null;" :address="editAddress" @save="saveAddresses()")
 
-  .script(v-html="nmiScript")
+  .script(v-html="nmiScript" v-if="publicConfig()")
 
   .aboutUsPg.wrapper
   Header
