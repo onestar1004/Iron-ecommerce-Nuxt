@@ -55,10 +55,10 @@
         BracketExplainerDropdown(:quantity="quantity" @change="value => quantity = value" style="max-width: 99px;")
         ProductQtyDetails
           template(#text)
-            p(style="margin-bottom: 1.5rem;") Font is for one bracket. Installation hardware is included with your order.
-            p Please note that for the self lengths under 48", 2 brackets will be needed. 3 brackets will be needed for shelf lengths over 48
+            p(style="margin-bottom: 1.5rem;") Price is per one bracket. Installation hardware is included with your order.
+            p Please note that for shelf lengths under 48", 2 brackets will be needed. 3 brackets will be needed for shelf lengths over 48".
           template(#meta)
-            img(src="https://res.cloudinary.com/ironabode/image/upload/v1666651315/Website_Icons-_Ladder_Icon_z2jspy.png")
+            img(src="https://res.cloudinary.com/ironabode/image/upload/v1676405694/Greenshot_2023-02-14_10.14.42_bx0xkp.png")
             p.highlightTextV1 Price is per 1 bracket
       div(v-if="!savedBoard()")
         label.saveBtn(@click="saveForLater()")

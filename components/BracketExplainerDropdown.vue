@@ -4,8 +4,8 @@
     .selection
       .value(@click="showDropdown = !showDropdown") {{quantity}}
       .explainer #[span(@click="showDropdown = !showDropdown") Bracket#[span(v-if="quantity > 1") s]]
-        span.icon(@mouseenter="hovering = true;" @mouseleave="hovering = false;" @click="showTooltip = !showTooltip") #[span &nbsp;]#[i.fas.fa-question-circle]
-        span.infoHover(v-if="hovering && !showTooltip") Click for more information
+        //- span.icon(@mouseenter="hovering = true;" @mouseleave="hovering = false;" @click="showTooltip = !showTooltip") #[span &nbsp;]#[i.fas.fa-question-circle]
+        //- span.infoHover(v-if="hovering && !showTooltip") Click for more information
         .infoPopup(v-if="showTooltip")
           p Bracket Messaging Here
     .dropper(@click="showDropdown = !showDropdown"): i.fal.fa-chevron-down

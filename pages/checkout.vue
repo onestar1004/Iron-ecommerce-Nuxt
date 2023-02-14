@@ -20,7 +20,7 @@
           .section
             div(class="panel-wrap" @click="openDropDown(1)")
               div(class="sectionCount") 1
-              h2(class="panel-head") Customer
+              h2(class="panel-head") CUSTOMER
             div(class="panel-description panel-description1" v-if="user() && user().email")
               .name #[i.fal.fa-user] {{checkout.first_name}} {{checkout.last_name}}
               .email #[i.fal.fa-envelope] {{checkout.email}}
@@ -36,7 +36,6 @@
               label I would like to recieve updates and offers.
               div Already have an account ? 
                span(style="color: #66A7DF") Sign in here
-              div Or continue with Google 
               slot(v-if="emailExists && !checkout.guestCheckout")
                 label Password
                   input.passwordInput(type="password" v-model="checkout.password")
@@ -61,7 +60,7 @@
 
             div(class="panel-wrap" @click="openDropDown(2)")
               div(class="sectionCount") 2
-              h2(class="panel-head") Shipping Address
+              h2(class="panel-head") SHIPPING ADDRESS
             div(class="panel-description panel-description2" v-if="!user() || (user() && !user().addresses.length)")
               slot(v-if="(!emailExists || checkout.guestCheckout) && (!user() || (user() && !user().email))")
                 label First Name
@@ -86,7 +85,7 @@
 
             div(class="panel-wrap" @click="openDropDown(3)")
               div(class="sectionCount") 3
-              h2(class="panel-head") Billing Address
+              h2(class="panel-head") BILLING ADDRESS
             div(class="panel-description panel-description3" v-if="!user() || (user() && !user().addresses.length)")
               label #[input(type="checkbox" v-model="checkout.billingSame")] Same as shipping?
               AddressFields(@update="value => {checkout.billing = value;}" v-if="!checkout.billingSame")
@@ -104,7 +103,7 @@
                   .address.add: a(@click="addAddress()") #[i.fal.fa-plus] Add Address
             div(class="panel-wrap" @click="openDropDown(4)")
               div(class="sectionCount") 4
-              h2(class="panel-head") Payment
+              h2(class="panel-head") PAYMENT
             div(class="panel-description panel-description4")
               .paymentSummary
                 .oSumCal.orInBxPt

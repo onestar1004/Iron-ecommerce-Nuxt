@@ -12,7 +12,7 @@ section.collSec(v-if="content.recommended_category_label")
             img(:src="getImage({image: product.gallery[0].src, width: 350, height: 350, type: 'c_fit'})" v-if="product.gallery[0]")
           .collCdInfo
             h5 {{product.title}}
-            p {{currency(product.price)}}
+            
 </template>
 
 <script setup>
