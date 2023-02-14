@@ -3,7 +3,7 @@
 
   EditAddressPopup(v-if="editAddress" @close="editAddress = null;" :address="editAddress" @save="saveAddresses()")
 
-  .script(v-html="nmiScript" v-if="publicConfig()")
+  .script(v-html="nmiScript")
 
   .aboutUsPg.wrapper
   Header
@@ -326,7 +326,7 @@ async function saveAddresses() {
 const nmiScript = `
   <script 
     src="https://secure.networkmerchants.com/token/Collect.js" 
-    data-tokenization-key="${publicConfig().nmi_public}"
+    data-tokenization-key="${useRuntimeConfig().public.nmi_public}"
 
     data-field-apple-pay-required-billing-contact-fields='["name"]'
     data-field-apple-pay-contact-fields='["phone","email"]'
