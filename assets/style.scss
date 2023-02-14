@@ -1660,3 +1660,40 @@ label {
     margin: 0 10px;
   }
 }
+
+.customSpacingOptions {
+  text-align: center;
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .height {
+    display: flex;
+    margin: 10px 0;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .spacingExplainer {
+      width: 100%;
+      flex: 0 0 auto;
+      text-align: center;
+      font-size: 11px;
+      margin: 5px 0 5px 15px;
+    }
+    .num {
+      flex: 0 0 auto;
+      width: 30px;
+      text-align: right;
+    }
+    .input {
+      flex: 0 0 auto;
+      margin: 0 15px;
+      width: 80px;
+      input[type="text"] {
+        width: 100%;
+        text-align: center;
+        font-family: $font;
+      }
+    }
+  }
+}

@@ -4,6 +4,10 @@
   SaveProductPopup(v-if="savingProduct" @close="savingProduct = false" @save="savingProduct = false; refreshUser();" :content="content")
   SignInPopup(v-if="loggingIn" @close="loggingIn = false")
 
+  CustomSpacingOptions(v-if="showCustomSpacingOptions" @save="value => {setCustomSpacing(value); showCustomSpacingOptions = false;}" @close="showCustomSpacingOptions = false" :content="content")
+
+  //- pre {{content.options}}
+
   .prodOptn
     .pOptnCard(v-for="(option, index) in filteredOptions" :class="[optionClass(option), {'hiddenOption': !isAdmin() && hiddenOptions.includes(option.id), 'adminFaded': isAdmin() && hiddenOptions.includes(option.id)}]")
       .accHead(@click="openOption(option)" :class="{'active': openOptions.includes(option.id)}")
@@ -31,7 +35,7 @@
                 option(v-for="choice in filteredChoices(option, group)" :value="choice") {{choice.label}} {{(choice.modified_price || choice.price) ? ' - ' + currency(choice.modified_price || choice.price) : ''}}
 
             .opList(v-if="option.type == 'Regular'")
-              .opCd(v-for="choice in filteredChoices(option, group)" @click="option.selection = choice; openOption(option); checkInvalidChoices(); calcPrices(); $emit('change', content);" :class="{'selected': option.selection && option.selection.id == choice.id}")
+              .opCd(v-for="choice in filteredChoices(option, group)" @click="selectChoice(option, choice); openOption(option); checkInvalidChoices(); calcPrices(); $emit('change', content);" :class="{'selected': option.selection && option.selection.id == choice.id}")
                 p.opCdTitle {{choice.label}}
                 .opCdImg(v-if="choice.image"): img(:src="getImage({image: choice.image, width: 150, type: 'c_fill'})")
                 .price(v-if="choice.price || choice.modified_price" style="text-align: center;") {{currency(choice.modified_price || choice.price)}}
@@ -130,6 +134,38 @@ onMounted(() => {
 // })
 
 // FUNCTIONS
+let showCustomSpacingOptions = $ref(false);
+function selectChoice(option, choice) {
+  option.selection = choice;
+
+  if(option.label == 'Choose Spacing' && choice.label == 'Custom Spacing') {
+    showCustomSpacingOptions = true;
+  }
+}
+
+function setCustomSpacing(shelfHeights) {
+  console.log(shelfHeights, 'shelf heights set');
+  let selectionArray = [];
+  for(let height of shelfHeights) {
+    selectionArray.push(height.value + ' IN');
+  }
+  let existingOption = content.options.find(option => {return option.label == 'Custom Shelf Spacing'});
+
+  if(existingOption) {
+    existingOption.selection.label = selectionArray.join(', ');
+  } else {
+
+    let insertIndex = content.options.findIndex(option => {return option.label == 'Choose Spacing'});
+
+    content.options.splice(insertIndex + 1, 0, {
+      label: 'Custom Shelf Spacing',
+      selection: {
+        label: selectionArray.join(', ')
+      }
+    })
+  }
+}
+
 function productOptionsClass() {
   if(content && content.title) {
     return `Product-${content.title.replace(/ /ig, '')}`;
@@ -407,6 +443,8 @@ function checkInvalidChoices() {
 }
 
 function filteredChoices(option, group) {
+  if(!option.choices) return [];
+  
   let choices = JSON.parse(JSON.stringify(option.choices));
 
   return choices.filter(choice => {
@@ -456,6 +494,10 @@ function selectActiveTooltip(option) {
 }
 
 function openOption(option) {
+  if(option.label == 'Custom Shelf Spacing') {
+    showCustomSpacingOptions = true;
+    return;
+  }
   if(!openOptions.includes(option.id)) {
     openOptions.push(option.id);
   } else {
