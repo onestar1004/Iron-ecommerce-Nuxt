@@ -248,7 +248,7 @@ async function calcPrices() {
               let formula = `${parseFloat(choice.modified_price)} ${modifier.operator} ${modifier.value}`;
               choice.formula.push(formula);
               choice.modified_price = eval(formula);
-              if(modifiedOption.selection.id == choice.id) {
+              if(modifiedOption.selection && modifiedOption.selection.id == choice.id) {
                 modifiedOption.selection = choice;
               }
             }
