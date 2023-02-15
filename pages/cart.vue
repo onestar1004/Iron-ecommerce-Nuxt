@@ -18,7 +18,7 @@
           .cartItem(v-for="(item, index) in cartData.cart")
             .crtItmInfo
               .cartItmImg
-                img.imgRes(:src="getImage({image: item.image, width: 100, height: 80, type: 'c_fill'})")
+                img.imgRes(:src="getImage({image: item.image, width: 500, height: 350, type: 'c_fill'})")
               .cartItmTxt
                 h4 {{item.title}}
                 .cartOptions
@@ -36,12 +36,10 @@
                 tr
                   //- td.fontSerif Estimated Delivery: TODO
                   td.fontSerif {{currency(totalPrice(item))}}
-                  td
-                    .quantityPicker
-                      .theInput
-                        .changer: a(@click="item.quantity = parseFloat(item.quantity) - 1; updateCart()"): i.fas.fa-minus
-                        input(type="text" v-model="item.quantity" @change="updateCart()")
-                        .changer: a(@click="item.quantity = parseFloat(item.quantity) + 1; updateCart()"): i.fas.fa-plus
+                  td.fontSerif
+                    .selectBox
+                      select.cSelect(v-model="item.quantity" v-on:change ="updateValue($event.target.value)")
+                        option(:value="n" v-for="n in [1,2,3,4,5,6,7,8,9,10]") {{n}}
                   td.fontSerif {{currency(totalPrice(item) * item.quantity)}}
               .crtItmBtns.flexBox
                 .biBtn
@@ -134,9 +132,21 @@
 </template>
 
 <script setup>
+
+let props = defineProps({
+  modelValue: 0
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+function updateValue(value) {
+  emit('update:modelValue', value)
+  updateCart()
+}
+
 refreshCart();
 let {cartData} = storeToRefs(useStore());
-async function updateCart() {
+async function updateCart(n) {
   startLoad('updating');
   let saveResponse = await fetchPost('/api/update-cart', {newCart: cartData.value})
   refreshCart();
