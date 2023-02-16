@@ -27,15 +27,17 @@
               .phone #[i.fal.fa-phone] {{checkout.phone}}
               .edit: a.secondaryBTN.small(href="/my-account?tab=Settings") #[i.fal.fa-edit] Edit
               .logout Not you? #[a(@click="logout()") #[i.fal.fa-sign-out] Logout]
+              .clear(style="height: 10px;")
+              a.secondaryBTN(@click="openDropDown(2)") Continue
             div(class="panel-description panel-description1" v-else)
               label Email Address
               .loginsection
-                input(type="email" v-model="checkout.email" required style="width: 60%; height: 40px")
-                button(class="loginButton" @click="checkEmail()") CONTINUE AS GUEST
-              input(type="checkbox" style="margin: 20px 3px;")
-              label I would like to recieve updates and offers.
-              div Already have an account ? 
-               span(style="color: #66A7DF") Sign in here
+                input(type="email" v-model="checkout.email" @input="debounce(() => checkEmail(), 1000)" required style="width: 60%; height: 40px")
+                //- button(class="loginButton" @click="checkEmail()" v-if="!emailExists") CONTINUE AS GUEST
+              //- input(type="checkbox" style="margin: 20px 3px;")
+              //- label I would like to recieve updates and offers.
+              //- div(v-if="!emailExists") Already have an account ? 
+              //-  span(style="color: #66A7DF") Sign in here
               slot(v-if="emailExists && !checkout.guestCheckout")
                 label Password
                   input.passwordInput(type="password" v-model="checkout.password")
@@ -46,8 +48,10 @@
                   .clear(style="height: 10px;")
                   .or: small - OR -
                   .clear(style="height: 10px;")
+                  a.secondaryBTN(@click="checkout.guestCheckout = true; openDropDown(2)") Checkout As Guest
               slot(v-if="!emailExists && emailChecked && !checkout.guestCheckout")
-                .explainer #[b OPTIONAL:] Set a password to create an account for faster checkout in the future
+                .clear(style="height: 15px;")
+                .explainer #[small #[b OPTIONAL:] Set a password to create an account for faster checkout in the future, click "Continue as Guest" if you do not wish to setup an account.]
                 label Password #[small optional]
                   input.passwordInput(type="password" v-model="checkout.password")
                 
@@ -57,6 +61,9 @@
                 .error(v-if="checkout.password && confirmPassword && checkout.password != confirmPassword") #[i.fal.fa-exclamation-circle] Passwords do not match
 
               .clear(style="height: 15px;")
+
+              a.secondaryBTN(@click="openDropDown(2)" v-if="!emailExists && checkout.email && emailChecked") {{checkout.password ? 'Create Account &amp; Continue' : 'Continue As Guest'}}
+              //- a.secondaryBTN(@click="openDropDown(2)" v-if="emailExists") Continue
 
             div(class="panel-wrap" @click="openDropDown(2)")
               div(class="sectionCount") 2
@@ -72,6 +79,7 @@
                 label Phone
                   input(type="text" v-model="checkout.phone" required)
               AddressFields(@update="value => {checkout.shipping = value; debounce(() => addressChanged())}" :modelData="checkout.shipping")
+              a.secondaryBTN(@click="openDropDown(3)") Save &amp; Continue
             div(class="panel-description panel-description2" v-if="user() && user().addresses.length")
               .addressList
                 .address(v-for="address in user().addresses" @click="checkout.shipping = address; refreshCart(checkout)" :class="{'selected': checkout.shipping.id == address.id}")
@@ -83,12 +91,16 @@
                   .edit: a.smallBTN(@click="editAddress = address") #[i.fal.fa-edit] Edit
                 .address.add: a(@click="addAddress()") #[i.fal.fa-plus] Add Address
 
+              a.secondaryBTN(@click="openDropDown(3)") Save &amp; Continue
+
             div(class="panel-wrap" @click="openDropDown(3)")
               div(class="sectionCount") 3
               h2(class="panel-head") BILLING ADDRESS
             div(class="panel-description panel-description3" v-if="!user() || (user() && !user().addresses.length)")
               label #[input(type="checkbox" v-model="checkout.billingSame")] Same as shipping?
               AddressFields(@update="value => {checkout.billing = value;}" v-if="!checkout.billingSame")
+              .clear(style="height: 10px;")
+              a.secondaryBTN(@click="openDropDown(4)") Save &amp; Continue
             div(class="panel-description panel-description3" v-if="user() && user().addresses.length")
               label #[input(type="checkbox" v-model="checkout.billingSame")] Same as shipping?
               slot(v-if="!checkout.billingSame")
@@ -101,6 +113,8 @@
                     .cityStateZip {{address.city}} {{address.state}}, {{address.zip}}
                     .edit: a.smallBTN(@click="editAddress = address") #[i.fal.fa-edit] Edit
                   .address.add: a(@click="addAddress()") #[i.fal.fa-plus] Add Address
+              .clear(style="height: 10px;")
+              a.secondaryBTN(@click="openDropDown(4)") Save &amp; Continue
             div(class="panel-wrap" @click="openDropDown(4)")
               div(class="sectionCount") 4
               h2(class="panel-head") PAYMENT
@@ -250,7 +264,13 @@ let debounce = createDebounce();
 let emailExists = $ref(false);
 let emailChecked = $ref(false);
 
-function openDropDown(num) {
+function openDropDown(num, keepOpen) {
+  if(!keepOpen) {
+    document.getElementsByClassName('panel-description1').item(0).style.display = 'none';
+    document.getElementsByClassName('panel-description2').item(0).style.display = 'none';
+    document.getElementsByClassName('panel-description3').item(0).style.display = 'none';
+    document.getElementsByClassName('panel-description4').item(0).style.display = 'none';
+  }
   let panelDescription = document.getElementsByClassName(`panel-description${num}`).item(0)
   if (panelDescription.style.display === "block") {
     panelDescription.style.display = "none";
@@ -265,6 +285,8 @@ async function checkEmail() {
   console.log(userInfo, 'user info found');
   if(userInfo) {
     emailExists = true;
+  } else {
+    emailExists = false;
   }
   emailChecked = true;
   endLoad('checkingEmail');
@@ -473,6 +495,8 @@ onMounted(async () => {
   }
 
   await refreshCart(checkout);
+
+  openDropDown(1);
 
   setTimeout(() => {
     configureNMI();

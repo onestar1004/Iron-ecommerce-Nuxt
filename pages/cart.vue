@@ -24,7 +24,7 @@
                 .cartOptions
                   .option(v-for="option in item.options")
                     .label {{option.label}}:
-                    .selection &nbsp;{{option.selection.label}} #[span.price(v-if="option.selection.price || option.selection.modified_price") {{currency(option.selection.modified_price || option.selection.price)}}]
+                    .selection(v-if="option.selection") &nbsp;{{option.selection.label}} #[span.price(v-if="option.selection.price || option.selection.modified_price") {{currency(option.selection.modified_price || option.selection.price)}}]
                 .saved(v-if="item.saved_id"): a(@click="cartData.cart.splice(index, 1); updateCart();" :href="'/'+item.url+'?saved_id='+item.saved_id") #[i.fal.fa-edit] Edit
             .crtItmData
               table

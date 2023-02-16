@@ -151,6 +151,9 @@ function setCustomSpacing(shelfHeights) {
   }
   let existingOption = content.options.find(option => {return option.label == 'Custom Shelf Spacing'});
 
+  console.log(content.options, 'options searching');
+  console.log(existingOption, 'existing option found');
+
   if(existingOption) {
     existingOption.selection.label = selectionArray.join(', ');
   } else {
@@ -209,10 +212,12 @@ function optionGroups(option) {
 async function calcPrices() {
   // Set Base Prices
   for(let option of filteredOptions) {
-    for(let choice of option.choices) {
-      if(!choice.price) choice.price = 0;
-      choice.modified_price = parseFloat(choice.price);
-      choice.formula = [];
+    if(option.choices) {
+      for(let choice of option.choices) {
+        if(!choice.price) choice.price = 0;
+        choice.modified_price = parseFloat(choice.price);
+        choice.formula = [];
+      }
     }
   }
 
@@ -227,7 +232,7 @@ async function calcPrices() {
       modifiers = option.selection.modifiers;
     }
 
-    if(option.modifiers.length && !hasSelectionModifiers) {
+    if(option.modifiers && option.modifiers.length && !hasSelectionModifiers) {
       if(!option.selection) option.selection = {}
       modifiers = option.modifiers;
     }
@@ -428,6 +433,7 @@ function ruleResults(rules) {
 
 function checkInvalidChoices() {
   for(let option of filteredOptions) {
+    if(option.label == 'Custom Shelf Spacing') continue;
     let validChoices = filteredChoices(option);
     if(option.selection && option.selection.label) {
       let isValidChoice = false;
