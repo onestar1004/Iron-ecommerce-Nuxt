@@ -12,9 +12,10 @@
 
   p.prodRating.flexBox.flexAic
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031619/rating_fekjux.svg' alt='')
-    a(href='#') 5 REVIEWS
+    a(href='#') {{ productReviews.length }} REVIEWS
 </template>
 
 <script setup>
 let {content, showCustom} = defineProps(['content', 'showCustom']);
+const { productReviews } = useActivity()
 </script>

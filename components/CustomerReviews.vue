@@ -5,7 +5,7 @@ section.prodRev
       h3.secTitle CUSTOMER REVIEWS
       .totalRev.flexBox.flexJcc.flexAic
         img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031624/stars_lh28ui.svg' alt='')
-        span 5 REVIEWS
+        span {{ reviews.length }} REVIEWS
     .revFltr.flexBox.flexAic
       //- p Sort:
       //- div
