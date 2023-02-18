@@ -9,7 +9,7 @@
   //- pre {{content.options}}
 
   .prodOptn
-    .pOptnCard(v-for="(option, index) in filteredOptions" :class="[optionClass(option), {'hiddenOption': hiddenOptions.includes(option.id), 'adminFaded': isAdmin() && hiddenOptions.includes(option.id)}]")
+    .pOptnCard(v-for="(option, index) in filteredOptions" :class="[optionClass(option), {'hiddenOption': !isAdmin() && hiddenOptions.includes(option.id), 'adminFaded': isAdmin() && hiddenOptions.includes(option.id)}]")
       .accHead(@click="openOption(option)" :class="{'active': openOptions.includes(option.id)}")
         .headInner.flexBox.flexAic
           span.numberBox {{optionNumber(option)}}
@@ -36,7 +36,8 @@
 
             .opList(v-if="option.type == 'Regular'")
               .opCd(v-for="choice in filteredChoices(option, group)" @click="selectChoice(option, choice); openOption(option); checkInvalidChoices(); calcPrices(); $emit('change', content);" :class="{'selected': option.selection && option.selection.id == choice.id}")
-                p.opCdTitle {{choice.label + ' ' + currency(choice.modified_price || choice.price)}}
+                p.opCdTitle(v-if="choice.price || choice.modified_price") {{isAdmin()?choice.label + ' ' + currency(choice.modified_price || choice.price):choice.label}}
+                p.opCdTitle(v-else) {{choice.label}}
                 //- .price(v-if="choice.price || choice.modified_price" style="text-align: center;") {{currency(choice.modified_price || choice.price)}}
                 .opCdImg(v-if="choice.image"): img(:src="getImage({image: choice.image, width: 150, type: 'c_fill'})")
 
