@@ -45,7 +45,7 @@ const paginate = (value) => {
   value === 'previous' ? currentPage.value -= 1 : currentPage.value +=  1
   const start = (currentPage.value - 1) * reviewsPerPage;
   const end = (currentPage.value - 1) * reviewsPerPage + reviewsPerPage;
-  if (currentPage.value >= 1 && currentPage.value <= Math.round(Object.values(props.reviews).length / 2)) {
+  if (currentPage.value >= 1 && currentPage.value <= Math.round(Object.values(props.reviews).length / reviewsPerPage)) {
     disableLeft.value = false
     disableRight.value = false
     totalReviews.value = Object.values(props.reviews).slice(start, end)
@@ -53,7 +53,7 @@ const paginate = (value) => {
   if(currentPage.value === 1) {
     disableLeft.value = true
   }
-  if(currentPage.value === Math.round(Object.values(props.reviews).length / 2)) {
+  if(currentPage.value === Math.round(Object.values(props.reviews).length / reviewsPerPage)) {
     disableRight.value = true
   }
 }
