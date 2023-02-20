@@ -4,7 +4,7 @@
     .prodMainImg
       img(:src="getImage({image: mainImage.src, width: 600})" v-if="mainImage")
     .prodGlRow
-      .prGlThumb(v-for="image in filteredGallery()")
+      .prGlThumb(v-for="image in filteredGallery")
         a(@click="mainImage = image"): img(:src="getImage({image: image.src, width: 100, height: 100, type: 'c_fill'})")
 
 
@@ -43,7 +43,6 @@
 
 <script setup>
 let {content, selectedOptions} = defineProps(['content', 'selectedOptions']);
-let mainImage = $ref(filteredGallery()[0]);
 
 let glideMain;
 let glideThumbnails;
@@ -79,7 +78,7 @@ watch(subSlideIndex, (value) => {
   mainCarousel.value.slideTo(mainSlideIndex.value)
 })
 
-function filteredGallery() {
+let filteredGallery = $computed(() => {
   return content.gallery.filter(image => {
     let show = true;
     if(image.rules && image.rules.length) {
@@ -124,7 +123,8 @@ function filteredGallery() {
 
     return show;
   })
-}
+})
+let mainImage = $ref(filteredGallery[0]);
 
 function getOptionValue(option_id) {
   let optionValue = null;
