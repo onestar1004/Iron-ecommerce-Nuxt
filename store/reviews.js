@@ -14,7 +14,11 @@ import {
   finishUnit,
   fitzUnit,
   blanketLadderUnit,
-  wineRackUnit
+  wineRackUnit,
+  remiUnit,
+  modernUnits,
+  heavyDutyFloatingShelfRodsUnit,
+  mediumDutyFloatingShelfRodsUnit
 } from './actions/demo'
 import clean from './actions/clean'
 
@@ -34,7 +38,11 @@ const defaultStates = () => {
       'finish-samples': finishUnit,
       'fitz-potrack-towel-holder': fitzUnit,
       'wine-rack': wineRackUnit,
-      '78-round-iron-blanket-ladder': blanketLadderUnit
+      '78-round-iron-blanket-ladder': blanketLadderUnit,
+      'remi-wall-hook': remiUnit,
+      'modern-wall-hooks': modernUnits,
+      'heavy-duty-floating-shelf-rods-unit': heavyDutyFloatingShelfRodsUnit,
+      'medium-duty-floating-shelf-rods-unit': mediumDutyFloatingShelfRodsUnit
     }
   }
 }

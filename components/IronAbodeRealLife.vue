@@ -7,7 +7,7 @@ section.prodImg
   .prodImgBox
     .pdImgSlide.flexBox
       .pdImgCd
-        a(href='#')
+        a(@click="selectItem('Pro1')")
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031622/space-kitchen-1_bhd3nn.png' alt='')
           span.imgTag TAP TO VIEW PRODUCTS
         .hotSpot(style='top: 44%; right: 11%')
@@ -19,7 +19,7 @@ section.prodImg
             p Light Brass 
             p Design: @ thesmittencollective
       .pdImgCd
-        a(href='#')
+        a(@click="selectItem('Pro2')")
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031623/space-kitchen-2_nfzgyk.png' alt='')
           span.imgTag TAP TO VIEW PRODUCTS
         .hotSpot(style='top: 42%; right: 35%')
@@ -31,7 +31,7 @@ section.prodImg
             p Black with added railings 
             p Design: @Ironabode
       .pdImgCd
-        a(href='#')
+        a(@click="selectItem('Pro3')")
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031623/space-kitchen-3_ugifep.png' alt='')
           span.imgTag TAP TO VIEW PRODUCTS
         .hotSpot(style='top: 41%; right: 23%')
@@ -44,7 +44,7 @@ section.prodImg
             p Design: @rachelstellarinteriors 
             p Photo: @melissamellor6
       .pdImgCd
-        a(href='#')
+        a(@click="selectItem('Pro4')")
           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031623/space-kitchen-4_ic4kcu.png' alt='')
           span.imgTag TAP TO VIEW PRODUCTS
         .hotSpot(style='top: 23%; right: 29%')
