@@ -12,7 +12,7 @@
 
   p.prodRating.flexBox.flexAic
     img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031619/rating_fekjux.svg' alt='')
-    a(href='#') {{ productReviews.length }} REVIEWS
+    a(href='#customerReviews') {{ productReviews.length }} REVIEWS
 </template>
 
 <script setup>
