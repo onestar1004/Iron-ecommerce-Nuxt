@@ -16,6 +16,18 @@ footer.footer.clrWhite
         .ftrLinks
           .ftrLnBox
             .accHead
+              h4 COLLECTIONS
+            ul.accList.noList
+              li
+                a(href='/square-collection/') Square Collection
+              li
+                a(href='/round-collection/') Round Collection
+              li
+                a(href='/new-arrivals/') New Arrivals
+              li
+                a(href='/best-sellers/') Best Sellers
+          .ftrLnBox
+            .accHead
               h4 CATEGORIES
             ul.accList.noList
               li
