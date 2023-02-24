@@ -188,7 +188,12 @@ header.header
                         @mouseleave="() => setHoverImage('wallMountedBrackets', -1)"
                       )
                         | MONTY BRACKETS
-                      a.sMnOpLink(href='/leo-bracket/') LEO BRACKETS
+                      a.sMnOpLink(
+                        href='/leo-bracket/'
+                        @mouseenter="() => setHoverImage('wallMountedBrackets', 3)"
+                        @mouseleave="() => setHoverImage('wallMountedBrackets', -1)"
+                      ) 
+                        | LEO BRACKETS
                   .sMnOpBox
                     .sMnOpImgBox
                       img.sMnOpImg.show(:src="hoverImages.standingMountedBrackets[hoverImages.standingMountedBracketsIndex]" alt='')
@@ -245,12 +250,12 @@ header.header
                     .sMnOpLinkBox
                       h5
                         a(href='/modern-wall-hooks/') MODERN WALL HOOKS
-                  .sMnOpBox.txtCenter
-                    a(href='/wine-rack/').sMnOpImgBox
-                      img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuA41_hrch2m.png' alt='')
-                    .sMnOpLinkBox
-                      h5
-                        a(href='/wine-rack/') WINE GLASS RACKS
+                  //- .sMnOpBox.txtCenter
+                  //-   a(href='/wine-rack/').sMnOpImgBox
+                  //-     img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuA41_hrch2m.png' alt='')
+                  //-   .sMnOpLinkBox
+                  //-     h5
+                  //-       a(href='/wine-rack/') WINE GLASS RACKS
         li
           a(href='/best-sellers/') Best Sellers
       .navBtnBox.flexInline.flexAic
@@ -407,12 +412,13 @@ const hoverImages = ref({
     'https://res.cloudinary.com/ironabode/image/upload/v1672784146/Policy%20and%20Other%20Photos/Header%20Product%20Photos/Brackets/1_Riviera_Installation_Graphics_Bracket_Mounted_voteot.png'
   ],
   wallMountedBrackets: [
+    'https://res.cloudinary.com/ironabode/image/upload/v1672784145/Policy%20and%20Other%20Photos/Header%20Product%20Photos/Brackets/1_Esme_Installation_Graphics_Bracket_Wall_Mounted_hgq6hg.png',
     'https://res.cloudinary.com/ironabode/image/upload/v1671628747/Hugo_Bracket_Step_3_pcoca3.png',
     'https://res.cloudinary.com/ironabode/image/upload/v1671628794/Monty_Bracket_Step_3_jrzvml.png',
     'https://res.cloudinary.com/ironabode/image/upload/v1671628828/Leo_Bracket_Step_3_gjb0xf.png'
   ],
   standingMountedBrackets: [
-    'https://res.cloudinary.com/ironabode/image/upload/v1671629060/Roux_Bracket_and_wall_hkaorq.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1672784146/Policy%20and%20Other%20Photos/Header%20Product%20Photos/Brackets/1_Faye_Installation_Graphics_Wall_Mounted_Brackets_yn0hqu.png',
     'https://res.cloudinary.com/ironabode/image/upload/v1671629060/Roux_Bracket_and_wall_hkaorq.png',
     'https://res.cloudinary.com/ironabode/image/upload/v1671629082/Simon_lnrakb.png'
   ]
