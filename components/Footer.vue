@@ -79,7 +79,7 @@ footer.footer.clrWhite
               li
                 a(href='/my-account/') My Account
               li
-                a(href='#') Contact Us
+                a(@click="onClickNeedHelp") Contact Us
               //- li
               //-   a(href='/sign-in/') Sign In
               //- li
