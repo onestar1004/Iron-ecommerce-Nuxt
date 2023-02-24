@@ -6,7 +6,7 @@ header.header
       .hTLinks.flexBox
         a(href='/finish-samples/') FREE SAMPLES
         a(href='/policies/') POLICIES
-        a(href='#') CONTACT
+        a(@click="onClickNeedHelp") CONTACT
   nav.navbar
     .container.flexBox.flexJcb.flexAic
       .navMobi.flexInline.flexAic
@@ -434,5 +434,9 @@ const setHoverImage = function (type, index) {
   } else {
     setIndex(index)
   }
+}
+const onClickNeedHelp = function () {
+  const ele = document.getElementById('reamazeContactBtn')
+  ele && ele.click()
 }
 </script>
