@@ -403,8 +403,8 @@ const hoverImages = ref({
   ],
   ceilingMountedBrackets: [
     'https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuB11_ytnn7u.png',
-    'https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuB11_ytnn7u.png',
-    'https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuB11_ytnn7u.png'
+    'https://res.cloudinary.com/ironabode/image/upload/v1672784146/Policy%20and%20Other%20Photos/Header%20Product%20Photos/Brackets/1_Olso_Installation_Graphics_Bracket_Step_2_copy_phwojo.png',
+    'https://res.cloudinary.com/ironabode/image/upload/v1672784146/Policy%20and%20Other%20Photos/Header%20Product%20Photos/Brackets/1_Riviera_Installation_Graphics_Bracket_Mounted_voteot.png'
   ],
   wallMountedBrackets: [
     'https://res.cloudinary.com/ironabode/image/upload/v1671628747/Hugo_Bracket_Step_3_pcoca3.png',
