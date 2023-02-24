@@ -228,23 +228,23 @@ header.header
                   //- a.btn.btnBg.btnLtGry.btnShadow(href='#') CUSTOM UNITS
                 .sMnOptn.sMnOptnAs
                   .sMnOpBox.txtCenter
-                    a(href='/78-round-iron-blanket-ladder/').sMnOpImgBox
+                    a(href='/theo-ladder/').sMnOpImgBox
                       img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/menuA11_geet2x.png' alt='')
                     .sMnOpLinkBox
                       h5
-                        a(href='/78-round-iron-blanket-ladder/') BLANKET LADDER
+                        a(href='/theo-ladder/') THEO LADDER
                   .sMnOpBox.txtCenter
-                    a(href='/fitz-potrack-towel-holder/').sMnOpImgBox
+                    a(href='/margot-ladder/').sMnOpImgBox
                       img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuA31_r4nhkj.png' alt='')
                     .sMnOpLinkBox
                       h5
-                        a(href='/fitz-potrack-towel-holder/') FITZ POT RACK/TOWEL BAR
+                        a(href='/margot-ladder/') MARGOT LADDER
                   .sMnOpBox.txtCenter
-                    a(href='/remi-wall-hook/').sMnOpImgBox   
+                    a(href='/modern-wall-hooks/').sMnOpImgBox   
                       img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuA21_henu98.png' alt='')
                     .sMnOpLinkBox
                       h5
-                        a(href='/remi-wall-hook/') HOOKS
+                        a(href='/modern-wall-hooks/') MODERN WALL HOOKS
                   .sMnOpBox.txtCenter
                     a(href='/wine-rack/').sMnOpImgBox
                       img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuA41_hrch2m.png' alt='')
