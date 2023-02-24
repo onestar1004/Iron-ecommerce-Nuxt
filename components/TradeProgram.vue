@@ -49,8 +49,8 @@ section.trdColl
       .infoBox
         h5.secTitle Trade Program Collection
         p.fontSerif Enjoy a free wood and finish sample pack. 
-        p Click below to add our Trade Program Package to your cart, the collection will be sent to you as soon as you are accepted into the program. 
-        p *Only available for Designers in the Contiguous U.S
+        p.fontSerif Click below to add our Trade Program Package to your cart, the collection will be sent to you as soon as you are accepted into the program. 
+        p.fontSerif *Only available for Designers in the Contiguous U.S
         a.btn.btnBg.btnGry.btnTxtWht(href='/trade-program-collection/') GET THE COLLECTION
 section.trdForm.formSec
   .container
