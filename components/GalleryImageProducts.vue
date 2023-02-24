@@ -10,7 +10,7 @@
             img.pd-img(v-if="product.gallery && product.gallery[0]" :src="getImage({ image: product.gallery[0].src })")
           NuxtLink.btnSecondary(:to="'/'+product.url" style="{ padding: 5px; height: 0px; }") SHOP
           p.fontCormorant(style="font-size: 22px; margin-top: 16px; font-weight: medium;") {{ product.title }}
-          p.fontAvenir {{currency(product.price)}}
+          //- p.fontAvenir {{currency(product.price)}}
       // .productGrid
         p {{ galleryItem }}
         .product(v-for="product in products")
