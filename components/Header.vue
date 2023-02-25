@@ -234,19 +234,19 @@ header.header
                 .sMnOptn.sMnOptnAs
                   .sMnOpBox.txtCenter
                     a(href='/theo-ladder/').sMnOpImgBox
-                      img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031599/menuA11_geet2x.png' alt='')
+                      img(src='https://res.cloudinary.com/ironabode/image/upload/v1676316414/Policy%20and%20Other%20Photos/Options%20Icons/Accessories%20Icons/Website_Icons_qsz8qe.png' alt='')
                     .sMnOpLinkBox
                       h5
                         a(href='/theo-ladder/') THEO LADDER
                   .sMnOpBox.txtCenter
                     a(href='/margot-ladder/').sMnOpImgBox
-                      img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuA31_r4nhkj.png' alt='')
+                      img(src='https://res.cloudinary.com/ironabode/image/upload/v1676316062/Policy%20and%20Other%20Photos/Options%20Icons/Accessories%20Icons/Website_Icons-_Ladder_Icon_payzzp.png' alt='')
                     .sMnOpLinkBox
                       h5
                         a(href='/margot-ladder/') MARGOT LADDER
                   .sMnOpBox.txtCenter
                     a(href='/modern-wall-hooks/').sMnOpImgBox   
-                      img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031600/menuA21_henu98.png' alt='')
+                      img(src='https://res.cloudinary.com/ironabode/image/upload/v1677284760/askfdjsdkjeadf_dnk4mv.jpg' alt='')
                     .sMnOpLinkBox
                       h5
                         a(href='/modern-wall-hooks/') MODERN WALL HOOKS

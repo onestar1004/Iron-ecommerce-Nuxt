@@ -21,38 +21,19 @@
     .container
       .nAPrdtGrid
         ProductItem(
-          title="Blanket Ladder"
+          title="Theo Ladder"
           type="Wall Mounted"
           price="$521"
-          href="/78-round-iron-blanket-ladder/"
-          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1665179574/Round-Ladder-Black-Front-View-Whitebackground_ycj5y0.png",
-          imageAlt=""
-        )
-  section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Brackets')")
-    .container(id="f-Wine-Pot-Racks")
-      .nAPrtBnB
-        .nABnrTxt
-          h3.fontSerif.fw400 Wine & Pot Racks
-          p Luxury racks are easily customized by you in minutes and handcrafted by us in a few weeks.
-        .imgBox
-          img(src='https://res.cloudinary.com/ironabode/image/upload/v1665179710/Hugo-Half-Brasscket-Black-_dinasdigs_pg2lae.png' alt='')
-  section.nArrPrdt(v-if="!filters.length || filters.includes('Brackets')")
-    .container
-      .nAPrdtGrid
-        ProductItem(
-          title="Rene Wine Rack"
-          type="Wall Mounted"
-          price="$102"
-          href="/wine-rack/"
-          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1665179797/New_Wine_Rack_1-white_background_iivn2d.png",
+          href="/theo-ladder/"
+          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1677285307/fasdfasdf_rumkvy.jpg",
           imageAlt=""
         )
         ProductItem(
-          title="Fitz Pot / Towel Bar"
+          title="Margot Ladder"
           type="Wall Mounted"
-          price="$102"
-          href="/fitz-potrack-towel-holder/"
-          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1665179796/Pot_Holder_Black-_White_Backgroud_diud4p.png",
+          price="$521"
+          href="/margot-ladder/"
+          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1677285366/awefasdfadfbade_fht22v.jpg",
           imageAlt=""
         )
   section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Accessories')")
@@ -67,47 +48,13 @@
     .container
       .nAPrdtGrid
         ProductItem(
-          title="Remi Wall Hook"
+          title="Modern Wall Hooks"
           type="Wall Mounted"
           price="$330"
-          href="/remi-wall-hook/"
-          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1665179932/Roux-glass-unit-BLACKdd-all-colors-Recovered_ssdmdt.png",
+          href="/modern-wall-hooks/"
+          imageUrl="https://res.cloudinary.com/ironabode/image/upload/v1677285411/adsfaefahaea_efcxjp.jpg",
           imageAlt=""
         )
-  //- section.nArrPrtBn.bgGray(v-if="!filters.length || filters.includes('Ready')")
-  //-   .container
-  //-     .nAPrtBnB
-  //-       .nABnrTxt
-  //-         h3.fontSerif.fw400 Ready to Ship
-  //-         p These items are in-stock and ready to ship in only 3-4 days for no additional cost.
-  //-       .imgBox
-  //-         img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031585/banner-na-5_jcrydu.png' alt='')
-  //- section.nArrPrdt(v-if="!filters.length || filters.includes('Ready')")
-  //-   .container
-  //-     .nAPrdtGrid
-  //-       .nAPdCd
-  //-         div
-  //-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-41_jjjvq4.png' alt='')
-  //-         .nAPdCdTxt
-  //-           h5 Riviera Bracket
-  //-           p.smallTxt Ceiling Mounted
-  //-           p From $110
-  //-       .nAPdCd
-  //-         div
-  //-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-42_edhwd6.png' alt='')
-  //-         .nAPdCdTxt
-  //-           h5 Monty Bracket
-  //-           p.smallTxt Ceiling Mounted
-  //-           p From $102
-  //-       .nAPdCd
-  //-         div
-  //-           img(src='https://res.cloudinary.com/ironabode/image/upload/v1663031605/new-arrival-43_xs8qwa.png' alt='')
-  //-         .nAPdCdTxt
-  //-           h5 Oslo Bracket
-  //-           p.smallTxt Ceiling Mounted
-  //-           p From $102
-  //-     .btnBox.txtCenter
-  //-       a.btn.btnBg.btnWhiteBB(href='#') SEE MORE READY TO SHIP
   section.uniqSec
     .container
       h3.secTitle.txtCenter WHAT MAKES OUR SHELVING UNIQUE
